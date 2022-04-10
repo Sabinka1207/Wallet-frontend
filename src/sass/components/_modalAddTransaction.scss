@@ -1,0 +1,204 @@
+// MODAL GENERAL
+.ModalAddTransaction {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--additionalFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: var(--white);
+  position: absolute;
+  
+  z-index: 200;
+  align-items: center;
+}
+
+.Modal__close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.Modal__controllers {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+.Modal__controllers > button {
+  border-radius: 20px;
+  width: 300px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 0;
+}
+
+.Modal__add {
+  background-color: var(--accentGreenColor);
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.Modal__cancel {
+  color: var(--accentBlueColor);
+  border: 1px solid var(--accentBlueColor);
+  background-color: transparent;
+}
+
+.Modal__body{
+  width: 100%;
+}
+
+.Modal__body > * {
+
+  &:not(:last-child){
+margin-bottom: 40px;}
+}
+
+.Modal__heading {
+  font-family: var(--mainFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  // margin-bottom: 40px;
+}
+
+.Modal__form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+// SWITCHER
+.Switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Switcher__control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 30px;
+  margin: 0 20px;
+}
+
+.Switcher__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.Switcher__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: var(--white);
+  border: 1px solid var(--grayFive);
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.Switcher__marker {
+  position: relative;
+  background-color: var(--accentGreenColor);
+  background-image: url('/src/img/icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: var(--buttonGreenShadow);
+}
+
+.Switcher__toggle:checked ~ .Switcher__marker {
+  transform: translateX(100%);
+  background-color: var(--accentRoseColor);
+  background-image: url(/src/img/icons/spending-button.svg);
+  box-shadow: var(--buttonRoseShadow);
+}
+
+.Switcher__option {
+  font-weight: 700;
+  font-size: 16px;
+    color: var(--grayFive);
+}
+
+
+.Switcher__toggle:checked~  .Switcher__income {
+  color: var(--grayFive);
+}
+
+.Switcher__toggle:checked~ .Switcher__spending {
+  color: var(--accentRoseColor);
+}
+
+
+// MEDIA RULES
+
+@media screen and (max-width: 767px) {
+  .ModalAddTransaction {
+    height: 100%;
+    width: 100vw;
+    left: 0;
+    top: 0;
+        padding: 20px 20px 50px 20px;
+  }
+
+  .Modal__container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Modal__close {
+   display: none;
+  }
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+}
+
+@media screen and (min-width: 768px) {
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 100;
+  }
+  .ModalAddTransaction {
+    width: 540px;
+    height: 603px;
+    border-radius: 20px;
+    padding: 40px 73px 60px 73px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}

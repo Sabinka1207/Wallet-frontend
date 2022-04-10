@@ -1,0 +1,158 @@
+.dashboardMain{
+        width: 100%;
+        min-width: 280px;
+    
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 704px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1248px;
+    }
+}
+
+.dashboardPageContainer{
+    background: #E7EAF2;
+
+    @media screen and (min-width: 768px) {
+
+                height: 1024px;
+
+                background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png),
+                    url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
+                background-size: 510px auto,
+                    365px auto;
+                background-position: bottom,
+                    top;
+                background-position-x:
+                    0%, 100%;
+                background-position-y: 100%, 0%;
+                background-repeat: no-repeat;
+    }
+            
+
+    @media screen and (min-width: 1280px) {
+                
+
+                background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png),
+                    url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
+                background-size: 490px auto,
+                    550px auto;
+                background-position: bottom,
+                    top;
+                background-position-x: 
+                    0%, 100%;
+                background-position-y: 100%, 0%;
+                                   
+                background-repeat: no-repeat;
+    }
+            
+    @media (min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
+            
+    @media screen and (min-width: 768px) {
+        background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png),
+        url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
+        background-size: 510px auto,
+        365px auto;
+        background-position: bottom,
+        top;
+        background-position-x: 0%,
+        100%;
+        background-position-y: 100%,
+        0%;
+        background-repeat: no-repeat;
+                }
+            
+    @media screen and (min-width: 1280px) {
+        background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@2x.png),
+        url(/public/image/desktop/BackGroudEllipsePinkDesktop@2x.png);
+        background-size: 490px auto,
+        550px auto;
+        background-position: bottom,
+        top;
+        background-position-x: 0%,
+        100%;
+        background-position-y: 100%,
+        0%;
+        background-repeat: no-repeat;
+                }
+            }
+}
+
+.dashboardPageWrap{
+    border:none;
+
+    @media screen and (max-width: 767px) {
+ padding-bottom: 50px;
+    }
+
+
+    @media screen and (min-width: 768px) {
+        height: 1024px;
+
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(50px);
+    }
+
+    @media screen and (min-width: 1280px) {
+    display: flex;
+
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+    }
+}
+
+.dashboardPageSidebar{
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    padding: 30px 0px 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+    border-right: 1px solid #E7E5F2;
+
+    box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+    1px 0px 0px rgba(255, 255, 255, 0.6);        
+
+    padding: 40px 65px 40px 0px;
+    }
+}
+
+.dashboardPageIner{
+    @media screen and (max-width: 767px) {
+       padding: 15px 0px 32px 0px;
+    }
+
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-right: 30px;
+    }
+    
+}
+
+.dashboardPageMain{
+margin-left: auto;
+margin-right: auto;
+
+    width: 280px;
+    height: 100%;
+        // background-color: rgb(203, 243, 60);
+        
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 704px;
+    height: 312px;
+        }
+        
+        @media screen and (min-width: 1280px) {
+    width: 715px;
+    padding-left: 65px;
+        }
+}

@@ -1,0 +1,144 @@
+.test {
+    background-color:grey;
+}
+
+// table, td, th, tr {
+//     border-bottom: 1px solid #DCDCDF;
+//     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6); 
+// }
+
+.mobilehidden {
+    @media screen and (max-width: 768px){
+        display:none;
+    }
+}
+
+.mobyleOnly {
+    @media screen and (min-width: 769px){
+        display:none;
+    }
+}
+
+.tableContainer {
+    width: 715px;
+    color:#000000;
+    border-collapse:collapse;
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        width: 704px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        width: 704px;
+    }
+}
+
+.tableHeader {
+    height: 58px;
+    left: 549px;
+    top: 126px;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+
+    background-color: #FFF;
+    border-radius: 30px;
+    text-align: center ; 
+    border-bottom: 1px solid #DCDCDF;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6); 
+
+    th:nth-child(1) {   text-align: left; }
+    th:nth-child(6) {   padding-right: 10px; }
+}
+
+.tabelHeader_item {
+
+    &:first-child { border-top-left-radius: 30px; padding-left: 20px; }
+    &:first-child { border-bottom-left-radius: 30px; }
+    &:last-child { border-top-right-radius: 30px; }
+    &:last-child { border-bottom-right-radius: 30px; }
+
+    @media screen and (max-width: 768px){
+        &:first-child { border-top-left-radius: 0px;}
+        &:first-child { border-bottom-left-radius: 0px; }
+        &:last-child { border-top-right-radius: 0px; }
+        &:last-child { border-bottom: 0px; }
+    }
+}
+
+
+.tableRow_item{
+    height: 52px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+
+    border-bottom: 1px solid #DCDCDF;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);   
+    text-align: center;
+
+    td:nth-child(1) {  
+        padding-left: 20px;
+        text-align: start;
+    }
+}
+
+.transactionIncomeTrue {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FF6596;
+}
+
+.transactionIncomeFalse {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #24CCA7;
+}
+
+.transactionCard {
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 280px;
+    height: 282px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    line-height: 18px;
+
+
+    .transactionCardTable {
+        width: 100%;
+        height: 100%;
+    }
+
+    th {
+        text-align: left;
+        height: 40px;
+        border-bottom: 1px solid #DCDCDF;
+
+    }
+    td {
+        text-align: right;
+        height: 40px;
+        border-bottom: 1px solid #DCDCDF;
+    }
+
+    .last-item {
+        border-bottom: none;
+    }
+
+}
+
+.transactionCardRaw{
+max-height: 40px;
+}
+
+.transactionCardTrue {
+    border-left: 5px solid #FF6596;
+}
