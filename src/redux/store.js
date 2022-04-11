@@ -15,7 +15,7 @@ import storage from 'redux-persist/lib/storage';
 /*импортируем reducers ниже*/
 import authReducer from './auth/authSlice';
 import statisticsReducer from './statistics/statisticsSlice';
-import transactionsReducer from './transactions/transactions-reducer';
+import transactionsReducer from './transactions/transactionsReducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -23,7 +23,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  logger,
+  // logger,
 ];
 
 const authPersistConfig = {
@@ -37,7 +37,6 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionsReducer,
     statistics: statisticsReducer,
-    transactions: transactionsReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

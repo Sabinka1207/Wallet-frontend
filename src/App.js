@@ -1,24 +1,32 @@
-import { Suspense, lazy, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { authOperations } from "./redux/auth";
-import { authSelectors } from "./redux/auth";
-import { Routes, Route } from "react-router-dom";
-import PublicRoute from "./PublicRoute";
-import PrivateRoute from "./PrivatRoute";
-import Loader from "./components/Loader/Loader";
+import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations } from './redux/auth';
+import { authSelectors } from './redux/auth';
+import { Routes, Route } from 'react-router-dom';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute';
+import Loader from './components/Loader/Loader';
 
-const RegisterPage = lazy(() => import("./views/RegisterPage"));
-const LoginPage = lazy(() => import("./views/LoginPage"));
-const DashboardPage = lazy(() => import("./views/DashboardPage"));
-const HomeTab = lazy(() => import("./components/homeTab/HomeTab"));
-const DiagramTab = lazy(() => import("./components/DiagramTab/DiagramTab"));
+const RegisterPage = lazy(() => import('./views/RegisterPage'));
+const LoginPage = lazy(() => import('./views/LoginPage'));
+const DashboardPage = lazy(() => import('./views/DashboardPage'));
+const HomeTab = lazy(() => import('./components/homeTab/HomeTab'));
+const DiagramTab = lazy(() => import('./components/DiagramTab/DiagramTab'));
 
 function App() {
   const dispatch = useDispatch();
+
+  const getToken = useSelector(authSelectors.checkToken);
+  console.log(getToken);
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());
+    if (getToken === null) {
+      return;
+    } else {
+      dispatch(authOperations.fetchCurrentUser());
+      console.log(getToken);
+    }
   }, [dispatch]);
 
   return (
@@ -36,8 +44,9 @@ function App() {
             ></Route>
             <Route
               path="/login"
+              restricted
               element={
-                <PublicRoute restricted redirectTo="/home">
+                <PublicRoute redirectTo="/home">
                   <LoginPage />
                 </PublicRoute>
               }
@@ -50,9 +59,9 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route path="home" element={<HomeTab />} />
-              <Route path="diagram" element={<DiagramTab />} />
-              <Route path="currency" />
+              <Route path="/home" element={<HomeTab />} />
+              <Route path="/diagram" element={<DiagramTab />} />
+              <Route path="/currency" />
             </Route>
           </Routes>
         </Suspense>

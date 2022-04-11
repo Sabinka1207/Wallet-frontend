@@ -13,7 +13,7 @@
     }
 }
 
-.mobyleOnly {
+.mobileOnly {
     @media screen and (min-width: 769px){
         display:none;
     }
