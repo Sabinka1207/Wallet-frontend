@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
-import { getCurrentUserName } from "../../redux/auth/authSelectors"
+import { getUserName } from "../../redux/auth/authSelectors"
 
 import LogoWallet from "../LogoWallet/LogoWallet";
 import ModalLogout from "../ModalLogout/ModalLogout";
@@ -12,7 +12,7 @@ import "../../css/main.min.css";
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
-  const name = useSelector(getCurrentUserName);
+  const name = useSelector(getUserName);
 
 
   const toggleModal = () => {
