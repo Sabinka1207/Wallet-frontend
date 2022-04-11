@@ -12,12 +12,12 @@ const LoginPage = lazy(() => import('./views/LoginPage'));
 const DashboardPage = lazy(() => import('./views/DashboardPage'));
 const HomeTab = lazy(() => import('./components/homeTab/HomeTab'));
 const DiagramTab = lazy(() => import('./components/DiagramTab/DiagramTab'));
+const Currency = lazy(() => import('./components/Currency/Currency'));
 
 function App() {
   const dispatch = useDispatch();
 
   const getToken = useSelector(authSelectors.checkToken);
-  console.log(getToken);
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {

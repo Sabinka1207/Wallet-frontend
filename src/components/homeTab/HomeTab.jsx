@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTransactions } from '../../redux/transactions/transactionsOperations';
+import ButtonAddTransactions from '../ButtonAddTransactions/ButtonAddTransactions';
 import '../../css/main.min.css';
 
 const moment = require('moment');
@@ -21,15 +22,15 @@ export default function HomeTab() {
 
   return (
     <div
-      class="test
+      className="test
         "
     >
-      {transactions.length === 0 && (
+      {transactions && (
         <div>
           <span>У вас нет контактов!</span>
         </div>
       )}
-      {transactions.length > 0 && (
+      {transactions && (
         <div>
           <table className="tableContainer mobilehidden">
             <tbody>
@@ -80,26 +81,26 @@ export default function HomeTab() {
                   style={{ width: '100%' }}
                 >
                   <tbody>
-                    <tr class="transactionCardRaw">
+                    <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Дата</th>
                       <td>{moment(transaction.date).format('DD.MM.YY')}</td>
                     </tr>
-                    <tr class="transactionCardRaw">
+                    <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Тип</th>
                       <td>
                         {transaction.income === true && <span>+</span>}
                         {transaction.income === false && <span>-</span>}
                       </td>
                     </tr>
-                    <tr class="transactionCardRaw">
+                    <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Категория</th>
                       <td>{transaction.category.nameStatistics}</td>
                     </tr>
-                    <tr class="transactionCardRaw">
+                    <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Комментарий</th>
                       <td>{transaction.comment}</td>
                     </tr>
-                    <tr class="transactionCardRaw">
+                    <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Сумма</th>
                       <td
                         className={
@@ -124,6 +125,7 @@ export default function HomeTab() {
           </ul>
         </div>
       )}
+      <ButtonAddTransactions />
     </div>
   );
 }
