@@ -1,39 +1,40 @@
-import "../../css/main.min.css";
-import ModalLogout from "../ModalLogout/ModalLogout";
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logout from "../../img/icons/logout.svg";
+import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+
+import { getCurrentUserName } from "../../redux/auth/authSelectors"
+
 import LogoWallet from "../LogoWallet/LogoWallet";
+import ModalLogout from "../ModalLogout/ModalLogout";
+
+import logout from "../../img/icons/logout.svg";
+import "../../css/main.min.css";
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
+  const name = useSelector(getCurrentUserName);
+
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
 
   return (
-    <header>
-      <div className="container header">
-        <NavLink
-          exact
-          to="/home"
-          className="linkLogo"
-          activeClassName="activeLinkLogo"
-        >
-          <LogoWallet></LogoWallet>
-        </NavLink>
-        <div className="headerLogoutWrap">
-          <p className="headerUserName">Имя</p>
-          {/* <svg className="headerLogoutImg" width="24px" height="24px">
-          <use href="img/icons/logout.svg"></use>
-        </svg> */}
-          <img className="headerLogoutImg" src={logout} alt="Выйти" />
-          <p className="headerLogout">Выйти</p>
-          {showModal && <ModalLogout onClose={toggleModal} />}
+        <header>
+        <div className="container header">
+          <Link to="/home">
+            <LogoWallet/>
+          </Link>
+          <div className="headerLogoutWrap">
+          <p className="headerUserName">{name}</p>
+          <button type="button" onClick={toggleModal} className="headerLogoutButton">
+            <img className="headerLogoutImg" src={logout} alt="Выйти" />
+            <p className="headerLogout">Выйти</p>
+          </button>
+            {showModal && <ModalLogout onClose={toggleModal} />}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
   );
 }
 
