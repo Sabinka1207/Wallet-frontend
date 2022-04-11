@@ -43,6 +43,8 @@
 
 .navigationActiveLink{
     font-weight: 700;
+    color: var(--black);
+
 }
 
 .navigationImg{
@@ -55,9 +57,11 @@
     width: 18px;
     height: 18px;
 }
-
 }
 
+.navigationImgActive{
+    filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+}
 
 .navigationCurrencyItem{
     @media screen and (min-width: 768px) {
