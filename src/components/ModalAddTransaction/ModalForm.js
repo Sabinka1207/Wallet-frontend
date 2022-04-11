@@ -5,7 +5,8 @@ import * as Yup from 'yup';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
-import { addTransaction } from '../../redux/transactions/transactions-operations';
+
+import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

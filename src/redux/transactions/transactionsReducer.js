@@ -4,7 +4,7 @@ import {
   addTransactionRequest,
   addTransactionSuccess,
   addTransactionError,
-} from './transactions-actions';
+} from './transactionsActions';
 
 const transactions = createReducer([], {
   [addTransactionSuccess]: (state, { payload }) => [...state, payload],

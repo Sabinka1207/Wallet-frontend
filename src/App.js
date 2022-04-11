@@ -37,13 +37,14 @@ function App() {
             <Route
               path="/register"
               element={
-                <PublicRoute redirectTo="/login">
+                <PublicRoute restricted redirectTo="/login">
                   <RegisterPage />
                 </PublicRoute>
               }
             ></Route>
             <Route
               path="/login"
+              restricted
               element={
                 <PublicRoute redirectTo="/home">
                   <LoginPage />
