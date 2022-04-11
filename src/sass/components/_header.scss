@@ -25,7 +25,17 @@
         padding-right: 12px;
         border-right: 1px solid var(--grayFour);
         }
+}
 
+.headerLogoutButton{
+        display: flex;
+
+        font-family: var(--additionalFont);
+        font-size: 18px;
+        line-height: 1.5;
+                
+        color: var(--grayFour);
+        background-color: var(--white);
 }
 
 .headerLogoutImg{
@@ -40,13 +50,10 @@
                 margin-right: 12px;
                 margin-left: 12px;
         }
-  
-        // fill: var(--grayFour);
 }
 
 .headerLogout{
        @media screen and (max-width: 767px) {
                display: none;
        }
-
 }
