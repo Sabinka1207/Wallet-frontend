@@ -29,7 +29,7 @@ function ModalAddTransaction({ isOpen }) {
         <CloseModal className="Modal__close" onClick={closeModal} />
         <div className="Modal__body">
           <h2 className="Modal__heading">Добавить транзакцию</h2>
-          <div class="Switcher">
+          <div className="Switcher">
             <span
               className="Switcher__option Switcher__income"
               style={{
@@ -50,10 +50,10 @@ function ModalAddTransaction({ isOpen }) {
               />
               <label
                 aria-hidden="true"
-                class="Switcher__track"
-                for="switcher-toggle"
+                className="Switcher__track"
+                htmlFor="switcher-toggle"
               ></label>
-              <div aria-hidden="true" class="Switcher__marker"></div>
+              <div aria-hidden="true" className="Switcher__marker"></div>
             </div>
             <span
               className="Switcher__option Switcher__spending"

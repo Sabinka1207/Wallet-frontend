@@ -99,12 +99,7 @@ function ModalForm({ closeModal, income, categories }) {
                   className="Select Select__spending Modal__input"
                   name="category"
                 >
-                  <option
-                    defaultValue=""
-                    selected
-                    disabled
-                    className="Select__disabled"
-                  >
+                  <option defaultValue="" disabled className="Select__disabled">
                     Выберите категорию
                   </option>
                   {spendingCategories.length > 0 &&

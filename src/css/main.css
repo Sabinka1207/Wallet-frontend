@@ -741,7 +741,7 @@ button {
             justify-content: space-between;
   }
   .Modal__comment {
-    height: 32px;
+    max-height: 37px;
   }
   .Modal__amount {
     width: 190px;

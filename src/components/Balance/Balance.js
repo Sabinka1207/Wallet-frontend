@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
-import { getBalance} from "../../redux/transactions/transactionsSelectors"
+import { getBalance } from '../../redux/transactions/transactionsSelectors';
 
-
-import "../../css/main.min.css";
+import '../../css/main.min.css';
 
 function Balance() {
   const balance = useSelector(getBalance);
@@ -10,7 +9,7 @@ function Balance() {
   return (
     <div className="balanceWrap">
       <p className="balanceTitle">Ваш баланс</p>
-      <p className="balanceText">&#8372; {balance}</p>
+      {/* <p className="balanceText">&#8372; {balance}</p> */}
     </div>
   );
 }
