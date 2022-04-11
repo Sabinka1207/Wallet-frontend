@@ -1,60 +1,39 @@
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+
+import { Outlet } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
+
+import Header from "../../components/Header/Header";
+import Navigation from "../../components/Navigation/Navigation";
+import Balance from "../../components/Balance";
+import Currency from "../../components/Currency";
+
+// import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import '../../css/main.min.css';
 
-import Header from '../../components/Header/Header';
-import Navigation from '../../components/Navigation/Navigation';
-import Balance from '../../components/Balance';
-import Currency from '../../components/Currency';
-import DiagramTab from '../../components/DiagramTab';
-import { Outlet } from 'react-router-dom';
-
-// import MainTab from "../../components//MainTab/MainTab";
-
 function DashboardPage() {
-  // const dispatch = useDispatch();
-  // const load = useSelector(getLoader);
+  const location = useLocation();
 
-  // useEffect(() => {
-  //   dispatch(fetchTrasaction());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //       async function getCurrency() {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11"
-  //       );
-
-  //       const currencyArray = response.data.filter(
-  //         (item) => item.ccy !== "RUR"
-  //       );
-
-  //       setCurrency(currencyArray);
-  //       setLoad(false);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  // });
+  const isDesktopOrTable = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
 
   return (
     <>
-      <Header></Header>
+      <Header/>
       <main className="dashboardMain">
         <div className="dashboardPageContainer">
           <div className=" container dashboardPageWrap">
             <aside className="dashboardPageSidebar">
               <div className="dashboardPageIner">
-                <Navigation></Navigation>
-                <Balance></Balance>
+                <Navigation />
+                {(location.pathname !== "/currency") && <Balance/>}               
               </div>
-              <Currency></Currency>
+                {(isDesktopOrTable ||location.pathname === "/currency")&& <Currency/>}
             </aside>
             <section className="dashboardPageMain">
-              <DiagramTab />
-              {/* <MainTab></MainTab> */}
-              <Outlet />;
+               {(location.pathname !== "/currency") && <Outlet />}               
             </section>
           </div>
         </div>
