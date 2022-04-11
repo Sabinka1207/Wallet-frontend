@@ -78,41 +78,45 @@ function ModalForm({ closeModal, income, categories }) {
               <>
                 <Field
                   as="select"
-                  className="Select__income Modal__input"
+                  className="Select Select__income Modal__input"
                   name="category"
                 >
-                  <option defaultValue="" disabled selected>
+                  <option defaultValue="" disabled className="Select__disabled">
                     Выберите категорию
                   </option>
                   {incomeCategories.length > 0 &&
                     incomeCategories.map(({ _id, nameDropdown }) => (
-                      <option key={_id} value={_id}>
+                      <option className="Select__opto" key={_id} value={_id}>
                         {nameDropdown}
                       </option>
                     ))}
                 </Field>
-                <SelectArrow className="Modal__arrow" />
               </>
             ) : (
               <>
                 <Field
                   as="select"
-                  className="Select__spending Modal__input"
+                  className="Select Select__spending Modal__input"
                   name="category"
                 >
-                  <option defaultValue="" disabled selected>
+                  <option
+                    defaultValue=""
+                    selected
+                    disabled
+                    className="Select__disabled"
+                  >
                     Выберите категорию
                   </option>
                   {spendingCategories.length > 0 &&
                     spendingCategories.map(({ _id, nameDropdown }) => (
-                      <option key={_id} value={_id}>
+                      <option className="Select__option" key={_id} value={_id}>
                         {nameDropdown}
                       </option>
                     ))}
                 </Field>
-                <SelectArrow className="Modal__arrow" />
               </>
             )}
+            <span className="Select__focus"></span>
             <ErrorMessage
               component="div"
               name="category"
@@ -144,7 +148,6 @@ function ModalForm({ closeModal, income, categories }) {
                 isValidDate={valid}
                 value={today}
               />
-              <Calendar className="Modal__calendar" />
             </span>
           </div>
 
