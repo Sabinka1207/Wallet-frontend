@@ -1,10 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import {
-  addTransactionRequest,
-  addTransactionSuccess,
-  addTransactionError,
-} from './transactionsActions';
+
+toast.configure();
+const toastMessage = errorMessage => {
+  toast.error(errorMessage, {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 3000,
+  });
+};
 
 // axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
 
@@ -58,17 +63,6 @@ export const fetchTransactions = createAsyncThunk(
   },
 );
 
-// export const addTransaction =
-//   ({ income, category, amount, date, comment }) =>
-//   dispatch => {
-//     const transaction = { income, category, amount, date, comment };
-//     dispatch(addTransactionRequest());
-//     axios
-//       .post('/transactions', transaction)
-//       .then(({ data }) => dispatch(addTransactionSuccess(data)))
-//       .catch(error => dispatch(addTransactionError(error)));
-//   };
-
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async (transaction, { rejectWithValue }) => {
@@ -76,7 +70,12 @@ export const addTransaction = createAsyncThunk(
       const { data } = await axios.post('/transactions', transaction);
       return data;
     } catch (error) {
-      console.log(error);
+      console.log(error.response.status);
+      if (error.response.status === 404) {
+        toastMessage('Упс... Что-то пошло не так');
+      } else if (error.response.status == 409) {
+        toastMessage('Недостаточно средств');
+      }
       return rejectWithValue(error);
     }
   },

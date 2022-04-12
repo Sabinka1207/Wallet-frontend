@@ -1,18 +1,40 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Datetime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css';
+// import Datetime from 'react-datetime';
+// import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
+import Loader from '../Loader/Loader';
+import axios from 'axios';
+import Select from 'react-select';
+
+import {
+  isLoading,
+  error,
+} from '../../redux/transactions/transactionsSelectors';
 
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
-import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function ModalForm({ closeModal, income, categories }) {
+function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
+  const [income, setIncome] = useState(false);
+
   const [placeholder, showPlaceholder] = useState(false);
+  // const loading = useSelector(isLoading);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get('https://pure-atoll-67904.herokuapp.com/api/transactions/categories')
+      .then(results => setCategories(results.data))
+      .catch(error => console.log(error.message))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   const notify = () => toast('Wow so easy !');
 
@@ -23,10 +45,10 @@ function ModalForm({ closeModal, income, categories }) {
     category => category.type === 'spending',
   );
 
-  const yesterday = moment().subtract(1, 'day');
-  const valid = current => {
-    return current.isAfter(yesterday);
-  };
+  // const yesterday = moment().subtract(1, 'day');
+  // const valid = current => {
+  //   return current.isAfter(yesterday);
+  // };
 
   let today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
@@ -44,7 +66,7 @@ function ModalForm({ closeModal, income, categories }) {
   };
 
   const validate = Yup.object().shape({
-    income: Yup.boolean().default(false),
+    income: Yup.boolean(),
     category: Yup.string().required('Укажите категорию'),
     amount: Yup.string()
       .matches(/^-?\d*\.?\d*$/, 'Введите только цифры')
@@ -54,9 +76,8 @@ function ModalForm({ closeModal, income, categories }) {
   });
 
   const handleSubmit = (values, { resetForm, setSubmitting }) => {
-    const incomeValue = document.querySelector('.Switcher__toggle').value;
     const { category, amount, date, comment } = values;
-    const object = { income: incomeValue, category, amount, date, comment };
+    const object = { income, category, amount, date, comment };
     dispatch(addTransaction(object));
     setSubmitting(false);
     resetForm();
@@ -64,92 +85,132 @@ function ModalForm({ closeModal, income, categories }) {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validate}
-      onSubmit={handleSubmit}
-      validateOnBlur={true}
-    >
-      {formik => (
-        <Form className="Modal__form">
-          <div className="Modal__select">
-            {income ? (
-              <>
-                <Field
-                  as="select"
-                  className="Modal__input Select Select__income "
-                  name="category"
-                  onClick={showPlaceholder(true)}
-                  onBlur={showPlaceholder(false)}
-                >
-                  <option
-                    className="Select__blocked"
-                    disabled
-                    selected
-                    hidden={placeholder}
-                  >
-                    Выберите категорию
-                  </option>
-                  {incomeCategories.length > 0 &&
-                    incomeCategories.map(({ _id, nameDropdown }) => (
-                      <option className="Select__option" key={_id} value={_id}>
-                        {nameDropdown}
-                      </option>
-                    ))}
-                </Field>
-              </>
+    <>
+      <div className="Switcher">
+        <span
+          className="Switcher__option Switcher__income"
+          style={{
+            color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
+          }}
+        >
+          Доход
+        </span>
+        <div className="Switcher__control">
+          <input
+            onClick={() => setIncome(!income)}
+            className="Switcher__toggle"
+            type="checkbox"
+            name="transaction-type"
+            id="switcher-toggle"
+            defaultChecked
+            aria-label="Выбрать расход или доход"
+          />
+          <label
+            aria-hidden="true"
+            className="Switcher__track"
+            htmlFor="switcher-toggle"
+          ></label>
+          <div aria-hidden="true" className="Switcher__marker"></div>
+        </div>
+        <span
+          className="Switcher__option Switcher__spending"
+          style={{
+            color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
+          }}
+        >
+          Расход
+        </span>
+      </div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validate}
+        onSubmit={handleSubmit}
+        validateOnBlur={true}
+      >
+        {formik => (
+          <Form className="Modal__form">
+            {isLoading ? (
+              <Loader color="var(--black)" />
             ) : (
-              <>
-                <Field
-                  as="select"
-                  className="Modal__input Select Select__spending "
-                  name="category"
-                  onClick={showPlaceholder(true)}
-                  onBlur={showPlaceholder(false)}
-                >
-                  <option
-                    className="Select__blocked"
-                    disabled
-                    selected
-                    hidden={placeholder}
-                  >
-                    Выберите категорию
-                  </option>
-                  {spendingCategories.length > 0 &&
-                    spendingCategories.map(({ _id, nameDropdown }) => (
-                      <option className="Select__option" key={_id} value={_id}>
-                        {nameDropdown}
+              <div className="Modal__select">
+                {income ? (
+                  <>
+                    <Select
+                      className="Modal__input Select Select__income "
+                      name="category"
+                      onClick={showPlaceholder(true)}
+                      onBlur={showPlaceholder(false)}
+                    >
+                      <option
+                        className="Select__blocked"
+                        disabled
+                        hidden={placeholder}
+                      >
+                        Выберите категорию
                       </option>
-                    ))}
-                </Field>
-              </>
+                      {incomeCategories.length > 0 &&
+                        incomeCategories.map(({ _id, nameDropdown }) => (
+                          <option
+                            className="Select__option"
+                            key={_id}
+                            value={_id}
+                          >
+                            {nameDropdown}
+                          </option>
+                        ))}
+                    </Select>
+                  </>
+                ) : (
+                  <>
+                    <Field
+                      as="select"
+                      className="Modal__input Select Select__spending "
+                      name="category"
+                      onClick={showPlaceholder(true)}
+                      onBlur={showPlaceholder(false)}
+                    >
+                      <option
+                        className="Select__blocked"
+                        disabled
+                        hidden={placeholder}
+                      >
+                        Выберите категорию
+                      </option>
+                      {spendingCategories.length > 0 &&
+                        spendingCategories.map(({ _id, nameDropdown }) => (
+                          <option
+                            className="Select__option"
+                            key={_id}
+                            value={_id}
+                          >
+                            {nameDropdown}
+                          </option>
+                        ))}
+                    </Field>
+                  </>
+                )}
+                <span className="Select__focus"></span>
+                <ErrorMessage
+                  component="div"
+                  name="category"
+                  className="formikError"
+                />
+              </div>
             )}
-            <span className="Select__focus"></span>
-            <ErrorMessage
-              component="div"
-              name="category"
-              className="formikError"
-            />
-          </div>
 
-          <div className="Modal__container">
-            <span>
-              <Field
-                type="text"
-                name="amount"
-                placeholder="0.00"
-                className="Modal__input Modal__amount"
-              />
-              <ErrorMessage
-                component="div"
-                name="amount"
-                className="formikError"
-              />
-            </span>
+            <div className="Modal__container">
+              <span>
+                <Field
+                  type="text"
+                  name="amount"
+                  placeholder="0.00"
+                  className="Modal__input Modal__amount"
+                />
+              </span>
 
-            <span className="Modal__date">
-              {today}
-              {/* <Datetime
+              <span className="Modal__date">
+                {today}
+                {/* <Datetime
                 className="Modal__input Modal__datetime"
                 closeOnSelect="true"
                 // timeFormat="false"
@@ -157,33 +218,42 @@ function ModalForm({ closeModal, income, categories }) {
                 isValidDate={valid}
                 value={today}
               /> */}
-            </span>
-          </div>
+              </span>
+            </div>
+            <ErrorMessage
+              component="div"
+              name="amount"
+              className="formikError"
+            />
 
-          <Field
-            as="textarea"
-            type="text"
-            placeholder="Комментарий"
-            className="Modal__input Modal__comment"
-            name="comment"
-          />
-          <ErrorMessage
-            component="div"
-            name="comment"
-            className="formikError"
-          />
+            <Field
+              as="textarea"
+              type="text"
+              placeholder="Комментарий"
+              className="Modal__input Modal__comment"
+              name="comment"
+            />
+            <ErrorMessage
+              component="div"
+              name="comment"
+              className="formikError"
+            />
 
-          <div className="Modal__controllers">
-            <button type="submit" className="Modal__add">
-              Добавить
-            </button>
-            <button onClick={() => closeModal(false)} className="Modal__cancel">
-              Отмена
-            </button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+            <div className="Modal__controllers">
+              <button type="submit" className="Modal__add">
+                Добавить
+              </button>
+              <button
+                onClick={() => closeModal(false)}
+                className="Modal__cancel"
+              >
+                Отмена
+              </button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 }
 

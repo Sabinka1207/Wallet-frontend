@@ -26,10 +26,22 @@ const transactionsSlice = createSlice({
     [fetchTransactions.rejected]: () => state => {
       return { ...state, error: null };
     },
+    [addTransaction.pending]: state => {
+      state.isLoading = true;
+      state.error = false;
+    },
     [addTransaction.fulfilled](state, { payload }) {
       state.data = [...state.data, payload];
+      state.isLoading = false;
+      state.error = false;
+
       console.log('state', state.data);
       console.log('payload', payload);
+    },
+    [addTransaction.rejected](state, { payload }) {
+      state.data = [];
+      state.isLoading = false;
+      state.error = true;
     },
   },
 });
