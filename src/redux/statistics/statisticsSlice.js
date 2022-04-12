@@ -10,7 +10,6 @@ import getStatistics from "./statisticsOperation";
     },
       extraReducers: {
         [getStatistics.fulfilled]: (state, { payload }) => {
-            // console.log(payload);
            state.data = payload
            state.isLoading = false;
            state.error = false
