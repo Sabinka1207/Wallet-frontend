@@ -11,7 +11,7 @@ const RegisterPage = lazy(() => import('./views/RegisterPage'));
 const LoginPage = lazy(() => import('./views/LoginPage'));
 const DashboardPage = lazy(() => import('./views/DashboardPage'));
 const HomeTab = lazy(() => import('./components/homeTab/HomeTab'));
-const DiagramTab = lazy(() => import('./components/DiagramTab/DiagramTab'));
+const DiagramTab = lazy(() => import('./components/DiagramTab'));
 const Currency = lazy(() => import('./components/Currency/Currency'));
 
 function App() {
