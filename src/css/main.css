@@ -1771,16 +1771,16 @@ button[disabled]:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px 30px;
-  width: 200px;
+  width: 250px;
   height: 300px;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 20px;
 }
 
 @media screen and (min-width: 767px) {
   .modal-logaut {
     width: 500px;
-    height: 150px;
+    height: 200px;
   }
 }
 
@@ -1799,6 +1799,7 @@ button[disabled]:focus {
   font-weight: 400;
   font-size: 25px;
   line-height: 1.5;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -1849,7 +1850,7 @@ button[disabled]:focus {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 20px;
-  background-color: white;
+  background-color: var(--white);
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1867,27 +1868,27 @@ button[disabled]:focus {
 }
 
 .btn-yes {
-  color: #24cca7;
-  border: 1px solid #24cca7;
+  color: var(--accentGreenColor);
+  border: 1px solid var(--accentGreenColor);
 }
 
 .btn-no {
-  color: #ff6596;
-  border: 1px solid #ff6596;
+  color: var(--accentRoseColor);
+  border: 1px solid var(--accentRoseColor);
 }
 
 .btn-yes:hover,
 .btn-yes:focus {
-  background-color: #24cca7;
-  border: 1px solid #24cca7;
-  color: white;
+  background-color: var(--accentGreenColor);
+  border: 1px solid var(--accentGreenColor);
+  color: var(--white);
 }
 
 .btn-no:hover,
 .btn-no:focus {
-  background-color: #ff6596;
-  border: 1px solid #ff6596;
-  color: white;
+  background-color: var(--accentRoseColor);
+  border: 1px solid var(--accentRoseColor);
+  color: var(--white);
 }
 
 @media screen and (max-width: 768px) {
