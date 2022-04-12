@@ -146,12 +146,9 @@ cursor: pointer;
     display: none;
   }
 
-  // &:hover::after{
-  //   color:var(--white);
-  // }
-
   
 }
+
 
 .Select:focus+.Select__focus {
   position: absolute;

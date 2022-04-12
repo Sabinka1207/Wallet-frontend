@@ -5,12 +5,14 @@ import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function ModalForm({ closeModal, income, categories }) {
   const dispatch = useDispatch();
+  const [placeholder, showPlaceholder] = useState(false);
 
   const notify = () => toast('Wow so easy !');
 
@@ -51,13 +53,13 @@ function ModalForm({ closeModal, income, categories }) {
     comment: Yup.string(),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    const { income, category, amount, date, comment } = values;
-    const object = { income, category, amount, date, comment };
+  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+    const incomeValue = document.querySelector('.Switcher__toggle').value;
+    const { category, amount, date, comment } = values;
+    const object = { income: incomeValue, category, amount, date, comment };
     dispatch(addTransaction(object));
 
-    // setSubmitting(false);
+    setSubmitting(false);
     resetForm();
     closeModal();
   };
@@ -72,14 +74,23 @@ function ModalForm({ closeModal, income, categories }) {
       {formik => (
         <Form className="Modal__form">
           <div className="Modal__select">
-            {/* <span className="Select__blocked">Выберите категорию</span> */}
             {income ? (
               <>
                 <Field
                   as="select"
                   className="Modal__input Select Select__income "
                   name="category"
+                  onClick={showPlaceholder(true)}
+                  onBlur={showPlaceholder(false)}
                 >
+                  <option
+                    className="Select__blocked"
+                    disabled
+                    selected
+                    hidden={placeholder}
+                  >
+                    Выберите категорию
+                  </option>
                   {incomeCategories.length > 0 &&
                     incomeCategories.map(({ _id, nameDropdown }) => (
                       <option className="Select__option" key={_id} value={_id}>
@@ -94,7 +105,17 @@ function ModalForm({ closeModal, income, categories }) {
                   as="select"
                   className="Modal__input Select Select__spending "
                   name="category"
+                  onClick={showPlaceholder(true)}
+                  onBlur={showPlaceholder(false)}
                 >
+                  <option
+                    className="Select__blocked"
+                    disabled
+                    selected
+                    hidden={placeholder}
+                  >
+                    Выберите категорию
+                  </option>
                   {spendingCategories.length > 0 &&
                     spendingCategories.map(({ _id, nameDropdown }) => (
                       <option className="Select__option" key={_id} value={_id}>
