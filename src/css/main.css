@@ -687,7 +687,6 @@ button {
   display: none;
 }
 
-.Select:active .Select__blocked
 .Select:focus + .Select__focus {
   position: absolute;
   top: -1px;
@@ -1736,6 +1735,14 @@ button[disabled]:focus {
   .total__sum {
     margin-left: 204px;
   }
+}
+
+.isFalse {
+  color: var(--accentRoseColor);
+}
+
+.isTrue {
+  color: var(--accentGreenColor);
 }
 
 .overlay {

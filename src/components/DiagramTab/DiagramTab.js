@@ -18,8 +18,9 @@ function DiagramTab() {
   const loading = useSelector(isLoading)
   const errorStat = useSelector(error)
   
-  console.log(statistics);
+  // console.log(statistics);
 
+  
   // const dispatch = useDispatch();
   
   // useEffect(()=>{
@@ -34,13 +35,13 @@ function DiagramTab() {
         {statistics && 
           <div className="diagramTab">
             <Chart 
-            statData={statistics[0]}/>
+            chartData={statistics[1]}/>
             <Table 
             valueMonth={selectedMonth}
             valueYear={selectedYear}
             selectedMonth={setSelectedMonth}
             selectedYear={setSelectedYear}
-            data={statistics[0]}
+            data={statistics}
             /> 
           </div>
         } 

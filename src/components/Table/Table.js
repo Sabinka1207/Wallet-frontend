@@ -31,17 +31,12 @@ const years = [
 ];
 
 function Table({
-  data: {categories, totalSum},
+  data,
   selectedMonth,
   selectedYear,
   valueMonth,
   ValueYear
 }) {
-  console.log(categories, totalSum,
-    selectedMonth,
-    selectedYear,
-    valueMonth,
-    ValueYear);
 
   return (
     <div className="chart__container">
@@ -68,7 +63,7 @@ function Table({
           </tr>
         </thead>
         <tbody>          
-            {categories.map(({category, categorySum})=>(
+            {data[1].categories.map(({category, categorySum})=>(
               <tr key={categorySum}>
                 <td >{category}</td> 
                 <td>{categorySum}</td>
@@ -77,10 +72,10 @@ function Table({
         </tbody>
       </table>
       <p className="total__text">
-        Расходы: <span className="total__sum">{totalSum}</span>
+        Расходы: <span className="total__sum isFalse">{data[1].totalSum}</span>
       </p> 
       <p className="total__text">
-        Доходы:: <span className="total__sum">0</span>
+        Доходы:: <span className="total__sum isTrue">{data[0].totalSum}</span>
       </p> 
     </div>
   );
