@@ -687,7 +687,6 @@ button {
   display: none;
 }
 
-.Select:active .Select__blocked
 .Select:focus + .Select__focus {
   position: absolute;
   top: -1px;
@@ -1929,10 +1928,10 @@ button[disabled]:focus {
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 30px;
   text-align: center;
-  border-bottom: 1px solid #DCDCDF;
+  border-bottom: 1px solid #dcdcdf;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
           box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 }
@@ -1983,7 +1982,7 @@ button[disabled]:focus {
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
-  border-bottom: 1px solid #DCDCDF;
+  border-bottom: 1px solid #dcdcdf;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
           box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   text-align: center;
@@ -1999,7 +1998,7 @@ button[disabled]:focus {
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #FF6596;
+  color: #ff6596;
 }
 
 .transactionIncomeFalse {
@@ -2007,11 +2006,11 @@ button[disabled]:focus {
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #24CCA7;
+  color: #24cca7;
 }
 
 .transactionCard {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   width: 280px;
   height: 282px;
@@ -2030,13 +2029,13 @@ button[disabled]:focus {
 .transactionCard th {
   text-align: left;
   height: 40px;
-  border-bottom: 1px solid #DCDCDF;
+  border-bottom: 1px solid #dcdcdf;
 }
 
 .transactionCard td {
   text-align: right;
   height: 40px;
-  border-bottom: 1px solid #DCDCDF;
+  border-bottom: 1px solid #dcdcdf;
 }
 
 .transactionCard .last-item {
@@ -2048,10 +2047,25 @@ button[disabled]:focus {
 }
 
 .transactionCardTrue {
-  border-left: 5px solid #FF6596;
+  border-left: 5px solid #ff6596;
 }
 
 .transactionCardFalse {
-  border-left: 5px solid #24CCA7;
+  border-left: 5px solid #24cca7;
+}
+
+.emptyTransaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.emptyTransactionText {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=main.css.map */
