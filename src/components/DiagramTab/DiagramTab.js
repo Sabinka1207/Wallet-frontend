@@ -16,11 +16,10 @@ function DiagramTab() {
   const loading = useSelector(isLoading)
   const errorStat = useSelector(error)
  
-  // const dispatch = useDispatch();
-  // console.log(statistics);
-  // useEffect(()=>{
-  //     dispatch(getStatistics())      
-  // },[])
+  const dispatch = useDispatch();
+  useEffect(()=>{
+      dispatch(getStatistics())      
+  },[])
 
   return (
     <div className="diagram">

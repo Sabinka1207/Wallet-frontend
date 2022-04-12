@@ -54,14 +54,11 @@ function ModalForm({ closeModal, income, categories }) {
   });
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
-    console.log(values);
     const { income, category, amount, date, comment } = values;
     dispatch(addTransaction({ income, category, amount, date, comment }));
 
     setSubmitting(false);
     resetForm();
-
-    console.log(values);
   };
 
   return (

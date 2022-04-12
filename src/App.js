@@ -59,9 +59,9 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route path="/home" element={<HomeTab />} />
-              <Route path="/diagram" element={<DiagramTab />} />
-              <Route path="/currency" />
+              <Route path="home" element={<HomeTab />} />
+              <Route path="diagram" element={<DiagramTab />} />
+              <Route path="currency" />
             </Route>
           </Routes>
         </Suspense>
