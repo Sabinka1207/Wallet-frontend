@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ReactComponent as CloseModal } from '../../img/icons/close.svg';
 import '../../css/main.min.css';
 import axios from 'axios';
@@ -10,7 +10,6 @@ const modalRoot = document.getElementById('modal-root');
 function ModalAddTransaction({ isOpen }) {
   const [income, setIncome] = useState(false);
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     axios
       .get('https://pure-atoll-67904.herokuapp.com/api/transactions/categories')
@@ -45,6 +44,7 @@ function ModalAddTransaction({ isOpen }) {
                 type="checkbox"
                 name="transaction-type"
                 id="switcher-toggle"
+                value={income}
                 defaultChecked
                 aria-label="Выбрать расход или доход"
               />
@@ -66,8 +66,8 @@ function ModalAddTransaction({ isOpen }) {
           </div>
           <ModalForm
             closeModal={closeModal}
-            income={income}
             categories={categories}
+            income={income}
           />
         </div>
       </div>
