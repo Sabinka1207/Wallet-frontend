@@ -15,6 +15,7 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   background-color: transparent;
   border: none;
   padding: 0 1em 0 0;
@@ -126,15 +127,28 @@ cursor: pointer;
 
 }
 
-.Select{
+.Select {
+  appearance: none;
   position: relative;
   outline: none;
   background-image: url('/src/img/icons/select-arrow.svg');
   background-position: top 10px right 10px;
   background-repeat: no-repeat;
+ 
+  height: 30px;
+  border: 1px solid #999;
+  font-size: 18px;
+  color: var(--grayFour);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 394px 352px #ccc;
   &::-ms-expand {
     display: none;
   }
+
+  // &:hover::after{
+  //   color:var(--white);
+  // }
 
   
 }
@@ -164,18 +178,26 @@ font-weight: 400;}
 
 .Select option{
   margin: 40px;
-  background: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--black);
+  // text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 
  
 }
 
-.Selec__option:hover {
-  background-color: var(--white);
+.Select option:hover {
+  background-color: var(--black);
   color: var(--black);
 }
 
+.Select__blocked{
+  position: absolute ;
+}
+
+.Select__option:hover{
+background-color: tomato;
+color: tomato;
+}
 // MEDIA RULES
 
 @media screen and (max-width: 767px) {

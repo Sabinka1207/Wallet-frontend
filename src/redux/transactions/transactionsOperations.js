@@ -6,7 +6,7 @@ import {
   addTransactionError,
 } from './transactionsActions';
 
-axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
+// axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
 
 // const token = {
 //   set(token) {
@@ -58,15 +58,26 @@ export const fetchTransactions = createAsyncThunk(
   },
 );
 
-export const addTransaction =
-  ({ income, category, amount, date, comment }) =>
-  dispatch => {
-    const transaction = { income, category, amount, date, comment };
-    dispatch(addTransactionRequest());
-    axios
-      .post('/transactions', transaction)
-      .then(({ data }) => dispatch(addTransactionSuccess(data)))
-      .catch(error => dispatch(addTransactionError(error)));
-  };
+// export const addTransaction =
+//   ({ income, category, amount, date, comment }) =>
+//   dispatch => {
+//     const transaction = { income, category, amount, date, comment };
+//     dispatch(addTransactionRequest());
+//     axios
+//       .post('/transactions', transaction)
+//       .then(({ data }) => dispatch(addTransactionSuccess(data)))
+//       .catch(error => dispatch(addTransactionError(error)));
+//   };
 
-// export default fetchTransactions;
+export const addTransaction = createAsyncThunk(
+  'transactions/addTransaction',
+  async (transaction, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/transactions', transaction);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error);
+    }
+  },
+);

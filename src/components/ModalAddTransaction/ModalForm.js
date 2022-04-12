@@ -1,5 +1,3 @@
-import { ReactComponent as Calendar } from '../../img/icons/calendar.svg';
-import { ReactComponent as SelectArrow } from '../../img/icons/select-arrow.svg';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Datetime from 'react-datetime';
@@ -53,37 +51,38 @@ function ModalForm({ closeModal, income, categories }) {
     comment: Yup.string(),
   });
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
     const { income, category, amount, date, comment } = values;
-    dispatch(addTransaction({ income, category, amount, date, comment }));
+    const object = { income, category, amount, date, comment };
+    dispatch(addTransaction(object));
 
-    setSubmitting(false);
+    // setSubmitting(false);
     resetForm();
+    closeModal();
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validate}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       validateOnBlur={true}
     >
       {formik => (
         <Form className="Modal__form">
           <div className="Modal__select">
+            {/* <span className="Select__blocked">Выберите категорию</span> */}
             {income ? (
               <>
                 <Field
                   as="select"
-                  className="Select Select__income Modal__input"
+                  className="Modal__input Select Select__income "
                   name="category"
                 >
-                  <option defaultValue="" disabled className="Select__disabled">
-                    Выберите категорию
-                  </option>
                   {incomeCategories.length > 0 &&
                     incomeCategories.map(({ _id, nameDropdown }) => (
-                      <option className="Select__opto" key={_id} value={_id}>
+                      <option className="Select__option" key={_id} value={_id}>
                         {nameDropdown}
                       </option>
                     ))}
@@ -93,12 +92,9 @@ function ModalForm({ closeModal, income, categories }) {
               <>
                 <Field
                   as="select"
-                  className="Select Select__spending Modal__input"
+                  className="Modal__input Select Select__spending "
                   name="category"
                 >
-                  <option defaultValue="" disabled className="Select__disabled">
-                    Выберите категорию
-                  </option>
                   {spendingCategories.length > 0 &&
                     spendingCategories.map(({ _id, nameDropdown }) => (
                       <option className="Select__option" key={_id} value={_id}>
@@ -169,10 +165,5 @@ function ModalForm({ closeModal, income, categories }) {
     </Formik>
   );
 }
-
-// const mapDispatchToProps = dispatch => ({
-//   onSubmit: ({ income, category, amount, date, comment }) =>
-//     dispatch(addTransaction({ income, category, amount, date, comment })),
-// });
 
 export default ModalForm;
