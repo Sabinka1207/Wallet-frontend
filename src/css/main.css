@@ -119,8 +119,8 @@ button {
   .dashboardPageContainer {
     height: 1024px;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -131,8 +131,8 @@ button {
   .dashboardPageContainer {
     height: 100vh;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -142,10 +142,10 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
   }
 }
@@ -153,10 +153,10 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@2x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@2x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
   }
 }
@@ -1105,9 +1105,9 @@ button[disabled]:focus {
   color: var(--white);
   background-color: var(--accentBlueColor);
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
-  background-size: auto 96px, auto 50px;
+  background-size: auto 96px, auto 50px;
   background-repeat: no-repeat;
-  background-position: bottom, top;
+  background-position: bottom, top;
   border-radius: 30px;
 }
 
@@ -1123,7 +1123,7 @@ button[disabled]:focus {
     width: 336px;
     height: 182px;
     background-image: url(/public/image/table/currency_background_mount_table@1x.png), url(/public/image/table/currency_backgroud_head_table@1x.png);
-    background-size: auto 120px, auto 50px;
+    background-size: auto 120px, auto 50px;
   }
 }
 
@@ -1133,28 +1133,28 @@ button[disabled]:focus {
     width: 393px;
     height: 347px;
     background-image: url(/public/image/desktop/currency_background_mount_desktop@1x.png), url(/public/image/desktop/currency_backgroud_head_desktop@1x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px, auto 60px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .table {
     background-image: url(/public/image/mobile/currency_background_mount_mobile@2x.png), url(/public/image/mobile/currency_backgroud_head_mobile@2x.png);
-    background-size: auto 96px, auto 50px;
+    background-size: auto 96px, auto 50px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .table {
     background-image: url(/public/image/table/currency_background_mount_table@2x.png), url(/public/image/table/currency_backgroud_head_table@2x.png);
-    background-size: auto 115px, auto 46px;
+    background-size: auto 115px, auto 46px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (min-resolution: 192dpi) and (min-width: 1200px), screen and (min-resolution: 2dppx) and (min-width: 1200px) {
   .table {
     background-image: url(/public/image/desktop/currency_background_mount_desktop@2x.png), url(/public/image/desktop/currency_backgroud_head_desktop@2x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px, auto 60px;
   }
 }
 
@@ -1410,10 +1410,10 @@ button[disabled]:focus {
     padding-bottom: 190px;
     height: 100vh;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1452,10 +1452,10 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1483,10 +1483,10 @@ button[disabled]:focus {
     padding-top: 0px;
     padding-bottom: 0px;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1520,10 +1520,10 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1751,16 +1751,16 @@ button[disabled]:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px 30px;
-  width: 200px;
+  width: 250px;
   height: 300px;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 20px;
 }
 
 @media screen and (min-width: 767px) {
   .modal-logaut {
     width: 500px;
-    height: 150px;
+    height: 200px;
   }
 }
 
@@ -1779,6 +1779,7 @@ button[disabled]:focus {
   font-weight: 400;
   font-size: 25px;
   line-height: 1.5;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -1829,7 +1830,7 @@ button[disabled]:focus {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 20px;
-  background-color: white;
+  background-color: var(--white);
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1847,27 +1848,27 @@ button[disabled]:focus {
 }
 
 .btn-yes {
-  color: #24cca7;
-  border: 1px solid #24cca7;
+  color: var(--accentGreenColor);
+  border: 1px solid var(--accentGreenColor);
 }
 
 .btn-no {
-  color: #ff6596;
-  border: 1px solid #ff6596;
+  color: var(--accentRoseColor);
+  border: 1px solid var(--accentRoseColor);
 }
 
 .btn-yes:hover,
 .btn-yes:focus {
-  background-color: #24cca7;
-  border: 1px solid #24cca7;
-  color: white;
+  background-color: var(--accentGreenColor);
+  border: 1px solid var(--accentGreenColor);
+  color: var(--white);
 }
 
 .btn-no:hover,
 .btn-no:focus {
-  background-color: #ff6596;
-  border: 1px solid #ff6596;
-  color: white;
+  background-color: var(--accentRoseColor);
+  border: 1px solid var(--accentRoseColor);
+  color: var(--white);
 }
 
 @media screen and (max-width: 768px) {
