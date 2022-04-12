@@ -7,7 +7,7 @@ function Table({data}) {
   const {income, categories, totalSum, year, month} = data
   return (
     <div className="chart__container">
-      <select name="month" className="select">
+      {/* <select name="month" className="select">
         <option value={month} className="text">
           Январь
         </option>
@@ -26,7 +26,7 @@ function Table({data}) {
         <option value="6" className="text">
           Июнь
         </option> */}
-      </select>
+      {/* </select>
       <select name="year" className="select">
         <option value="2022" className="text">
           2022
@@ -52,10 +52,10 @@ function Table({data}) {
       </table>
       <p className="total__text">
         Расходы: <span className="total__sum">{totalSum}</span>
-      </p>
+      </p> */}
       <p className="total__text">
         Доходы:: <span className="total__sum">0</span>
-      </p>
+      </p> */}
     </div>
   );
 }

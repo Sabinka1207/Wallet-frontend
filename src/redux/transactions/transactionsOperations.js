@@ -48,7 +48,7 @@ export const fetchTransactions = createAsyncThunk(
     // token.set(persistedToken);
 
     try {
-      axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5OTc4ZGY5OTNkODFmNTVlNjJlMSIsImlhdCI6MTY0OTc0NjM0OCwiZXhwIjoxNjQ5NzQ5OTQ4fQ.I5KxrsgGiSomNyk7hulKknnFtKeNDlQSYvxTSh3rBfk`;
+      // axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5OTc4ZGY5OTNkODFmNTVlNjJlMSIsImlhdCI6MTY0OTcwNjk3MywiZXhwIjoxNjQ5NzEwNTczfQ.IHeBEnPyiZFUzCgAEI4PRyh7DYUwhPPIv5rsbXvguuo`;
       const { data } = await axios.get('/transactions');
       return data.data.response;
     } catch (error) {

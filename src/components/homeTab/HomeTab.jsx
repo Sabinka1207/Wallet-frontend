@@ -25,7 +25,7 @@ export default function HomeTab() {
       className="test
         "
     >
-      {transactions && (
+      {!transactions && (
         <div>
           <span>У вас нет контактов!</span>
         </div>
@@ -72,7 +72,7 @@ export default function HomeTab() {
                 className={
                   transaction.income
                     ? 'transactionCardTrue transactionCard'
-                    : 'transactionCardTrueFalse transactionCard'
+                    : 'transactionCardFalse transactionCard'
                 }
                 key={transaction._id}
               >

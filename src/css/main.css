@@ -110,28 +110,8 @@ button {
           transform: translate(-50%, -50%);
 }
 
-.dashboardMain {
-  width: 100%;
-  min-width: 280px;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .dashboardMain {
-    margin-left: auto;
-    margin-right: auto;
-    width: 704px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .dashboardMain {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1248px;
-  }
-}
-
 .dashboardPageContainer {
+  height: 100vh;
   background: #E7EAF2;
 }
 
@@ -149,7 +129,7 @@ button {
 
 @media screen and (min-width: 1280px) {
   .dashboardPageContainer {
-    height: 100%;
+    height: 100vh;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
     background-size: 490px auto, 550px auto;
     background-position: bottom, top;
@@ -196,7 +176,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .dashboardPageWrap {
-    height: 1024px;
+    height: 100%;
     background: rgba(255, 255, 255, 0.4);
     -webkit-backdrop-filter: blur(50px);
             backdrop-filter: blur(50px);
@@ -215,11 +195,25 @@ button {
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .layoutContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 45px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .dashboardPageSidebar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 30px 0px 20px;
   }
 }
@@ -227,9 +221,8 @@ button {
 @media screen and (min-width: 1280px) {
   .dashboardPageSidebar {
     border-right: 1px solid #E7E5F2;
-    -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6);
-            box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6);
-    padding: 40px 65px 40px 0px;
+    padding-right: 69px;
+    padding-bottom: 20px;
   }
 }
 
@@ -1140,7 +1133,8 @@ button[disabled]:focus {
 
 @media screen and (max-width: 767px) {
   .table {
-    display: none;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -1240,10 +1234,14 @@ button[disabled]:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  height: 60px;
+  height: 80px;
   background-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
 }
 
 .headerLogoutWrap {
@@ -1892,10 +1890,6 @@ button[disabled]:focus {
   color: white;
 }
 
-.test {
-  background-color: grey;
-}
-
 @media screen and (max-width: 768px) {
   .mobilehidden {
     display: none;
@@ -2053,5 +2047,9 @@ button[disabled]:focus {
 
 .transactionCardTrue {
   border-left: 5px solid #FF6596;
+}
+
+.transactionCardFalse {
+  border-left: 5px solid #24CCA7;
 }
 /*# sourceMappingURL=main.css.map */

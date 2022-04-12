@@ -11,34 +11,54 @@ import Currency from "../../components/Currency";
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import '../../css/main.min.css';
-
+import { useDispatch } from "react-redux";
+import getStatistics from "../../redux/statistics/statisticsOperation";
+import { useEffect } from "react";
 function DashboardPage() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+      dispatch(getStatistics())      
+  },[])
 
   const isDesktopOrTable = useMediaQuery({
     query: '(min-width: 768px)'
   })
 
+  console.log("isDesktopOrTable", isDesktopOrTable)
+
   return (
-    <>
+    <div>
       <Header/>
-      <main className="dashboardMain">
-        <div className="dashboardPageContainer">
-          <div className=" container dashboardPageWrap">
-            <aside className="dashboardPageSidebar">
-              <div className="dashboardPageIner">
-                <Navigation />
-                {(location.pathname !== "/currency") && <Balance/>}               
+        <main className="dashboardPageContainer">
+          <div className = "dashboardPageWrap">
+
+            <div className="container layoutContainer">
+              <aside className="dashboardPageSidebar">
+                <div className="dashboardPageIner">
+                  <Navigation />
+                    {(location.pathname !== "/currency") && 
+                  <Balance/>}               
+                </div>
+                <div>
+                  {(isDesktopOrTable ||location.pathname === "/currency")&& 
+                    <Currency/>
+                  }
+                </div>  
+              </aside>
+              <div>
+                {/* <HomeTab />
+                {(location.pathname === "/diagrama") && 
+                <DiagramTab />} */}
               </div>
-                {(isDesktopOrTable ||location.pathname === "/currency")&& <Currency/>}
-            </aside>
-            <section className="dashboardPageMain">
-               {(location.pathname !== "/currency") && <Outlet />}               
-            </section>
+              <section className="dashboardPageMain">
+                {(location.pathname !== "/currency") && <Outlet />}               
+              </section>
+            </div>
           </div>
-        </div>
-      </main>
-    </>
+        </main>
+    </div>
   );
 }
 
