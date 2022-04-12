@@ -1,36 +1,53 @@
 import React, { useState } from 'react';
 import '../../css/main.min.css';
 
+const months = [
+  { name: "Январь", id: 1 },
+  { name: "Февраль", id: 2 },
+  { name: "Март", id: 3 },
+  { name: "Апрель", id: 4 },
+  { name: "Май", id: 5 },
+  { name: "Июнь", id: 6 },
+  { name: "Июль", id: 7 },
+  { name: "Август", id: 8 },
+  { name: "Сентябрь", id: 9 },
+  { name: "Октябрь", id: 10 },
+  { name: "Ноябрь", id: 11 },
+  { name: "Декабрь", id: 12 },
+];
+const years = [
+  { name: "2022", id: 1 },
+  { name: "2021", id: 2 },
+  { name: "2020", id: 3 },
+  { name: "2019", id: 4 },
+  { name: "2018", id: 5 },
+  { name: "2017", id: 6 },
+  { name: "2016", id: 7 },
+  { name: "2015", id: 8 },
+  { name: "2014", id: 9 },
+  { name: "2013", id: 10 },
+  { name: "2012", id: 11 },
+  { name: "2011", id: 12 },
+];
 
-function Table({data}) {
-  // console.log(data);
-  const {income, categories, totalSum, year, month} = data
+function Table(props) {
+  console.log(props);
+
   return (
     <div className="chart__container">
-      {/* <select name="month" className="select">
-        <option value={month} className="text">
-          Январь
+      <select  className="select">
+        {months.map(month=>(
+          <option value={month.id} className="text">
+          {month.name}
         </option>
-        {/* <option value="2" className="text">
-          Февраль
-        </option>
-        <option value="3" className="text">
-          Март
-        </option>
-        <option value="4" className="text">
-          Апрель
-        </option>
-        <option value="5" className="text">
-          Май
-        </option>
-        <option value="6" className="text">
-          Июнь
-        </option> */}
-      {/* </select>
+        ))}        
+      </select>
       <select name="year" className="select">
-        <option value="2022" className="text">
-          2022
+      {years.map(year=>(
+          <option value={year.id} className="text">
+          {year.name}
         </option>
+        ))}
       </select>
 
       <table className="chart__table">
@@ -41,21 +58,21 @@ function Table({data}) {
           </tr>
         </thead>
         <tbody>          
-            {data && 
+            {/* {data && 
             categories.map(({category, categorySum})=>(
               <tr key={categorySum}>
                 <td >{category}</td> 
                 <td>{categorySum}</td>
               </tr>
-             ) )}          
+             ) )}           */}
         </tbody>
       </table>
-      <p className="total__text">
+      {/* <p className="total__text">
         Расходы: <span className="total__sum">{totalSum}</span>
-      </p> */}
+      </p> 
       <p className="total__text">
         Доходы:: <span className="total__sum">0</span>
-      </p> */}
+      </p>  */}
     </div>
   );
 }

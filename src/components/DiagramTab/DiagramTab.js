@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chart from '../Chart';
 import Table from '../Table';
@@ -12,13 +12,20 @@ import {
 import getStatistics from '../../redux/statistics/statisticsOperation';
 
 function DiagramTab() {
+  const [selectedMonth, setSelectedMonth] = useState({});
+  const [selectedYear, setSelectedYear] = useState({});
   const statistics = useSelector(getAllStatistics)
   const loading = useSelector(isLoading)
   const errorStat = useSelector(error)
- 
+  
+  console.log(statistics);
+
   const dispatch = useDispatch();
+  
   useEffect(()=>{
-      dispatch(getStatistics())      
+      dispatch(getStatistics(
+        {month:1, year:2022}
+        ))      
   },[])
 
   return (
@@ -26,12 +33,19 @@ function DiagramTab() {
       <p className="title">Статистика</p>      
         {statistics && 
           <div className="diagramTab">
-            <Chart statData={statistics[0]}/>
-            <Table data={statistics[0]}/> 
+            <Chart 
+            statData={statistics[0]}/>
+            <Table 
+            valueMonth={selectedMonth}
+            valueyear={selectedYear}
+            selectedMonth={setSelectedMonth}
+            selectedYear={setSelectedYear}
+            data={statistics[0]}
+            /> 
           </div>
         } 
-        {/* {loading && <Loader/>} 
-        {errorStat && <h3>OOPS! Failled!</h3>}       */}
+        {loading && <Loader/>} 
+        {errorStat && <p>OOPS! Failled!</p>}      
     </div>
   );
 }

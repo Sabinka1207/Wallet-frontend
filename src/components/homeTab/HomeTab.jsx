@@ -10,7 +10,7 @@ export default function HomeTab() {
   const dispatch = useDispatch();
   const transactions = useSelector(state => state.transactions.data);
 
-  console.log('data', transactions);
+  // console.log('data', transactions);
 
   useEffect(() => {
     dispatch(fetchTransactions());
