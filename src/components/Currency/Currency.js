@@ -2,30 +2,23 @@ import { useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
 import "../../css/main.min.css";
 
-const axios = require("axios");
-
 function Currency() {
   const [currency, setCurrency] = useState([]);
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    async function getCurrency() {
-      try {
-        const response = await axios.get(
-          "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11"
-        );
-
-        const currencyArray = response.data.filter(
-          (item) => item.ccy !== "RUR"
-        );
-
-        setCurrency(currencyArray);
+    fetch("https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(new Error("ERROR"));
+      })
+      .then((data) => {
+        const currency = data.filter((item) => item.ccy !== "RUR");
+        setCurrency(currency);
         setLoad(false);
-      } catch (error) {
-        // console.error(error);
-      }
-    }
-    getCurrency();
+      });
   }, []);
 
   return (
