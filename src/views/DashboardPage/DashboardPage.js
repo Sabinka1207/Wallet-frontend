@@ -11,9 +11,17 @@ import Currency from "../../components/Currency";
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import '../../css/main.min.css';
+import { useDispatch } from "react-redux";
+import getStatistics from "../../redux/statistics/statisticsOperation";
+import { useEffect } from "react";
 
 function DashboardPage() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+      dispatch(getStatistics())      
+  },[])
 
   const isDesktopOrTable = useMediaQuery({
     query: '(min-width: 768px)'
@@ -30,7 +38,7 @@ function DashboardPage() {
                 <Navigation />
                 {(location.pathname !== "/currency") && <Balance/>}               
               </div>
-                {(isDesktopOrTable ||location.pathname === "/currency")&& <Currency/>}
+                {/* {(isDesktopOrTable ||location.pathname === "/currency")&& <Currency/>} */}
             </aside>
             <section className="dashboardPageMain">
                {(location.pathname !== "/currency") && <Outlet />}               
