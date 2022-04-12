@@ -22,7 +22,7 @@ function Currency() {
         setCurrency(currencyArray);
         setLoad(false);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
     getCurrency();

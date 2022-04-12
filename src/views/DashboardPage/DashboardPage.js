@@ -19,14 +19,14 @@ function DashboardPage() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-      dispatch(getStatistics())      
+      dispatch(getStatistics({month:1, year:2022}))      
   },[])
 
   const isDesktopOrTable = useMediaQuery({
     query: '(min-width: 768px)'
   })
 
-  console.log("isDesktopOrTable", isDesktopOrTable)
+  // console.log("isDesktopOrTable", isDesktopOrTable)
 
   return (
     <div>
@@ -47,11 +47,6 @@ function DashboardPage() {
                   }
                 </div>  
               </aside>
-              <div>
-                {/* <HomeTab />
-                {(location.pathname === "/diagrama") && 
-                <DiagramTab />} */}
-              </div>
               <section className="dashboardPageMain">
                 {(location.pathname !== "/currency") && <Outlet />}               
               </section>
