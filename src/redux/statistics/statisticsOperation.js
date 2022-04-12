@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 // import fetchStatistics from "../../service/transactions/statisticsApi";
 
@@ -19,4 +19,4 @@ const getStatistics = createAsyncThunk(
         }
     })
 
-    export default getStatistics;   
+export default getStatistics;
