@@ -10,7 +10,9 @@ const getStatistics = createAsyncThunk(
             const statistics = await axios.get("/transactions/statistics", {
                 params: { month, year }
             });
+            console.log(statistics);
             return statistics.data;
+            
         } catch (error) {
             return rejectWithValue(error)
         }

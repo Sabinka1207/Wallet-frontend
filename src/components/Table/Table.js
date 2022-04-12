@@ -31,25 +31,33 @@ const years = [
 ];
 
 function Table({
-  data,
+  expenses,
+  income,
   selectedMonth,
   selectedYear,
   valueMonth,
   ValueYear
 }) {
 
+  const handleChangeMonth = (e) =>{
+    selectedMonth(e.target.value)
+  }
+  const handleChangeYear = (e) =>{
+    selectedYear(e.target.value)
+  }
+
   return (
     <div className="chart__container">
-      <select  className="select">
+      <select  className="select" value={valueMonth} onChange={handleChangeMonth}>
         {months.map(month=>(
-          <option value={month.id} className="text">
+          <option value={month.id}  className="text">
           {month.name}
         </option>
         ))}        
       </select>
-      <select name="year" className="select">
+      <select name="year" className="select" value={ValueYear} onChange={handleChangeYear}>
       {years.map(year=>(
-          <option value={year.id} className="text">
+          <option value={year.name}  className="text">
           {year.name}
         </option>
         ))}
@@ -63,19 +71,19 @@ function Table({
           </tr>
         </thead>
         <tbody>          
-            {data[1].categories.map(({category, categorySum})=>(
-              <tr key={categorySum}>
-                <td >{category}</td> 
-                <td>{categorySum}</td>
+            {expenses.categories.map(({category, categorySum})=>(
+              <tr>
+                <td key={category}>{category}</td> 
+                <td key={categorySum}>{categorySum}</td>
               </tr>
              ) )}          
         </tbody>
       </table>
       <p className="total__text">
-        Расходы: <span className="total__sum isFalse">{data[1].totalSum}</span>
+        Расходы: <span className="total__sum isFalse">{expenses.totalSum}</span>
       </p> 
       <p className="total__text">
-        Доходы:: <span className="total__sum isTrue">{data[0].totalSum}</span>
+        Доходы:: <span className="total__sum isTrue">{income.totalSum}</span>
       </p> 
     </div>
   );

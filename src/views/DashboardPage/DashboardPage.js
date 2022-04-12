@@ -17,7 +17,6 @@ import { useEffect } from "react";
 function DashboardPage() {
   const location = useLocation();
   const dispatch = useDispatch();
-
   useEffect(()=>{
       dispatch(getStatistics({month:12, year:2022}))      
   },[])

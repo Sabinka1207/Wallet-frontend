@@ -5,17 +5,13 @@ import '../../css/main.min.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function Chart({chartData}) {
-  console.log(chartData);
-  
+function Chart({chartData}) {  
   const labels = chartData.categories.map(category=> category.category)
   const categoryData = chartData.categories.map(category=> category.categorySum)
-  // console.log(labels);
   const data = {
     labels: labels,
     datasets: [
       {
-        // label: '# of Votes',
         data: categoryData,
         backgroundColor: [
           'rgba(255, 99, 132, 1)',
