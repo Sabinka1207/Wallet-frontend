@@ -8,7 +8,8 @@ const getStatistics = createAsyncThunk(
     'statistics/fetchStatistics', 
     async({month, year}, {rejectWithValue})=>{
         try {
-            const statistics = await axios.get("/transactions/statistics", {
+            const statistics = await axios.get("/transactions/statistics", 
+            {
               params: { month, year },
             });
            
