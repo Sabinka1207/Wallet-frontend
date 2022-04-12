@@ -6,7 +6,7 @@ import {
   addTransactionError,
 } from './transactionsActions';
 
-axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
+// axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
 
 // const token = {
 //   set(token) {
@@ -48,7 +48,7 @@ export const fetchTransactions = createAsyncThunk(
     // token.set(persistedToken);
 
     try {
-      axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5OTc4ZGY5OTNkODFmNTVlNjJlMSIsImlhdCI6MTY0OTU5NTgzNSwiZXhwIjoxNjQ5NTk5NDM1fQ.h4G_uhxI5qmwtk2F8PIM2TdrI-CCjI1o58Rf9eMmyOQ`;
+      axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5OTc4ZGY5OTNkODFmNTVlNjJlMSIsImlhdCI6MTY0OTc0NjM0OCwiZXhwIjoxNjQ5NzQ5OTQ4fQ.I5KxrsgGiSomNyk7hulKknnFtKeNDlQSYvxTSh3rBfk`;
       const { data } = await axios.get('/transactions');
       return data.data.response;
     } catch (error) {
@@ -58,15 +58,26 @@ export const fetchTransactions = createAsyncThunk(
   },
 );
 
-export const addTransaction =
-  ({ income, category, amount, date, comment }) =>
-  dispatch => {
-    const transaction = { income, category, amount, date, comment };
-    dispatch(addTransactionRequest());
-    axios
-      .post('/transactions', transaction)
-      .then(({ data }) => dispatch(addTransactionSuccess(data)))
-      .catch(error => dispatch(addTransactionError(error)));
-  };
+// export const addTransaction =
+//   ({ income, category, amount, date, comment }) =>
+//   dispatch => {
+//     const transaction = { income, category, amount, date, comment };
+//     dispatch(addTransactionRequest());
+//     axios
+//       .post('/transactions', transaction)
+//       .then(({ data }) => dispatch(addTransactionSuccess(data)))
+//       .catch(error => dispatch(addTransactionError(error)));
+//   };
 
-// export default fetchTransactions;
+export const addTransaction = createAsyncThunk(
+  'transactions/addTransaction',
+  async (transaction, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/transactions', transaction);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error);
+    }
+  },
+);

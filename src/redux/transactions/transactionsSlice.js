@@ -1,6 +1,7 @@
 // import {createReducer} from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import getTransactions from './transactionsOperations';
+import { fetchTransactions } from './transactionsOperations';
+import { addTransaction } from './transactionsOperations';
 
 // import {
 //     fetchTransactionsSuccess
@@ -16,14 +17,19 @@ const transactionsSlice = createSlice({
   name: 'transactions',
   initialState: { data: [], isLoading: false, error: null },
   extraReducers: {
-    [getTransactions.fulfilled]: (state, { payload }) => {
+    [fetchTransactions.fulfilled]: (state, { payload }) => {
       return { ...state, data: payload };
     },
-    [getTransactions.pending]: state => {
+    [fetchTransactions.pending]: state => {
       return { ...state, isLoading: true };
     },
-    [getTransactions.rejected]: () => state => {
+    [fetchTransactions.rejected]: () => state => {
       return { ...state, error: null };
+    },
+    [addTransaction.fulfilled](state, { payload }) {
+      state.data = [...state.data, payload];
+      console.log('state', state.data);
+      console.log('payload', payload);
     },
   },
 });
