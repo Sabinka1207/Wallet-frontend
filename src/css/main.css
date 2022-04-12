@@ -1113,7 +1113,8 @@ button[disabled]:focus {
 
 @media screen and (max-width: 767px) {
   .table {
-    display: none;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

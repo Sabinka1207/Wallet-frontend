@@ -20,6 +20,8 @@ function DashboardPage() {
     query: '(min-width: 768px)'
   })
 
+  console.log("isDesktopOrTable", isDesktopOrTable)
+
   return (
     <div>
       <Header/>
