@@ -20,13 +20,13 @@ function DiagramTab() {
   
   console.log(statistics);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   
-  useEffect(()=>{
-      dispatch(getStatistics(
-        {month:1, year:2022}
-        ))      
-  },[])
+  // useEffect(()=>{
+  //     dispatch(getStatistics(
+  //       {month:1, year:2022}
+  //       ))      
+  // },[])
 
   return (
     <div className="diagram">
@@ -37,7 +37,7 @@ function DiagramTab() {
             statData={statistics[0]}/>
             <Table 
             valueMonth={selectedMonth}
-            valueyear={selectedYear}
+            valueYear={selectedYear}
             selectedMonth={setSelectedMonth}
             selectedYear={setSelectedYear}
             data={statistics[0]}

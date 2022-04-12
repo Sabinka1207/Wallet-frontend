@@ -30,8 +30,18 @@ const years = [
   { name: "2011", id: 12 },
 ];
 
-function Table(props) {
-  console.log(props);
+function Table({
+  data: {categories, totalSum},
+  selectedMonth,
+  selectedYear,
+  valueMonth,
+  ValueYear
+}) {
+  console.log(categories, totalSum,
+    selectedMonth,
+    selectedYear,
+    valueMonth,
+    ValueYear);
 
   return (
     <div className="chart__container">
@@ -58,21 +68,20 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>          
-            {/* {data && 
-            categories.map(({category, categorySum})=>(
+            {categories.map(({category, categorySum})=>(
               <tr key={categorySum}>
                 <td >{category}</td> 
                 <td>{categorySum}</td>
               </tr>
-             ) )}           */}
+             ) )}          
         </tbody>
       </table>
-      {/* <p className="total__text">
+      <p className="total__text">
         Расходы: <span className="total__sum">{totalSum}</span>
       </p> 
       <p className="total__text">
         Доходы:: <span className="total__sum">0</span>
-      </p>  */}
+      </p> 
     </div>
   );
 }
