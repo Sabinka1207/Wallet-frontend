@@ -11,7 +11,8 @@ import Currency from "../../components/Currency";
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import '../../css/main.min.css';
-
+// import HomeTab from "../../components/homeTab/HomeTab";
+// import DiagramTab from "../../components/DiagramTab/DiagramTab"
 function DashboardPage() {
   const location = useLocation();
 
@@ -22,25 +23,37 @@ function DashboardPage() {
   console.log("isDesktopOrTable", isDesktopOrTable)
 
   return (
-    <>
+    <div>
       <Header/>
-      <main className="dashboardMain">
-        <div className="dashboardPageContainer">
-          <div className=" container dashboardPageWrap">
-            <aside className="dashboardPageSidebar">
-              <div className="dashboardPageIner">
-                <Navigation />
-                {(location.pathname !== "/currency") && <Balance/>}               
+        <main className="dashboardPageContainer">
+          <div className = "dashboardPageWrap">
+
+            <div className="container layoutContainer">
+              <aside className="dashboardPageSidebar">
+                <div className="dashboardPageIner">
+                  <Navigation />
+                    {(location.pathname !== "/currency") && 
+                  <Balance/>}               
+                </div>
+                <div>
+                  {(isDesktopOrTable ||location.pathname === "/currency")&& 
+                    <Currency/>
+                  }
+                </div>  
+              </aside>
+              <div>
+                {/* <HomeTab />
+                {(location.pathname === "/diagrama") && 
+                <DiagramTab />} */}
               </div>
-                {(isDesktopOrTable ||location.pathname === "/currency")&& <Currency/>}
-            </aside>
-            <section className="dashboardPageMain">
-               {(location.pathname !== "/currency") && <Outlet />}               
-            </section>
+              <section className="dashboardPageMain">
+                {(location.pathname !== "/currency") && <Outlet />}               
+              </section>
+            </div>
+
           </div>
-        </div>
-      </main>
-    </>
+        </main>
+    </div>
   );
 }
 

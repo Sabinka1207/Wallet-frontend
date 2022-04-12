@@ -18,7 +18,6 @@ function DiagramTab() {
   const errorStat = useSelector(error)
  
   const dispatch = useDispatch();
-  console.log(statistics);
   useEffect(()=>{
       dispatch(getStatistics())      
   },[])
