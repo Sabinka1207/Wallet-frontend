@@ -14,7 +14,7 @@ function ModalAddTransaction({ isOpen }) {
     axios
       .get('https://pure-atoll-67904.herokuapp.com/api/transactions/categories')
       .then(results => setCategories(results.data))
-      // .catch(error => console.log(error.message));
+      .catch(error => console.log(error.message));
   }, []);
 
   const closeModal = () => {

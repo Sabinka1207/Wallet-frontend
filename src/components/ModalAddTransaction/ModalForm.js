@@ -33,7 +33,7 @@ function ModalForm({ closeModal, income, categories }) {
   const mm = String(today.getMonth() + 1).padStart(2, '0');
   const yyyy = today.getFullYear();
 
-  today = dd + '.' + mm + '.' + yyyy;
+  today = mm + '.' + dd + '.' + yyyy;
 
   const initialValues = {
     income: income,
@@ -58,7 +58,6 @@ function ModalForm({ closeModal, income, categories }) {
     const { category, amount, date, comment } = values;
     const object = { income: incomeValue, category, amount, date, comment };
     dispatch(addTransaction(object));
-
     setSubmitting(false);
     resetForm();
     closeModal();
@@ -149,14 +148,15 @@ function ModalForm({ closeModal, income, categories }) {
             </span>
 
             <span className="Modal__date">
-              <Datetime
+              {today}
+              {/* <Datetime
                 className="Modal__input Modal__datetime"
                 closeOnSelect="true"
                 // timeFormat="false"
                 dateFormat="DD.MM.YYYY"
                 isValidDate={valid}
                 value={today}
-              />
+              /> */}
             </span>
           </div>
 

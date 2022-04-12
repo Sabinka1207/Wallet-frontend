@@ -638,6 +638,7 @@ button {
 
 .Modal__date {
   position: relative;
+  border-bottom: 1px solid var(--grayFour);
   background-image: url("/src/img/icons/calendar.svg");
   background-repeat: no-repeat;
   background-position: top 2px right 10px;
