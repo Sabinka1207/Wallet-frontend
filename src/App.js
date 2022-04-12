@@ -25,7 +25,7 @@ function App() {
       return;
     } else {
       dispatch(authOperations.fetchCurrentUser());
-      console.log(getToken);
+      // console.log(getToken);
     }
   }, [dispatch]);
 

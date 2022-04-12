@@ -2,13 +2,15 @@
         display: flex;
         justify-content:space-between;
         align-items:center;
-
-        // padding-top: 15px;
-        // padding-bottom: 15px;
         height: 80px;
-        
         background-color: #fff;
+
+        @media screen and (max-width: 768px) {
+                height: 60px;
+
+        }      
 }
+
 
 .headerLogoutWrap{
         display: flex;
