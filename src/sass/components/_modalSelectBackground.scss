@@ -26,6 +26,11 @@
     top: 0;
     z-index: 200;
     width: 100%;
+   
+}
+
+.FakeSelect__backdrop{
+            backdrop-filter: blur(50px);
 }
 
 .brd {
@@ -63,6 +68,7 @@
     background-color: #fff;
     border-radius: 4px;
     cursor: pointer;
+        border: none;
 }
 
 #options-view-button {
@@ -77,6 +83,10 @@
     opacity: 0;
     cursor: pointer;
     z-index: 3;
+    background-color: transparent;
+    background-image: url('/src/img/icons/select-arrow.svg');
+    background-position: top 10px right 10px;
+    background-repeat: no-repeat;
 }
 
 #selected-value {
@@ -93,26 +103,26 @@
 
 .option,
 .label {
-    color: #2d3667;
+    color: var(--black);
     font-size: 16px;
 }
 
-#chevrons {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 12px;
-    padding: 9px 14px;
-}
+// #chevrons {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     width: 12px;
+//     padding: 9px 14px;
+// }
 
-#chevrons i {
-    display: block;
-    height: 50%;
-    color: #d1dede;
-    font-size: 12px;
-    text-align: right;
-}
+// #chevrons i {
+//     display: block;
+//     height: 50%;
+//     color: #d1dede;
+//     font-size: 12px;
+//     text-align: right;
+// }
 
 #options-view-button:checked+#select-button #chevrons i {
     color: #2d3667;
@@ -126,7 +136,7 @@
 
 #options {
     position: absolute;
-    top: 42px;
+    top: 36px;
     right: 0;
     left: 0;
     width: 100%;
@@ -134,6 +144,8 @@
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     margin: 0;
+    border: none;
+    box-shadow: var(--selectShadow);
 }
 
 #options-view-button:checked~#options {
@@ -295,16 +307,10 @@ input[type="radio"] {
     top: -31px;
 }
 
-.option:nth-child(2) input[type="radio"]:checked~.label:before {
-    background-color: #ea4c89;
-}
+
 
 .option:nth-child(2) input[type="radio"]:checked~.opt-val {
     top: -71px;
-}
-
-.option:nth-child(3) input[type="radio"]:checked~.label:before {
-    background-color: #0057ff;
 }
 
 .option:nth-child(3) input[type="radio"]:checked~.opt-val {
@@ -319,45 +325,17 @@ input[type="radio"] {
     top: -151px;
 }
 
-.option:nth-child(5) input[type="radio"]:checked~.label:before {
-    background-color: #f48024;
-}
 
 .option:nth-child(5) input[type="radio"]:checked~.opt-val {
     top: -191px;
 }
 
 .option:nth-child(6) input[type="radio"]:checked~.label:before {
-    background-color: #006400;
     border-radius: 0 0 4px 4px;
 }
 
 .option:nth-child(6) input[type="radio"]:checked~.opt-val {
     top: -231px;
-}
-
-.option .fa-codepen {
-    color: #000;
-}
-
-.option .fa-dribbble {
-    color: #ea4c89;
-}
-
-.option .fa-behance {
-    color: #0057ff;
-}
-
-.option .fa-hackerrank {
-    color: #32c766;
-}
-
-.option .fa-stack-overflow {
-    color: #f48024;
-}
-
-.option .fa-free-code-camp {
-    color: #006400;
 }
 
 #option-bg {
@@ -381,32 +359,24 @@ input[type="radio"] {
 
 .option:nth-child(1):hover~#option-bg {
     top: 0;
-    background-color: #000;
-    border-radius: 4px 4px 0 0;
 }
 
 .option:nth-child(2):hover~#option-bg {
     top: 40px;
-    background-color: #ea4c89;
 }
 
 .option:nth-child(3):hover~#option-bg {
     top: 80px;
-    background-color: #0057ff;
 }
 
 .option:nth-child(4):hover~#option-bg {
     top: 120px;
-    background-color: #32c766;
 }
 
 .option:nth-child(5):hover~#option-bg {
     top: 160px;
-    background-color: #f48024;
 }
 
 .option:nth-child(6):hover~#option-bg {
     top: 200px;
-    background-color: #006400;
-    border-radius: 0 0 4px 4px;
 }

@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 // import moment from 'moment';
 import Loader from '../Loader/Loader';
 import axios from 'axios';
-/* import Select from 'react-select'; */
 import { error } from '../../redux/transactions/transactionsSelectors';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useState, useEffect } from 'react';
@@ -19,7 +18,7 @@ function ModalForm({ closeModal }) {
   const checkError = useSelector(error);
 
   const [income, setIncome] = useState(false);
-
+  const [currentCategory, setCurrentCategory] = useState(null);
   const [placeholder, showPlaceholder] = useState(false);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
@@ -133,8 +132,7 @@ function ModalForm({ closeModal }) {
               <div className="Modal__select">
                 <ModalSelectBackground
                   income={income}
-                  incomeCategories={incomeCategories}
-                  spendingCategories={spendingCategories}
+                  categories={categories}
                 />
                 {income ? (
                   <>
@@ -142,8 +140,6 @@ function ModalForm({ closeModal }) {
                       as="select"
                       className="Modal__input Select Select__income "
                       name="category"
-                      onClick={showPlaceholder(true)}
-                      onBlur={showPlaceholder(false)}
                     >
                       <option
                         className="Select__blocked"
@@ -163,7 +159,6 @@ function ModalForm({ closeModal }) {
                           </option>
                         ))}
                     </Field>
-                    {/* <ModalSelectBackground array={incomeCategories} /> */}
                   </>
                 ) : (
                   <>
@@ -171,8 +166,6 @@ function ModalForm({ closeModal }) {
                       as="select"
                       className="Modal__input Select Select__spending "
                       name="category"
-                      onClick={showPlaceholder(true)}
-                      onBlur={showPlaceholder(false)}
                     >
                       <option
                         className="Select__blocked"
@@ -192,7 +185,6 @@ function ModalForm({ closeModal }) {
                           </option>
                         ))}
                     </Field>
-                    {/* <ModalSelectBackground array={spendingCategories} /> */}
                   </>
                 )}
                 <span className="Select__focus"></span>
