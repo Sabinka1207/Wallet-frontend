@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { createPortal } from "react-dom";
-import { authOperations } from "../../redux/auth";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { createPortal } from 'react-dom';
+import { authOperations } from '../../redux/auth';
 
-const modalRoot = document.getElementById("modal-root");
+const modalRoot = document.getElementById('modal-root');
 
 const ModalLogout = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -14,20 +14,20 @@ const ModalLogout = ({ onClose }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", handleEscClose);
+    window.addEventListener('keydown', handleEscClose);
 
     return () => {
-      window.removeEventListener("keydown", handleEscClose);
+      window.removeEventListener('keydown', handleEscClose);
     };
   });
 
-  const handleEscClose = (e) => {
-    if (e.code === "Escape") {
+  const handleEscClose = e => {
+    if (e.code === 'Escape') {
       onClose();
     }
   };
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -35,23 +35,23 @@ const ModalLogout = ({ onClose }) => {
 
   return createPortal(
     <div className="overlay" onClick={handleOverlayClick}>
-      <div className="modal-logaut">
-        <p className="modal-logaut-text">Вы действительно хотите выйти?</p>
+      <div className="modal-logout">
+        <p className="modal-logout-text">Вы действительно хотите выйти?</p>
         <ul className="btn-list">
           <li className="btn-item">
-            <button className="btn-logaut btn-yes" onClick={logout}>
+            <button className="btn-logout btn-yes" onClick={logout}>
               Да, выйти
             </button>
           </li>
           <li className="btn-item">
-            <button className="btn-logaut btn-no" onClick={() => onClose()}>
+            <button className="btn-logout btn-no" onClick={() => onClose()}>
               Нет, остаться
             </button>
           </li>
         </ul>
       </div>
     </div>,
-    modalRoot
+    modalRoot,
   );
 };
 export default ModalLogout;

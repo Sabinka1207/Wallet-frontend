@@ -5,13 +5,13 @@ import * as Yup from 'yup';
 // import moment from 'moment';
 import Loader from '../Loader/Loader';
 import axios from 'axios';
-import Select from 'react-select';
 import { error } from '../../redux/transactions/transactionsSelectors';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ModalSelectBackground from './ModalSelectBackground';
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
@@ -156,6 +156,7 @@ function ModalForm({ closeModal }) {
                           </option>
                         ))}
                     </Field>
+                    {/* <ModalSelectBackground array={incomeCategories} /> */}
                   </>
                 ) : (
                   <>
@@ -184,6 +185,7 @@ function ModalForm({ closeModal }) {
                           </option>
                         ))}
                     </Field>
+                    {/* <ModalSelectBackground array={spendingCategories} /> */}
                   </>
                 )}
                 <span className="Select__focus"></span>
