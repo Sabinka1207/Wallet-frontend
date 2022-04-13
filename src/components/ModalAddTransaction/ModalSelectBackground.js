@@ -1,7 +1,7 @@
 import Loader from '../Loader/Loader';
 import SelectOption from './SelectOption';
 
-function ModalSelectBackground({ income, categories }) {
+function ModalSelectBackground({ income, categories, setCategory }) {
   const incomeCategories = categories.filter(
     category => category.type === 'income',
   );
@@ -10,32 +10,40 @@ function ModalSelectBackground({ income, categories }) {
   );
 
   return (
-    <div id="select-box" className="FakeSelect">
-      <div className="FakeSelect__backdrop">
-        {' '}
+    <>
+      {' '}
+      <div id="select-box" className="FakeSelect">
         <input type="checkbox" id="options-view-button" />
         <div id="select-button" className="brd">
           <div id="selected-value">
-            <span>Выберите категорию</span>
+            <span className="selected-span">Выберите категорию</span>
           </div>
-          {/* <div id="chevrons">
-          <i className="fas fa-chevron-up"></i>
-          <i className="fas fa-chevron-down"></i>
-        </div> */}
         </div>
         <div id="options">
+          <div className="FakeSelect__backdrop"></div>{' '}
           {income
             ? incomeCategories.map(({ _id, nameDropdown }) => (
-                <SelectOption key={_id} value={_id} name={nameDropdown} />
+                <SelectOption
+                  key={_id}
+                  value={_id}
+                  name={nameDropdown}
+                  addClass="income"
+                  setCategory={setCategory}
+                />
               ))
             : spendingCategories.map(({ _id, nameDropdown }) => (
-                <SelectOption key={_id} value={_id} name={nameDropdown} />
+                <SelectOption
+                  key={_id}
+                  value={_id}
+                  name={nameDropdown}
+                  addClass="spending"
+                  setCategory={setCategory}
+                />
               ))}
-
-          <div id="option-bg"></div>
+          {/* <div id="option-bg"></div> */}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

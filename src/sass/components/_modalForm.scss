@@ -148,6 +148,10 @@ cursor: pointer;
   
 }
 
+.hidden-select{
+  display: none;
+}
+
 
 
 .Select:focus+.Select__focus {

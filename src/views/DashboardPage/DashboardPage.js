@@ -46,9 +46,9 @@ function DashboardPage() {
                 )}
               </div>
             </aside>
-            {/* <section className="dashboardPageMain">
+            <section className="dashboardPageMain">
               {location.pathname !== '/currency' && <Outlet />}
-            </section> */}
+            </section>
           </div>
         </div>
       </main>

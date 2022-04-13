@@ -8,18 +8,15 @@ import axios from 'axios';
 import { error } from '../../redux/transactions/transactionsSelectors';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalSelectBackground from './ModalSelectBackground';
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
-  const checkError = useSelector(error);
 
   const [income, setIncome] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState(null);
-  const [placeholder, showPlaceholder] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState('null');
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
 
@@ -31,15 +28,6 @@ function ModalForm({ closeModal }) {
       .catch(error => console.log(error.message))
       .finally(() => setIsLoading(false));
   }, []);
-
-  const notify = () => toast('Wow so easy !');
-
-  const incomeCategories = categories.filter(
-    category => category.type === 'income',
-  );
-  const spendingCategories = categories.filter(
-    category => category.type === 'spending',
-  );
 
   // const yesterday = moment().subtract(1, 'day');
   // const valid = current => {
@@ -55,7 +43,7 @@ function ModalForm({ closeModal }) {
 
   const initialValues = {
     income: income,
-    category: '',
+    category: currentCategory,
     amount: '',
     date: today,
     comment: '',
@@ -72,8 +60,9 @@ function ModalForm({ closeModal }) {
   });
 
   const handleSubmit = (values, { resetForm, setSubmitting }) => {
-    const { category, amount, date, comment = '' } = values;
-    const object = { income, category, amount, date, comment };
+    const { amount, date, comment = '' } = values;
+    const object = { income, category: currentCategory, amount, date, comment };
+    console.log(object);
     dispatch(addTransaction(object));
     setSubmitting(false);
     closeModal();
@@ -130,64 +119,16 @@ function ModalForm({ closeModal }) {
               <Loader color="var(--black)" />
             ) : (
               <div className="Modal__select">
+                <Field
+                  name="category"
+                  className="hidden-select"
+                  value={currentCategory}
+                ></Field>
                 <ModalSelectBackground
                   income={income}
                   categories={categories}
+                  setCategory={setCurrentCategory}
                 />
-                {income ? (
-                  <>
-                    <Field
-                      as="select"
-                      className="Modal__input Select Select__income "
-                      name="category"
-                    >
-                      <option
-                        className="Select__blocked"
-                        disabled
-                        hidden={placeholder}
-                      >
-                        Выберите категорию
-                      </option>
-                      {incomeCategories.length > 0 &&
-                        incomeCategories.map(({ _id, nameDropdown }) => (
-                          <option
-                            className="Select__option"
-                            key={_id}
-                            value={_id}
-                          >
-                            {nameDropdown}
-                          </option>
-                        ))}
-                    </Field>
-                  </>
-                ) : (
-                  <>
-                    <Field
-                      as="select"
-                      className="Modal__input Select Select__spending "
-                      name="category"
-                    >
-                      <option
-                        className="Select__blocked"
-                        disabled
-                        hidden={placeholder}
-                      >
-                        Выберите категорию
-                      </option>
-                      {spendingCategories.length > 0 &&
-                        spendingCategories.map(({ _id, nameDropdown }) => (
-                          <option
-                            className="Select__option"
-                            key={_id}
-                            value={_id}
-                          >
-                            {nameDropdown}
-                          </option>
-                        ))}
-                    </Field>
-                  </>
-                )}
-                <span className="Select__focus"></span>
                 <ErrorMessage
                   component="div"
                   name="category"
