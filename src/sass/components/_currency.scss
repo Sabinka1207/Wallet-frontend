@@ -1,4 +1,4 @@
-.table{
+.tableCurrency{
     padding: 10px 20px 10px;
     width: 280px;
     height: 174px;
@@ -71,13 +71,13 @@
     }
 }
 
-.tableHead{
+.tableCurrencyHead{
     font-weight: 700;
     font-size: 18px;
     line-height: 1.5;
 }
 
-.tableHeadItem{
+.tableCurrencyHeadItem{
 padding-bottom: 10px;
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {}
@@ -87,7 +87,7 @@ padding-bottom: 10px;
 }
 }
 
-.tableBody{
+.tableCurrencyBody{
     position: relative;
 
     font-size: 16px;

@@ -1117,7 +1117,7 @@ button[disabled]:focus {
   color: var(--black);
 }
 
-.table {
+.tableCurrency {
   padding: 10px 20px 10px;
   width: 280px;
   height: 174px;
@@ -1132,14 +1132,14 @@ button[disabled]:focus {
 }
 
 @media screen and (max-width: 767px) {
-  .table {
+  .tableCurrency {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .table {
+  .tableCurrency {
     width: 336px;
     height: 182px;
     background-image: url(/public/image/table/currency_background_mount_table@1x.png), url(/public/image/table/currency_backgroud_head_table@1x.png);
@@ -1148,7 +1148,7 @@ button[disabled]:focus {
 }
 
 @media screen and (min-width: 1280px) {
-  .table {
+  .tableCurrency {
     padding: 15px 20px 134px;
     width: 393px;
     height: 347px;
@@ -1158,43 +1158,43 @@ button[disabled]:focus {
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
-  .table {
+  .tableCurrency {
     background-image: url(/public/image/mobile/currency_background_mount_mobile@2x.png), url(/public/image/mobile/currency_backgroud_head_mobile@2x.png);
     background-size: auto 96px, auto 50px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .table {
+  .tableCurrency {
     background-image: url(/public/image/table/currency_background_mount_table@2x.png), url(/public/image/table/currency_backgroud_head_table@2x.png);
     background-size: auto 115px, auto 46px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (min-resolution: 192dpi) and (min-width: 1200px), screen and (min-resolution: 2dppx) and (min-width: 1200px) {
-  .table {
+  .tableCurrency {
     background-image: url(/public/image/desktop/currency_background_mount_desktop@2x.png), url(/public/image/desktop/currency_backgroud_head_desktop@2x.png);
     background-size: auto 134px, auto 60px;
   }
 }
 
-.tableHead {
+.tableCurrencyHead {
   font-weight: 700;
   font-size: 18px;
   line-height: 1.5;
 }
 
-.tableHeadItem {
+.tableCurrencyHeadItem {
   padding-bottom: 10px;
 }
 
 @media screen and (min-width: 1280px) {
-  .tableHeadItem {
+  .tableCurrencyHeadItem {
     padding-bottom: 30px;
   }
 }
 
-.tableBody {
+.tableCurrencyBody {
   position: relative;
   font-size: 16px;
   line-height: 1.5;
