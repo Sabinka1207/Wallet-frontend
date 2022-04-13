@@ -14,7 +14,7 @@ export default function HomeTab() {
 
   useEffect(() => {
     dispatch(fetchTransactions());
-  }, []);
+  }, [dispatch, transactions.length]);
 
   const newTransactios= [...transactions].sort((firstTransaction, nextTransaction ) => {
       return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
@@ -23,7 +23,7 @@ export default function HomeTab() {
 
   return (
     <div>
-      {!transactions && (
+      {!sortTransactions && (
         <div className="emptyTransaction">
           <img src={empty} alt="empty" height={40} />
           <p className="emptyTransactionText">
@@ -31,7 +31,7 @@ export default function HomeTab() {
           </p>
         </div>
       )}
-      {transactions && (
+      {sortTransactions && (
         <div>
           <table className="tableContainer mobilehidden">
             <tbody>
@@ -44,7 +44,7 @@ export default function HomeTab() {
                 <th className="tabelHeader_item">Баланс</th>
               </tr>
 
-              {transactions.map(transaction => (
+              {sortTransactions.map(transaction => (
                 <tr className="tableRow_item" key={transaction._id}>
                   <td>{moment(transaction.date).format("DD.MM.YY")}</td>
                   <td>
@@ -68,7 +68,7 @@ export default function HomeTab() {
             </tbody>
           </table>
           <ul className="mobileOnly">
-            {transactions.map(transaction => (
+            {sortTransactions.map(transaction => (
               <li
                 className={
                   transaction.income
