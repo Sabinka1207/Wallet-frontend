@@ -1571,7 +1571,7 @@ button[disabled]:focus {
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
-    olor: #E7EAF2;
+    background-color: #E7EAF2;
   }
   .loginPageIMGContainer {
     display: block;
