@@ -10,18 +10,27 @@
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 100;
 }
-.modal-logaut {
+.modal-logout {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 10px 30px;
-  width: 250px;
-  height: 300px;
+
   background-color: var(--white);
   border-radius: 20px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (max-width: 479.99px) {
+      width: 100vw;
+  height: 100vh;
+  }
+
+    @media screen and (min-width: 480px) {
+      width: 50vw;
+      height: 50vh;
+    }
+
+  @media screen and (min-width: 768px) {
     width: 500px;
     height: 200px;
   }
@@ -31,7 +40,7 @@
     height: 150px;
   }
 }
-.modal-logaut-text {
+.modal-logout-text {
   display: block;
   padding: 0;
   margin: 0;
@@ -65,7 +74,7 @@
     margin-right: 30px;
   }
 }
-.btn-logaut {
+.btn-logout {
   width: 230px;
   height: 40px;
   font-weight: 400;

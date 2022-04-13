@@ -214,6 +214,9 @@ color: tomato;
 }
 
 @media screen and (min-width: 768px) {
+  .Modal__form {
+    width: 100%;
+  }
   .Modal__container {
     display: flex;
     flex-direction: row;
@@ -234,6 +237,7 @@ color: tomato;
   }
 
   .Modal__date {
+    margin-top: 0;
     width: 180px;
   }
 }

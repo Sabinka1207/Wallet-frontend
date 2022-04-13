@@ -6,8 +6,8 @@ import { authSelectors } from '../../redux/auth';
 
 import LogoWallet from '../LogoWallet/LogoWallet';
 import ModalLogout from '../ModalLogout/ModalLogout';
-
-import logout from '../../img/icons/logout.svg';
+import { ReactComponent as LogoutIcon } from '../../img/icons/logout.svg';
+// import logout from '../../img/icons/logout.svg';
 import '../../css/main.min.css';
 
 function Header() {
@@ -31,7 +31,8 @@ function Header() {
             onClick={toggleModal}
             className="headerLogoutButton"
           >
-            <img className="headerLogoutImg" src={logout} alt="Выйти" />
+            {/* <img  src={logout} alt="Выйти" /> */}
+            <LogoutIcon className="headerLogoutImg" />
             <p className="headerLogout">Выйти</p>
           </button>
           {showModal && <ModalLogout onClose={toggleModal} />}

@@ -7,7 +7,7 @@
   box-shadow: var(--buttonGreenShadow);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
   .ButtonAdd {
     bottom: 20px;
     right: 20px;
@@ -21,7 +21,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.99px) {
 }
 
 @media screen and (min-width: 1280px) {

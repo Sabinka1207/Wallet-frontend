@@ -269,7 +269,7 @@ button {
           box-shadow: var(--buttonGreenShadow);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
   .ButtonAdd {
     bottom: 20px;
     right: 20px;
@@ -753,6 +753,9 @@ button {
 }
 
 @media screen and (min-width: 768px) {
+  .Modal__form {
+    width: 100%;
+  }
   .Modal__container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -788,8 +791,53 @@ button {
     text-align: center;
   }
   .Modal__date {
+    margin-top: 0;
     width: 180px;
   }
+}
+
+.ModalSelectBackground {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  position: absolute;
+  z-index: 500;
+}
+
+.ModalSelectBackground__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ModalSelectBackground__placeholder {
+  color: var(--grayFour);
+}
+
+.ModalSelectBackground__list {
+  display: none;
+  position: absolute;
+}
+
+.ModalSelectBackground__placeholder:active .ModalSelectBackground__list {
+  display: block;
+}
+
+.Select:active {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  z-index: 0;
 }
 
 .formComponentLog {
@@ -1212,26 +1260,26 @@ button[disabled]:focus {
   line-height: 1.5;
 }
 
-.tableItemLeft {
+.tableCurrencyItemLeft {
   text-align: left;
 }
 
 @media screen and (min-width: 1280px) {
-  .tableItemLeft {
+  .tableCurrencyItemLeft {
     text-align: center;
   }
 }
 
-.tableItemCenter {
+.tableCurrencyItemCenter {
   text-align: center;
 }
 
-.tableItemRight {
+.tableCurrencyItemRight {
   text-align: right;
 }
 
 @media screen and (min-width: 1280px) {
-  .tableItemRight {
+  .tableCurrencyItemRight {
     text-align: center;
   }
 }
@@ -1277,6 +1325,9 @@ button[disabled]:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: var(--additionalFont);
   font-size: 18px;
   line-height: 1.5;
@@ -1520,7 +1571,7 @@ button[disabled]:focus {
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
-    background-color: #E7EAF2;
+    olor: #E7EAF2;
   }
   .loginPageIMGContainer {
     display: block;
@@ -1776,7 +1827,7 @@ button[disabled]:focus {
   z-index: 100;
 }
 
-.modal-logaut {
+.modal-logout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1791,27 +1842,39 @@ button[disabled]:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px 30px;
-  width: 250px;
-  height: 300px;
   background-color: var(--white);
   border-radius: 20px;
 }
 
-@media screen and (min-width: 767px) {
-  .modal-logaut {
+@media screen and (max-width: 479.99px) {
+  .modal-logout {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .modal-logout {
+    width: 50vw;
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-logout {
     width: 500px;
     height: 200px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .modal-logaut {
+  .modal-logout {
     width: 550px;
     height: 150px;
   }
 }
 
-.modal-logaut-text {
+.modal-logout-text {
   display: block;
   padding: 0;
   margin: 0;
@@ -1824,7 +1887,7 @@ button[disabled]:focus {
 }
 
 @media screen and (min-width: 767px) {
-  .modal-logaut-text {
+  .modal-logout-text {
     margin-bottom: 20px;
   }
 }
@@ -1861,7 +1924,7 @@ button[disabled]:focus {
   }
 }
 
-.btn-logaut {
+.btn-logout {
   width: 230px;
   height: 40px;
   font-weight: 400;
@@ -1876,13 +1939,13 @@ button[disabled]:focus {
 }
 
 @media screen and (max-width: 767px) {
-  .btn-logaut {
+  .btn-logout {
     width: 190px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .btn-logaut {
+  .btn-logout {
     width: 200px;
   }
 }
