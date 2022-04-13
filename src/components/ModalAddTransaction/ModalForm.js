@@ -156,6 +156,7 @@ function ModalForm({ closeModal }) {
                           </option>
                         ))}
                     </Field>
+                    {/* <ModalSelectBackground array={incomeCategories} /> */}
                   </>
                 ) : (
                   <>
@@ -184,6 +185,7 @@ function ModalForm({ closeModal }) {
                           </option>
                         ))}
                     </Field>
+                    {/* <ModalSelectBackground array={spendingCategories} /> */}
                   </>
                 )}
                 <span className="Select__focus"></span>
