@@ -117,6 +117,7 @@ function ModalForm({ closeModal }) {
           Расход
         </span>
       </div>
+
       <Formik
         initialValues={initialValues}
         validationSchema={validate}
@@ -129,6 +130,11 @@ function ModalForm({ closeModal }) {
               <Loader color="var(--black)" />
             ) : (
               <div className="Modal__select">
+                <ModalSelectBackground
+                  income={income}
+                  incomeCategories={incomeCategories}
+                  spendingCategories={spendingCategories}
+                />
                 {income ? (
                   <>
                     <Field
