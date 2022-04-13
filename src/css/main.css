@@ -111,7 +111,7 @@ button {
 }
 
 .dashboardPageContainer {
-  height: 100vh;
+  height: 100%;
   background: #E7EAF2;
 }
 
@@ -301,6 +301,9 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Modal__close {
@@ -346,6 +349,16 @@ button {
 
 .Modal__body {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .Modal__body > *:not(:last-child) {
@@ -468,7 +481,7 @@ button {
   color: var(--accentRoseColor);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
   .ModalAddTransaction {
     height: 100%;
     width: 100vw;
@@ -528,7 +541,8 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .Modal__form > *:not(:last-child) {
@@ -638,6 +652,7 @@ button {
 
 .Modal__date {
   position: relative;
+  border-bottom: 1px solid var(--grayFour);
   background-image: url("/src/img/icons/calendar.svg");
   background-repeat: no-repeat;
   background-position: top 2px right 10px;
@@ -674,13 +689,9 @@ button {
   background-position: top 10px right 10px;
   background-repeat: no-repeat;
   height: 30px;
-  border: 1px solid #999;
   font-size: 18px;
-  color: var(--grayFour);
+  color: var(--black);
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
-  -webkit-box-shadow: 394px 352px #ccc;
-          box-shadow: 394px 352px #ccc;
 }
 
 .Select::-ms-expand {
@@ -693,7 +704,6 @@ button {
   left: -1px;
   right: -1px;
   bottom: -1px;
-  border: 2px solid var(--black);
   border-radius: inherit;
   border-radius: 5px;
 }
@@ -713,7 +723,6 @@ button {
 
 .Select option {
   margin: 40px;
-  background-color: rgba(255, 255, 255, 0.3);
   color: var(--black);
 }
 
@@ -731,7 +740,10 @@ button {
   color: tomato;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
+  .Modal__form {
+    width: 280px;
+  }
   .Modal__date {
     margin-top: 40px;
   }
