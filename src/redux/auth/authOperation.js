@@ -68,7 +68,7 @@ const logIn = createAsyncThunk(
 );
 
 /*
- * POST, /users/loguot
+ * GET, /users/logout
  */
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {

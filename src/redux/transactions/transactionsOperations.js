@@ -13,15 +13,6 @@ const toastMessage = errorMessage => {
 
 // axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = "";
-//   },
-// };
-
 // import {
 //     fetchTransactionsRequst,
 //     fetchTransactionsSuccess,
@@ -43,17 +34,7 @@ const toastMessage = errorMessage => {
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetch',
   async (_, thunkAPI) => {
-    // const state = thunkAPI.getState();
-    // const persistedToken = state.auth.token;
-
-    // if (persistedToken === null) {
-    //   return thunkAPI.rejectWithValue();
-    // }
-
-    // token.set(persistedToken);
-
     try {
-      // axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5OTc4ZGY5OTNkODFmNTVlNjJlMSIsImlhdCI6MTY0OTcwNjk3MywiZXhwIjoxNjQ5NzEwNTczfQ.IHeBEnPyiZFUzCgAEI4PRyh7DYUwhPPIv5rsbXvguuo`;
       const { data } = await axios.get('/transactions');
       return data.data.response;
     } catch (error) {

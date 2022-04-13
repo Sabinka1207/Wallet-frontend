@@ -1,33 +1,36 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTransactions } from '../../redux/transactions/transactionsOperations';
-import ButtonAddTransactions from '../ButtonAddTransactions/ButtonAddTransactions';
-import '../../css/main.min.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTransactions } from "../../redux/transactions/transactionsOperations";
+import ButtonAddTransactions from "../ButtonAddTransactions/ButtonAddTransactions";
+import "../../css/main.min.css";
 
-const moment = require('moment');
+import empty from "../../img/icons/empty.svg";
+
+const moment = require("moment");
 
 export default function HomeTab() {
   const dispatch = useDispatch();
-  const transactions = useSelector(state => state.transactions.data);
+  const transactions = useSelector((state) => state.transactions.data);
 
-  // console.log('data', transactions);
+  
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
 
-  // const sortTransactions = [...transactions].sort((firstTransaction, nextTransaction ) => {
-  //      return (new Date(firstTransaction.date)) - (new Date(nextTransaction.date))
-  // })
+  const newTransactios= [...transactions].sort((firstTransaction, nextTransaction ) => {
+      return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
+
+  const sortTransactions = newTransactios.slice([0],[6])
 
   return (
-    <div
-      className="test
-        "
-    >
+    <div>
       {!transactions && (
-        <div>
-          <span>У вас нет контактов!</span>
+        <div className="emptyTransaction">
+          <img src={empty} alt="empty" height={40} />
+          <p className="emptyTransactionText">
+            У вас еще нет доходов и расходов...
+          </p>
         </div>
       )}
       {transactions && (
@@ -43,9 +46,9 @@ export default function HomeTab() {
                 <th className="tabelHeader_item">Баланс</th>
               </tr>
 
-              {transactions.map(transaction => (
+              {sortTransactions.map(transaction => (
                 <tr className="tableRow_item" key={transaction._id}>
-                  <td>{moment(transaction.date).format('DD.MM.YY')}</td>
+                  <td>{moment(transaction.date).format("DD.MM.YY")}</td>
                   <td>
                     {transaction.income === true && <span>+</span>}
                     {transaction.income === false && <span>-</span>}
@@ -55,8 +58,8 @@ export default function HomeTab() {
                   <td
                     className={
                       transaction.income
-                        ? 'transactionIncomeTrue'
-                        : 'transactionIncomeFalse'
+                        ? "transactionIncomeTrue"
+                        : "transactionIncomeFalse"
                     }
                   >
                     {transaction.amount}
@@ -67,23 +70,23 @@ export default function HomeTab() {
             </tbody>
           </table>
           <ul className="mobileOnly">
-            {transactions.map(transaction => (
+            {sortTransactions.map(transaction => (
               <li
                 className={
                   transaction.income
-                    ? 'transactionCardTrue transactionCard'
-                    : 'transactionCardFalse transactionCard'
+                    ? "transactionCardTrue transactionCard"
+                    : "transactionCardFalse transactionCard"
                 }
                 key={transaction._id}
               >
                 <table
                   className="transactionCardTable"
-                  style={{ width: '100%' }}
+                  style={{ width: "100%" }}
                 >
                   <tbody>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Дата</th>
-                      <td>{moment(transaction.date).format('DD.MM.YY')}</td>
+                      <td>{moment(transaction.date).format("DD.MM.YY")}</td>
                     </tr>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Тип</th>
@@ -105,8 +108,8 @@ export default function HomeTab() {
                       <td
                         className={
                           transaction.income
-                            ? 'transactionIncomeTrue'
-                            : 'transactionIncomeFalse'
+                            ? "transactionIncomeTrue"
+                            : "transactionIncomeFalse"
                         }
                       >
                         {transaction.amount}

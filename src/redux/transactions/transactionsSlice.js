@@ -35,8 +35,6 @@ const transactionsSlice = createSlice({
       state.isLoading = false;
       state.error = false;
 
-      console.log('state', state.data);
-      console.log('payload', payload);
     },
     [addTransaction.rejected](state, { payload }) {
       state.data = [];
