@@ -28,8 +28,8 @@ const transactionsSlice = createSlice({
     },
     [addTransaction.fulfilled](state, { payload }) {
       state.data = [...state.data, payload];
-      console.log('state', state.data);
-      console.log('payload', payload);
+      // console.log('state', state.data);
+      // console.log('payload', payload);
     },
   },
 });

@@ -2001,20 +2001,20 @@ button[disabled]:focus {
   text-align: start;
 }
 
-.transactionIncomeTrue {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ff6596;
-}
-
 .transactionIncomeFalse {
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #24cca7;
+  color: #FF6596;
+}
+
+.transactionIncomeTrue {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #24CCA7;
 }
 
 .transactionCard {
@@ -2055,25 +2055,10 @@ button[disabled]:focus {
 }
 
 .transactionCardTrue {
-  border-left: 5px solid #ff6596;
+  border-left: 5px solid #24CCA7;
 }
 
 .transactionCardFalse {
-  border-left: 5px solid #24cca7;
-}
-
-.emptyTransaction {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-}
-
-.emptyTransactionText {
-  margin-top: 10px;
+  border-left: 5px solid #FF6596;
 }
 /*# sourceMappingURL=main.css.map */
