@@ -10,21 +10,19 @@ export default function HomeTab() {
   const dispatch = useDispatch();
   const transactions = useSelector(state => state.transactions.data);
 
-  // console.log('data', transactions);
+  
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
 
-  // const sortTransactions = [...transactions].sort((firstTransaction, nextTransaction ) => {
-  //      return (new Date(firstTransaction.date)) - (new Date(nextTransaction.date))
-  // })
+  const newTransactios= [...transactions].sort((firstTransaction, nextTransaction ) => {
+      return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
+
+  const sortTransactions = newTransactios.slice([0],[6])
 
   return (
-    <div
-      className="test
-        "
-    >
+    <div>
       {!transactions && (
         <div>
           <span>У вас нет контактов!</span>
@@ -43,7 +41,7 @@ export default function HomeTab() {
                 <th className="tabelHeader_item">Баланс</th>
               </tr>
 
-              {transactions.map(transaction => (
+              {sortTransactions.map(transaction => (
                 <tr className="tableRow_item" key={transaction._id}>
                   <td>{moment(transaction.date).format('DD.MM.YY')}</td>
                   <td>
@@ -67,7 +65,7 @@ export default function HomeTab() {
             </tbody>
           </table>
           <ul className="mobileOnly">
-            {transactions.map(transaction => (
+            {sortTransactions.map(transaction => (
               <li
                 className={
                   transaction.income
