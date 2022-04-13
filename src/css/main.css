@@ -1737,6 +1737,14 @@ button[disabled]:focus {
   }
 }
 
+.isFalse {
+  color: var(--accentRoseColor);
+}
+
+.isTrue {
+  color: var(--accentGreenColor);
+}
+
 .overlay {
   position: absolute;
   top: 0;

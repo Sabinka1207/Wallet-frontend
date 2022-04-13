@@ -12,21 +12,28 @@ import {
 import getStatistics from '../../redux/statistics/statisticsOperation';
 
 function DiagramTab() {
-  const [selectedMonth, setSelectedMonth] = useState({});
-  const [selectedYear, setSelectedYear] = useState({});
+  const currentMonth = new Date().getMonth()+1
+  const currentYear = new Date().getFullYear()
+  const [selectedMonth, setSelectedMonth] = useState(currentMonth);
+  const [selectedYear, setSelectedYear] = useState(currentYear);
+  
   const statistics = useSelector(getAllStatistics)
   const loading = useSelector(isLoading)
   const errorStat = useSelector(error)
   
-  console.log(statistics);
-
+  const expenses = statistics.filter((statistic) => !statistic.income)[0];
+  const income = statistics.filter((statistic) => statistic.income)[0];
+  // console.log('expenses:', expenses);
+  // console.log('income:', income);
   // const dispatch = useDispatch();
   
   // useEffect(()=>{
-  //     dispatch(getStatistics(
-  //       {month:1, year:2022}
+  //     dispatch(getStatistics({
+  //       month:selectedMonth, 
+  //       year:selectedYear
+  //     }
   //       ))      
-  // },[])
+  // },[selectedMonth, selectedYear])
 
   return (
     <div className="diagram">
@@ -34,13 +41,14 @@ function DiagramTab() {
         {statistics && 
           <div className="diagramTab">
             <Chart 
-            statData={statistics[0]}/>
+            chartData={expenses}/>
             <Table 
             valueMonth={selectedMonth}
             valueYear={selectedYear}
             selectedMonth={setSelectedMonth}
             selectedYear={setSelectedYear}
-            data={statistics[0]}
+            expenses={expenses}
+            income={income}
             /> 
           </div>
         } 

@@ -38,7 +38,7 @@ function Currency() {
         </tr>
       </thead>
 
-      <tbody className="tableBody">
+      {/* <tbody className="tableBody">
         {load && <Loader color="#fff" size="40" />}
         {currency.map((item) => (
           <tr key={item.ccy}>
@@ -51,7 +51,7 @@ function Currency() {
             </td>
           </tr>
         ))}
-      </tbody>
+      </tbody> */}
     </table>
   );
 }
