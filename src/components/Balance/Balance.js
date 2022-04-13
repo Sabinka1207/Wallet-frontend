@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { authSelectors } from '../../redux/auth';
+// import { authSelectors } from '../../redux/auth';
 
 import '../../css/main.min.css';
 
 function Balance() {
   const transactions = useSelector(state => state.transactions.data);
 
-  if (transactions.length === 0) {
+  if (!transactions || transactions.length === 0) {
     return <span>У вас еще нет ни одной транзакции! Баланс пустой</span>;
   } else {
     const balance = transactions[0].currentBalance;

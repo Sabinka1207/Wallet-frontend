@@ -32,11 +32,11 @@ const toastMessage = errorMessage => {
 //   };
 
 export const fetchTransactions = createAsyncThunk(
-  'transactions/fetch',
+  'transactions/fetchTransactions',
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/transactions');
-      return data.data.response;
+      return data.data.transactions;
     } catch (error) {
       // token.unset();
       alert('Your session has timed out. Please login again!');
