@@ -100,6 +100,7 @@ const fetchCurrentUser = createAsyncThunk(
     } catch (error) {
       token.unset();
       toastMessage('Время сессии истекло. Пожалуйста, войдите снова.');
+      return thunkAPI.rejectWithValue();
     }
   },
 );

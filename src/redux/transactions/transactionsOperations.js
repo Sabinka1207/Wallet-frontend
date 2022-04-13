@@ -51,13 +51,15 @@ export const addTransaction = createAsyncThunk(
       const { data } = await axios.post('/transactions', transaction);
       return data;
     } catch (error) {
-      console.log(error.response.status);
+      // console.log(error.response.status);
       if (error.response.status === 404) {
         toastMessage('Упс... Что-то пошло не так');
       } else if (error.response.status === 409) {
         toastMessage('Недостаточно средств');
       } else if (error.response.status === 400) {
         toastMessage('Неверно заполненная форма');
+      } else {
+        console.log(error);
       }
 
       return rejectWithValue(error);

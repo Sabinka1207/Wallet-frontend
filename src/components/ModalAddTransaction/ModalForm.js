@@ -2,16 +2,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 // import Datetime from 'react-datetime';
 // import 'react-datetime/css/react-datetime.css';
-import moment from 'moment';
+// import moment from 'moment';
 import Loader from '../Loader/Loader';
 import axios from 'axios';
 import Select from 'react-select';
-
-import {
-  isLoading,
-  error,
-} from '../../redux/transactions/transactionsSelectors';
-
+import { error } from '../../redux/transactions/transactionsSelectors';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,13 +15,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
+  const checkError = useSelector(error);
+
   const [income, setIncome] = useState(false);
 
   const [placeholder, showPlaceholder] = useState(false);
-  const setError = useSelector(error);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-  console.log('error?', setError);
+
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -80,8 +76,8 @@ function ModalForm({ closeModal }) {
     const object = { income, category, amount, date, comment };
     dispatch(addTransaction(object));
     setSubmitting(false);
-    resetForm();
     closeModal();
+    resetForm();
   };
 
   return (
@@ -135,7 +131,8 @@ function ModalForm({ closeModal }) {
               <div className="Modal__select">
                 {income ? (
                   <>
-                    <Select
+                    <Field
+                      as="select"
                       className="Modal__input Select Select__income "
                       name="category"
                       onClick={showPlaceholder(true)}
@@ -158,7 +155,7 @@ function ModalForm({ closeModal }) {
                             {nameDropdown}
                           </option>
                         ))}
-                    </Select>
+                    </Field>
                   </>
                 ) : (
                   <>
@@ -244,8 +241,9 @@ function ModalForm({ closeModal }) {
                 Добавить
               </button>
               <button
-                onClick={() => closeModal(false)}
+                onClick={() => closeModal()}
                 className="Modal__cancel"
+                type="button"
               >
                 Отмена
               </button>

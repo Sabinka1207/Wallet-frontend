@@ -301,6 +301,9 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Modal__close {
@@ -346,6 +349,16 @@ button {
 
 .Modal__body {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .Modal__body > *:not(:last-child) {
@@ -468,7 +481,7 @@ button {
   color: var(--accentRoseColor);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
   .ModalAddTransaction {
     height: 100%;
     width: 100vw;
@@ -528,7 +541,8 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .Modal__form > *:not(:last-child) {
@@ -726,7 +740,10 @@ button {
   color: tomato;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
+  .Modal__form {
+    width: 280px;
+  }
   .Modal__date {
     margin-top: 40px;
   }
