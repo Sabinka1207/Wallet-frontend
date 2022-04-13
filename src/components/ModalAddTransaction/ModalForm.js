@@ -23,10 +23,10 @@ function ModalForm({ closeModal }) {
   const [income, setIncome] = useState(false);
 
   const [placeholder, showPlaceholder] = useState(false);
-  // const loading = useSelector(isLoading);
+  const setError = useSelector(error);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-
+  console.log('error?', setError);
   useEffect(() => {
     setIsLoading(true);
     axios

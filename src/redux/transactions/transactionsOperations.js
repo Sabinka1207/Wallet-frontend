@@ -73,9 +73,12 @@ export const addTransaction = createAsyncThunk(
       console.log(error.response.status);
       if (error.response.status === 404) {
         toastMessage('Упс... Что-то пошло не так');
-      } else if (error.response.status == 409) {
+      } else if (error.response.status === 409) {
         toastMessage('Недостаточно средств');
+      } else if (error.response.status === 400) {
+        toastMessage('Неверно заполненная форма');
       }
+
       return rejectWithValue(error);
     }
   },
