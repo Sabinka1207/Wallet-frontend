@@ -12,11 +12,9 @@ export default function HomeTab() {
   const dispatch = useDispatch();
   const transactions = useSelector((state) => state.transactions.data);
 
-  
-
   useEffect(() => {
     dispatch(fetchTransactions());
-  }, [dispatch]);
+  }, []);
 
   const newTransactios= [...transactions].sort((firstTransaction, nextTransaction ) => {
       return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
@@ -46,7 +44,7 @@ export default function HomeTab() {
                 <th className="tabelHeader_item">Баланс</th>
               </tr>
 
-              {sortTransactions.map(transaction => (
+              {transactions.map(transaction => (
                 <tr className="tableRow_item" key={transaction._id}>
                   <td>{moment(transaction.date).format("DD.MM.YY")}</td>
                   <td>
@@ -70,7 +68,7 @@ export default function HomeTab() {
             </tbody>
           </table>
           <ul className="mobileOnly">
-            {sortTransactions.map(transaction => (
+            {transactions.map(transaction => (
               <li
                 className={
                   transaction.income
