@@ -13,7 +13,7 @@ import "../../css/main.min.css";
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 function DashboardPage() {
-  const [screenWidth, setScreenWidth] = useState(window.screen.width);
+  const [isDesktopOrTable, setIsDesktopOrTable] = useState(true);
   const location = useLocation();
   const dispatch = useDispatch();
 
