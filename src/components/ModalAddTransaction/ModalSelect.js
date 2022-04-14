@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import ModalSelectOption from './ModalSelectOption';
 
-function ModalSelect({ income, categories, setCategory }) {
+function ModalSelect({ income, categories, setCategory, currentCategory }) {
+  const [select, openSelect] = useState(false);
   const incomeCategories = categories.filter(
     category => category.type === 'income',
   );
@@ -11,10 +13,19 @@ function ModalSelect({ income, categories, setCategory }) {
   return (
     <>
       <div id="select-box" className="ModalSelect">
-        <input type="checkbox" id="options-view-button" />
+        <input
+          type="checkbox"
+          id="options-view-button"
+          onClick={() => openSelect(!select)}
+        />
         <div id="select-button">
           <div id="selected-value">
-            <span>Выберите категорию</span>
+            <span
+              className="ModalSelect__selected"
+              style={{ opacity: currentCategory === 'null' ? '1' : '0' }}
+            >
+              Выберите категорию
+            </span>
           </div>
         </div>
         <div id="options">
@@ -26,6 +37,8 @@ function ModalSelect({ income, categories, setCategory }) {
                   name={nameDropdown}
                   addClass="income"
                   setCategory={setCategory}
+                  currentCategory={currentCategory}
+                  select={select}
                 />
               ))
             : spendingCategories.map(({ _id, nameDropdown }) => (
@@ -35,6 +48,8 @@ function ModalSelect({ income, categories, setCategory }) {
                   name={nameDropdown}
                   addClass="spending"
                   setCategory={setCategory}
+                  currentCategory={currentCategory}
+                  select={select}
                 />
               ))}
         </div>
