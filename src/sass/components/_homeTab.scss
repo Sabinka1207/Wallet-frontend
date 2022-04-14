@@ -40,7 +40,7 @@
   background-color: #fff;
   border-radius: 30px;
   text-align: center;
-  border-bottom: 1px solid #dcdcdf;
+  // border-bottom: 1px solid #dcdcdf;
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 
   th:nth-child(1) {
@@ -157,4 +157,38 @@
 
 .transactionCardFalse {
     border-left: 5px solid #FF6596;
+}
+
+.emptyTransaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyTransactionText{
+  margin-top: 30px;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #BDBDBD;
+  text-align: center;
+}
+
+.emptyTransaction_wraper {
+  // background-color: yellow;
+  height: 100%;
+  margin-top: 240px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: 769px) {
+    margin-top: 35px;
+  }
 }

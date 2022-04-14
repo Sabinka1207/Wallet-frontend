@@ -14,24 +14,27 @@ export default function HomeTab() {
 
   useEffect(() => {
     dispatch(fetchTransactions());
-  }, []);
+  }, [dispatch, transactions.length]);
 
   const newTransactios= [...transactions].sort((firstTransaction, nextTransaction ) => {
       return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
 
   const sortTransactions = newTransactios.slice([0],[6])
+  console.log(sortTransactions);
 
   return (
-    <div>
-      {!transactions && (
-        <div className="emptyTransaction">
-          <img src={empty} alt="empty" height={40} />
-          <p className="emptyTransactionText">
-            У вас еще нет доходов и расходов...
-          </p>
+    <div> 
+      {(!sortTransactions || transactions.length === 0) && (
+        <div className="emptyTransaction_wraper">
+          <div className="emptyTransaction">
+            <img src={empty} alt="empty" height={80} className="emptyTransaction-icon" />
+            <p className="emptyTransactionText">
+              У вас еще нет доходов и расходов...
+            </p>
+          </div>
         </div>
       )}
-      {transactions && (
+      {(transactions.length>0) && (
         <div>
           <table className="tableContainer mobilehidden">
             <tbody>
@@ -44,7 +47,7 @@ export default function HomeTab() {
                 <th className="tabelHeader_item">Баланс</th>
               </tr>
 
-              {transactions.map(transaction => (
+              {sortTransactions.map(transaction => (
                 <tr className="tableRow_item" key={transaction._id}>
                   <td>{moment(transaction.date).format("DD.MM.YY")}</td>
                   <td>
@@ -68,7 +71,7 @@ export default function HomeTab() {
             </tbody>
           </table>
           <ul className="mobileOnly">
-            {transactions.map(transaction => (
+            {sortTransactions.map(transaction => (
               <li
                 className={
                   transaction.income
