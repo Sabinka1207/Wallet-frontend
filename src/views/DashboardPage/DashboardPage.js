@@ -12,8 +12,14 @@ import "../../css/main.min.css";
 
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
+import '../../css/main.min.css';
+import { useDispatch } from "react-redux";
+import getStatistics from "../../redux/statistics/statisticsOperation";
+import { useEffect, useState } from "react";
+
 function DashboardPage() {
-  const [screenWidth, setScreenWidth] = useState(window.screen.width);
+  const currentMonth = new Date().getMonth()+1
+  const currentYear = new Date().getFullYear()
   const location = useLocation();
   const dispatch = useDispatch();
 
