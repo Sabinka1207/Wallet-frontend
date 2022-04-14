@@ -62,7 +62,7 @@ function DashboardPage() {
             </section>
           </div>
         </div>
-        <ButtonAddTransaction />
+        {location.pathname === "/home" && <ButtonAddTransaction />}       
       </main>
       {loading && <Loader />}
     </>
