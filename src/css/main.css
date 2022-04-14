@@ -122,8 +122,10 @@ button {
 @media screen and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -133,8 +135,10 @@ button {
 @media screen and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
+    background-size: 490px auto,
+ 550px auto;
+    background-position: bottom,
+ top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -144,10 +148,14 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
   }
 }
@@ -155,10 +163,14 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@2x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@2x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto,
+ 550px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
   }
 }
@@ -389,102 +401,6 @@ button {
       align-content: space-around;
 }
 
-.Switcher {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.Switcher__control {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  position: relative;
-  width: 80px;
-  height: 40px;
-  border-radius: 30px;
-  margin: 0 20px;
-}
-
-.Switcher__toggle {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-  height: 0;
-  width: 0;
-  pointer-events: none;
-}
-
-.Switcher__track {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-color: var(--white);
-  border: 1px solid var(--grayFive);
-  border-radius: inherit;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.Switcher__marker {
-  position: relative;
-  background-color: var(--accentGreenColor);
-  background-image: url("/src/img/icons/add.svg");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  z-index: 2;
-  pointer-events: none;
-  -webkit-box-shadow: var(--buttonGreenShadow);
-          box-shadow: var(--buttonGreenShadow);
-}
-
-.Switcher__toggle:checked ~ .Switcher__marker {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  background-color: var(--accentRoseColor);
-  background-image: url(/src/img/icons/spending-button.svg);
-  -webkit-box-shadow: var(--buttonRoseShadow);
-          box-shadow: var(--buttonRoseShadow);
-}
-
-.Switcher__option {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--grayFive);
-}
-
-.Switcher__toggle:checked ~ .Switcher__income {
-  color: var(--grayFive);
-}
-
-.Switcher__toggle:checked ~ .Switcher__spending {
-  color: var(--accentRoseColor);
-}
-
 @media screen and (max-width: 767.99px) {
   .ModalAddTransaction {
     height: 100%;
@@ -574,22 +490,6 @@ button {
   border-bottom: 1px solid var(--grayFour);
 }
 
-.form-control {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: transparent;
-  border: none;
-  padding: 0 1em 0 0;
-  margin: 0;
-  font-family: inherit;
-  font-style: normal;
-  font-size: 18px;
-  outline: none;
-  cursor: inherit;
-  line-height: inherit;
-}
-
 .Modal__input::-webkit-input-placeholder {
   font-family: var(--additionalFont);
   color: var(--grayFour);
@@ -665,6 +565,7 @@ button {
 
 .Modal__container {
   width: 100%;
+  margin-top: 25px;
 }
 
 .formikError {
@@ -677,72 +578,110 @@ button {
   resize: none;
 }
 
+.ModalForm__switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ModalForm__switcher-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 30px;
+  margin: 0 20px;
+}
+
+.ModalForm__switcher-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.ModalForm__switcher-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: var(--white);
+  border: 1px solid var(--grayFive);
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.ModalForm__switcher-marker {
+  position: relative;
+  background-color: var(--accentGreenColor);
+  background-image: url("/src/img/icons/add.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-box-shadow: var(--buttonGreenShadow);
+          box-shadow: var(--buttonGreenShadow);
+}
+
+.ModalForm__switcher-toggle:checked ~ .ModalForm__switcher-marker {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background-color: var(--accentRoseColor);
+  background-image: url(/src/img/icons/spending-button.svg);
+  -webkit-box-shadow: var(--buttonRoseShadow);
+          box-shadow: var(--buttonRoseShadow);
+}
+
+.ModalForm__switcher-option {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--grayFive);
+}
+
+.ModalForm__switcher-toggle:checked ~ .ModalForm__switcher-income {
+  color: var(--grayFive);
+}
+
+.ModalForm__switcher-toggle:checked ~ .ModalForm__switcher-spending {
+  color: var(--accentRoseColor);
+}
+
 .Modal__select {
   position: relative;
   width: 100%;
   cursor: pointer;
 }
 
-.Select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  position: relative;
-  outline: none;
-  height: 30px;
-  font-size: 18px;
-  color: var(--black);
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.Select::-ms-expand {
-  display: none;
-}
-
 .hidden-select {
   display: none;
-}
-
-.Select:focus + .Select__focus {
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  border-radius: inherit;
-  border-radius: 5px;
-}
-
-.Select__disabled {
-  cursor: not-allowed;
-  color: var(--grayFour);
-  font-weight: 400;
-}
-
-.Modal__arrow {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.Select option {
-  margin: 40px;
-  color: var(--black);
-}
-
-.Select option:hover {
-  background-color: var(--black);
-  color: var(--black);
-}
-
-.Select__blocked {
-  position: absolute;
-}
-
-.Select__option:hover {
-  background-color: tomato;
-  color: tomato;
 }
 
 @media screen and (max-width: 767.99px) {
@@ -801,44 +740,13 @@ button {
   }
 }
 
-.FakeSelect {
+.ModalSelect {
   position: absolute;
   left: 0;
   top: -10px;
   z-index: 200;
   width: 100%;
   font-size: 18px;
-}
-
-.FakeSelect__backdrop {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-}
-
-#info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  color: #2d3667;
-  font-size: 16px;
-  text-align: center;
-  padding: 14px;
-}
-
-#app-cover {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 300px;
-  height: 42px;
-  margin: 100px auto 0 auto;
-  z-index: 1;
 }
 
 #select-button {
@@ -867,6 +775,10 @@ button {
 }
 
 #selected-value {
+  position: absolute;
+  left: -2px;
+  padding-left: 20px;
+  padding-bottom: 10px;
   font-size: 18px;
   line-height: 1;
   margin-right: 26px;
@@ -875,17 +787,14 @@ button {
   background-position: top -1px right 10px;
   background-repeat: no-repeat;
   width: 100%;
+  min-width: 282px;
   border-bottom: 1px solid var(--grayFour);
 }
 
-.option,
-.label {
+.ModalSelectOption,
+.ModalSelectOption__label {
   color: var(--black);
   font-size: 18px;
-}
-
-#options-view-button:checked + #select-button #chevrons i {
-  color: #2d3667;
 }
 
 .options {
@@ -895,64 +804,66 @@ button {
 
 #options {
   position: absolute;
-  top: 36px;
+  top: 45px;
   right: 0;
   left: 0;
   width: 100%;
   margin: 0 auto;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.01);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
   margin: 0;
   border: none;
-  z-index: 300;
+  z-index: 400;
   opacity: 1;
   -webkit-box-shadow: var(--selectShadow);
           box-shadow: var(--selectShadow);
 }
 
-.option {
+.ModalSelectOption {
   position: relative;
   top: 0;
   line-height: 0.9;
   -webkit-transition: 0.3s ease all;
   transition: 0.3s ease all;
   z-index: 2;
-  padding-left: 20px;
 }
 
-.option i {
+.ModalSelectOption i {
   position: absolute;
   left: 14px;
   padding: 0;
   display: none;
 }
 
-.label {
+.ModalSelectOption__label {
   display: none;
   padding: 0;
+  padding-left: 20px;
 }
 
-#options-view-button:checked ~ #options .label {
+#options-view-button:checked ~ #options .ModalSelectOption__label {
   display: block;
   padding: 12px 14px;
 }
 
-.s-c {
+.ModalSelectOption__s-c {
   position: absolute;
   left: 0;
   width: 100%;
   height: 50%;
 }
 
-.s-c.top {
+.ModalSelectOption__s-c.ModalSelectOption__top {
   top: 0;
 }
 
-.s-c.bottom {
+.ModalSelectOption__s-c.ModalSelectOption__bottom {
   bottom: 0;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   position: absolute;
   right: 0;
   left: 0;
@@ -963,23 +874,23 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-.s-c:hover ~ i {
+.ModalSelectOption__s-c:hover ~ i {
   color: #fff;
   opacity: 0;
 }
 
-.s-c:hover {
+.ModalSelectOption__s-c:hover {
   height: 100%;
   z-index: 1;
 }
 
-.s-c.bottom:hover + i {
+.ModalSelectOption__s-c.ModalSelectOption__bottom:hover + i {
   bottom: -25px;
   -webkit-animation: moveup 0.3s ease 0.1s forwards;
           animation: moveup 0.3s ease 0.1s forwards;
 }
 
-.s-c.top:hover ~ i {
+.ModalSelectOption__s-c.ModalSelectOption__top:hover ~ i {
   top: -25px;
   -webkit-animation: movedown 0.3s ease 0.1s forwards;
           animation: movedown 0.3s ease 0.1s forwards;
@@ -1029,12 +940,12 @@ input[type="radio"] {
   }
 }
 
-.label {
+.ModalSelectOption__label {
   -webkit-transition: 0.3s ease all;
   transition: 0.3s ease all;
 }
 
-.opt-val {
+.ModalSelectOption__opt-val {
   position: absolute;
   left: 14px;
   top: 0;
@@ -1047,33 +958,49 @@ input[type="radio"] {
           transform: scale(0);
 }
 
-.option input[type="radio"]:checked ~ .opt-val {
+.ModalSelectOption input[type='radio']:checked ~ .ModalSelectOption__opt-val {
   opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
   background-color: #fff;
 }
 
-.option input[type="radio"]:checked #selected-span {
-  opacity: 0;
-}
-
-.option input[type="radio"]:checked #options {
+.ModalSelectOption input[type='radio']:checked #options {
   opacity: 0;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
-.income input[type="radio"]:checked ~ .label {
+.income input[type='radio']:checked ~ .ModalSelectOption__label {
   color: var(--accentGreenColor);
+  background-color: var(--white);
 }
 
-.spending input[type="radio"]:checked ~ .label {
+.spending input[type='radio']:checked ~ .ModalSelectOption__label {
   color: var(--accentRoseColor);
+  background-color: var(--white);
 }
 
-.option input[type="radio"]:checked ~ .label:before {
-  content: "";
+.ModalSelectOption:nth-child(1) input[type='radio']:checked ~ .ModalSelectOption__label {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.ModalSelectOption:last-child input[type='radio']:checked ~ .ModalSelectOption__label {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.ModalSelectOption input[type='radio']:checked .ModalSelectOption {
+  background-color: var(--white);
+}
+
+.ModalSelectOption input[type='radio']:checked .ModalSelectOption {
+  background-color: var(--white);
+}
+
+.ModalSelectOption input[type='radio']:checked ~ .ModalSelectOption__label:before {
+  content: '';
   position: absolute;
   top: 0;
   right: 0;
@@ -1082,68 +1009,76 @@ input[type="radio"] {
   z-index: -1;
 }
 
-.option input[type="radio"]:checked span.selected-value {
-  color: var(--white);
-  opacity: 0;
-  z-index: -1;
+#options-view-button:not(:checked)
+~ #options
+.ModalSelectOption
+input[type='radio']:checked
+~ .ModalSelectOption__opt-val {
+  top: -32px;
 }
 
-#options-view-button:not(:checked) ~ #options .option input[type="radio"]:checked ~ .opt-val {
-  top: -27px;
+.ModalSelectOption:nth-child(1) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -34px;
 }
 
-.option:nth-child(1) input[type="radio"]:checked ~ .opt-val {
-  top: 31px;
+.ModalSelectOption:nth-child(2) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -74px;
 }
 
-.option:nth-child(2) input[type="radio"]:checked ~ .opt-val {
-  top: -27px;
+.ModalSelectOption:nth-child(3) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -115px;
 }
 
-.option:nth-child(3) input[type="radio"]:checked ~ .opt-val {
-  top: -67px;
+.ModalSelectOption:nth-child(4) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -155px;
 }
 
-.option:nth-child(4) input[type="radio"]:checked ~ .opt-val {
-  top: -108px;
+.ModalSelectOption:nth-child(5) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -195px;
 }
 
-.option:nth-child(5) input[type="radio"]:checked ~ .opt-val {
-  top: -148px;
+.ModalSelectOption:nth-child(6) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -235px;
 }
 
-.option:nth-child(6) input[type="radio"]:checked ~ .opt-val {
-  top: -188px;
+.ModalSelectOption:nth-child(7) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -276px;
 }
 
-.option:nth-child(7) input[type="radio"]:checked ~ .opt-val {
-  top: -228px;
+.ModalSelectOption:nth-child(8) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -316px;
 }
 
-.option:nth-child(8) input[type="radio"]:checked ~ .opt-val {
-  top: -268px;
+.ModalSelectOption:nth-child(9) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -356px;
 }
 
-.option:nth-child(9) input[type="radio"]:checked ~ .opt-val {
-  top: -309px;
-}
-
-.option:nth-child(10) input[type="radio"]:checked ~ .opt-val {
-  top: -349px;
+.ModalSelectOption:nth-child(10) input[type='radio']:checked ~ .ModalSelectOption__opt-val {
+  top: -396px;
 }
 
 #options-view-button:checked ~ #options #option-bg {
   display: block;
 }
 
-.income:hover .label {
+.income:hover .ModalSelectOption__label {
   background: var(--white);
   color: var(--accentGreenColor);
 }
 
-.spending:hover .label {
+.spending:hover .ModalSelectOption__label {
   background: var(--white);
   color: var(--accentRoseColor);
+}
+
+.ModalSelectOption:nth-child(1):hover .ModalSelectOption__label {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.ModalSelectOption:last-child:hover .ModalSelectOption__label {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .formComponentLog {
@@ -1509,9 +1444,11 @@ button[disabled]:focus {
   color: var(--white);
   background-color: var(--accentBlueColor);
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
-  background-size: auto 96px, auto 50px;
+  background-size: auto 96px,
+ auto 50px;
   background-repeat: no-repeat;
-  background-position: bottom, top;
+  background-position: bottom,
+ top;
   border-radius: 30px;
 }
 
@@ -1527,7 +1464,8 @@ button[disabled]:focus {
     width: 336px;
     height: 182px;
     background-image: url(/public/image/table/currency_background_mount_table@1x.png), url(/public/image/table/currency_backgroud_head_table@1x.png);
-    background-size: auto 120px, auto 50px;
+    background-size: auto 120px,
+ auto 50px;
   }
 }
 
@@ -1537,28 +1475,32 @@ button[disabled]:focus {
     width: 393px;
     height: 347px;
     background-image: url(/public/image/desktop/currency_background_mount_desktop@1x.png), url(/public/image/desktop/currency_backgroud_head_desktop@1x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px,
+ auto 60px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .tableCurrency {
     background-image: url(/public/image/mobile/currency_background_mount_mobile@2x.png), url(/public/image/mobile/currency_backgroud_head_mobile@2x.png);
-    background-size: auto 96px, auto 50px;
+    background-size: auto 96px,
+ auto 50px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .tableCurrency {
     background-image: url(/public/image/table/currency_background_mount_table@2x.png), url(/public/image/table/currency_backgroud_head_table@2x.png);
-    background-size: auto 115px, auto 46px;
+    background-size: auto 115px,
+ auto 46px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (min-resolution: 192dpi) and (min-width: 1200px), screen and (min-resolution: 2dppx) and (min-width: 1200px) {
   .tableCurrency {
     background-image: url(/public/image/desktop/currency_background_mount_desktop@2x.png), url(/public/image/desktop/currency_backgroud_head_desktop@2x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px,
+ auto 60px;
   }
 }
 
@@ -1811,33 +1753,38 @@ button[disabled]:focus {
 
 @media screen and (min-width: 768px) {
   .loginPageContainer {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 60px;
-    padding-bottom: 190px;
-    height: 100vh;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
+  }
+  .loginPageWraper {
+    padding-top: 60px;
+  }
+  .RegisterPageWraper {
+    padding-top: 60px;
   }
   .loginPageIMGContainer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     margin-bottom: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 533px;
   }
   .loginPageText {
-    padding-left: 40px;
+    margin-left: 40px;
     font-family: var(--mainFont);
     font-style: normal;
     font-weight: 400;
@@ -1859,10 +1806,14 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1883,41 +1834,60 @@ button[disabled]:focus {
 @media screen and (min-width: 1280px) {
   .loginPageContainer {
     height: 100vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /*min-width: 1280px;*/
     padding-top: 0px;
     padding-bottom: 0px;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto,
+ 550px auto;
+    background-position: bottom,
+ top;
+
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
+  .loginPageBluredContainer {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 55%;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+    z-index: 0;
+  }
+  .loginPageWraper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 0px;
+  }
+  .RegisterPageWraper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 0px;
+  }
   .loginPageIMGContainer {
     display: block;
-    padding-top: 20vh;
-    padding-left: 6vw;
-    margin-bottom: 0px;
+    margin: auto;
+    padding-left: 60px;
+    z-index: 99;
   }
   .loginPageFormContainer {
     position: relative;
     height: 100vh;
-    width: 143vw;
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(50px);
-            backdrop-filter: blur(50px);
+    width: 650px;
+    margin-left: 40px;
   }
   .RegisterPageFormContainer {
     position: relative;
     height: 100vh;
-    width: 143vw;
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(50px);
-            backdrop-filter: blur(50px);
+    width: 650px;
+    margin-left: 40px;
   }
   .loginPageText {
     padding-left: 120px;
@@ -1927,10 +1897,14 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }

@@ -1,16 +1,12 @@
 import { createPortal } from 'react-dom';
 import { ReactComponent as CloseModal } from '../../img/icons/close.svg';
-import { useSelector } from 'react-redux';
 import '../../css/main.min.css';
 import { useEffect } from 'react';
-import { error } from '../../redux/transactions/transactionsSelectors';
 import ModalForm from './ModalForm';
 
 const modalRoot = document.getElementById('modal-root');
 
 function ModalAddTransaction({ isOpen }) {
-  const checkError = useSelector(error);
-
   const closeModal = () => {
     isOpen(false);
     document.body.style.overflow = 'unset';

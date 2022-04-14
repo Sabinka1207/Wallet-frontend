@@ -1,20 +1,18 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import Datetime from 'react-datetime';
-// import 'react-datetime/css/react-datetime.css';
-// import moment from 'moment';
 import Loader from '../Loader/Loader';
 import axios from 'axios';
 
 import { error } from '../../redux/transactions/transactionsSelectors';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
-import ModalSelectBackground from './ModalSelectBackground';
+import ModalSelect from './ModalSelect';
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
+  const checkError = useSelector(error);
 
   const [income, setIncome] = useState(false);
   const [currentCategory, setCurrentCategory] = useState('null');
@@ -29,11 +27,6 @@ function ModalForm({ closeModal }) {
       .catch(error => console.log(error.message))
       .finally(() => setIsLoading(false));
   }, []);
-
-  // const yesterday = moment().subtract(1, 'day');
-  // const valid = current => {
-  //   return current.isAfter(yesterday);
-  // };
 
   let today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
@@ -63,7 +56,6 @@ function ModalForm({ closeModal }) {
   const handleSubmit = (values, { resetForm, setSubmitting }) => {
     const { amount, date, comment = '' } = values;
     const object = { income, category: currentCategory, amount, date, comment };
-    console.log(object);
     dispatch(addTransaction(object));
     setSubmitting(false);
     closeModal();
@@ -72,19 +64,19 @@ function ModalForm({ closeModal }) {
 
   return (
     <>
-      <div className="Switcher">
+      <div className="ModalForm__switcher">
         <span
-          className="Switcher__option Switcher__income"
+          className="ModalForm__switcher-option ModalForm__switcher-income"
           style={{
             color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
           }}
         >
           Доход
         </span>
-        <div className="Switcher__control">
+        <div className="ModalForm__switcher-control">
           <input
             onClick={() => setIncome(!income)}
-            className="Switcher__toggle"
+            className="ModalForm__switcher-toggle"
             type="checkbox"
             name="transaction-type"
             id="switcher-toggle"
@@ -93,13 +85,13 @@ function ModalForm({ closeModal }) {
           />
           <label
             aria-hidden="true"
-            className="Switcher__track"
+            className="ModalForm__switcher-track"
             htmlFor="switcher-toggle"
           ></label>
-          <div aria-hidden="true" className="Switcher__marker"></div>
+          <div aria-hidden="true" className="ModalForm__switcher-marker"></div>
         </div>
         <span
-          className="Switcher__option Switcher__spending"
+          className="ModalForm__switcher-option .ModalForm__switcher-spending"
           style={{
             color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
           }}
@@ -125,7 +117,7 @@ function ModalForm({ closeModal }) {
                   className="hidden-select"
                   value={currentCategory}
                 ></Field>
-                <ModalSelectBackground
+                <ModalSelect
                   income={income}
                   categories={categories}
                   setCategory={setCurrentCategory}
@@ -148,17 +140,7 @@ function ModalForm({ closeModal }) {
                 />
               </span>
 
-              <span className="Modal__date">
-                {today}
-                {/* <Datetime
-                className="Modal__input Modal__datetime"
-                closeOnSelect="true"
-                // timeFormat="false"
-                dateFormat="DD.MM.YYYY"
-                isValidDate={valid}
-                value={today}
-              /> */}
-              </span>
+              <span className="Modal__date">{today}</span>
             </div>
             <ErrorMessage
               component="div"
