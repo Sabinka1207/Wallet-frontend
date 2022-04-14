@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import getStatistics from "../../redux/statistics/statisticsOperation";
 
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
@@ -15,7 +13,6 @@ import "../../css/main.min.css";
 import '../../css/main.min.css';
 import { useDispatch } from "react-redux";
 import getStatistics from "../../redux/statistics/statisticsOperation";
-import { useEffect, useState } from "react";
 
 function DashboardPage() {
   const currentMonth = new Date().getMonth()+1
