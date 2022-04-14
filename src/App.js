@@ -31,7 +31,7 @@ function App() {
 
   return (
     !isFetchingCurrentUser && (
-      <div>
+      <>
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route
@@ -65,7 +65,7 @@ function App() {
             </Route>
           </Routes>
         </Suspense>
-      </div>
+      </>
     )
   );
 }
