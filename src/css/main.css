@@ -1808,11 +1808,6 @@ button[disabled]:focus {
 
 @media screen and (min-width: 768px) {
   .loginPageContainer {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 60px;
-    padding-bottom: 190px;
-    height: 100vh;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
     background-size: 510px auto, 365px auto;
     background-position: bottom, top;
@@ -1821,20 +1816,26 @@ button[disabled]:focus {
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
+  .loginPageWraper {
+    padding-top: 60px;
+  }
+  .RegisterPageWraper {
+    padding-top: 60px;
+  }
   .loginPageIMGContainer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     margin-bottom: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 533px;
   }
   .loginPageText {
-    padding-left: 40px;
+    margin-left: 40px;
     font-family: var(--mainFont);
     font-style: normal;
     font-weight: 400;
@@ -1880,10 +1881,6 @@ button[disabled]:focus {
 @media screen and (min-width: 1280px) {
   .loginPageContainer {
     height: 100vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /*min-width: 1280px;*/
     padding-top: 0px;
     padding-bottom: 0px;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
@@ -1894,27 +1891,45 @@ button[disabled]:focus {
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
+  .loginPageBluredContainer {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 55%;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+    z-index: 0;
+  }
+  .loginPageWraper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 0px;
+  }
+  .RegisterPageWraper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 0px;
+  }
   .loginPageIMGContainer {
     display: block;
-    padding-top: 20vh;
-    padding-left: 6vw;
-    margin-bottom: 0px;
+    margin: auto;
+    padding-left: 60px;
+    z-index: 99;
   }
   .loginPageFormContainer {
     position: relative;
     height: 100vh;
-    width: 143vw;
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(50px);
-            backdrop-filter: blur(50px);
+    width: 650px;
+    margin-left: 40px;
   }
   .RegisterPageFormContainer {
     position: relative;
     height: 100vh;
-    width: 143vw;
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(50px);
-            backdrop-filter: blur(50px);
+    width: 650px;
+    margin-left: 40px;
   }
   .loginPageText {
     padding-left: 120px;
