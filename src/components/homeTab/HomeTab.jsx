@@ -28,18 +28,23 @@ export default function HomeTab() {
   const sortTransactions = newTransactios.slice([0], [6]);
 
   return (
-    <div> 
+    <div>
       {(!sortTransactions || transactions.length === 0) && (
         <div className="emptyTransaction_wraper">
           <div className="emptyTransaction">
-            <img src={empty} alt="empty" height={80} className="emptyTransaction-icon" />
+            <img
+              src={empty}
+              alt="empty"
+              height={80}
+              className="emptyTransaction-icon"
+            />
             <p className="emptyTransactionText">
               У вас еще нет доходов и расходов...
             </p>
           </div>
         </div>
       )}
-      {(transactions.length>0) && (
+      {transactions.length > 0 && (
         <div>
           <table className="tableContainer mobilehidden">
             <tbody>
@@ -134,7 +139,6 @@ export default function HomeTab() {
           </ul>
         </div>
       )}
-      <ButtonAddTransactions />
     </div>
   );
 }

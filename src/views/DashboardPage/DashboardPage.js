@@ -10,6 +10,7 @@ import Balance from '../../components/Balance';
 import Currency from '../../components/Currency';
 
 import '../../css/main.min.css';
+import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 function DashboardPage() {
   const location = useLocation();
@@ -58,6 +59,7 @@ function DashboardPage() {
             </section>
           </div>
         </div>
+        <ButtonAddTransaction />
       </main>
     </div>
   );
