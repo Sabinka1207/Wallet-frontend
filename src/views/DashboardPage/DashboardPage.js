@@ -9,6 +9,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import Balance from "../../components/Balance";
 import Currency from "../../components/Currency";
 import Loader from "../../components/Loader";
+import ButtonAddTransaction from "../../components/ButtonAddTransactions/ButtonAddTransactions";
 import authSelectors from "../../redux/auth/authSelectors";
 
 import "../../css/main.min.css";
