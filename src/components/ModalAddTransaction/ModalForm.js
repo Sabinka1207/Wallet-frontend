@@ -1,24 +1,23 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Loader from "../Loader/Loader";
-import axios from "axios";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import Loader from '../Loader/Loader';
+import axios from 'axios';
 
-import { error } from "../../redux/transactions/transactionsSelectors";
-import { addTransaction } from "../../redux/transactions/transactionsOperations";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import "react-toastify/dist/ReactToastify.css";
-import ModalSelect from "./ModalSelect";
-import TextError from "../TextError";
+import { addTransaction } from '../../redux/transactions/transactionsOperations';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
+import ModalSelect from './ModalSelect';
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
-  const checkError = useSelector(error);
 
   const [income, setIncome] = useState(false);
   const [currentCategory, setCurrentCategory] = useState("null");
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
+
+  console.log('modalform', currentCategory);
 
   useEffect(() => {
     setIsLoading(true);
@@ -122,6 +121,7 @@ function ModalForm({ closeModal }) {
                   income={income}
                   categories={categories}
                   setCategory={setCurrentCategory}
+                  currentCategory={currentCategory}
                 />
                 <ErrorMessage
                   component={TextError}

@@ -141,7 +141,7 @@ input[type='radio'] {
 .ModalSelectOption input[type='radio']:checked ~ .ModalSelectOption__opt-val {
   opacity: 1;
   transform: scale(1);
-  background-color: #fff;
+  // background-color: #fff;
 }
 
 .ModalSelectOption input[type='radio']:checked #options {

@@ -764,7 +764,7 @@ button[disabled]:focus {
 
 #options-view-button {
   position: absolute;
-  top: 0;
+  top: 12px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -774,7 +774,14 @@ button[disabled]:focus {
   opacity: 0;
   cursor: pointer;
   background-color: transparent;
-  z-index: 3;
+  z-index: 100;
+}
+
+.ModalSelect__selected {
+  height: 100%;
+  padding-top: 3px;
+  display: inline-block;
+  width: 100%;
 }
 
 #selected-value {
@@ -787,7 +794,7 @@ button[disabled]:focus {
   margin-right: 26px;
   color: var(--grayFour);
   background-image: url("/src/img/icons/select-arrow.svg");
-  background-position: top -1px right 10px;
+  background-position: top 5px right 10px;
   background-repeat: no-repeat;
   width: 100%;
   min-width: 282px;
@@ -965,7 +972,6 @@ input[type='radio'] {
   opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
-  background-color: #fff;
 }
 
 .ModalSelectOption input[type='radio']:checked #options {
