@@ -1,13 +1,14 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import Loader from '../Loader/Loader';
-import axios from 'axios';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import Loader from "../Loader/Loader";
+import axios from "axios";
 
-import { addTransaction } from '../../redux/transactions/transactionsOperations';
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import 'react-toastify/dist/ReactToastify.css';
-import ModalSelect from './ModalSelect';
+import { addTransaction } from "../../redux/transactions/transactionsOperations";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
+import ModalSelect from "./ModalSelect";
+import TextError from "../TextError";
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function ModalForm({ closeModal }) {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
 
-  console.log('modalform', currentCategory);
+  console.log("modalform", currentCategory);
 
   useEffect(() => {
     setIsLoading(true);
