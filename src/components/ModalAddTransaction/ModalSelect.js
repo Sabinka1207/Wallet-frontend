@@ -10,15 +10,14 @@ function ModalSelect({ income, categories, setCategory }) {
 
   return (
     <>
-      <div id="select-box" className="FakeSelect">
+      <div id="select-box" className="ModalSelect">
         <input type="checkbox" id="options-view-button" />
         <div id="select-button">
           <div id="selected-value">
-            <span className="selected-span">Выберите категорию</span>
+            <span>Выберите категорию</span>
           </div>
         </div>
         <div id="options">
-          {/* <div className="FakeSelect__backdrop"></div>{' '} */}
           {income
             ? incomeCategories.map(({ _id, nameDropdown }) => (
                 <ModalSelectOption

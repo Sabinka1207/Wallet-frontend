@@ -1,21 +1,21 @@
 function ModalSelectOption({ value, name, addClass, setCategory }) {
   return (
-    <div className={`option ${addClass}`}>
+    <div className={`ModalSelectOption ${addClass}`}>
       <input
-        className="s-c top"
+        className="ModalSelectOption__s-c ModalSelectOption__top"
         type="radio"
         name="category"
         value={value}
         onClick={() => setCategory(value)}
       />
       <input
-        className="s-c bottom"
+        className="ModalSelectOption__s-c ModalSelectOption__bottom"
         type="radio"
         name="category"
         value={value}
       />
-      <span className="label">{name}</span>
-      <span className="opt-val">{name}</span>
+      <span className="ModalSelectOption__label">{name}</span>
+      <span className="ModalSelectOption__opt-val">{name}</span>
     </div>
   );
 }

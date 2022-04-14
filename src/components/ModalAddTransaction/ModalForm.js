@@ -1,8 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import Datetime from 'react-datetime';
-// import 'react-datetime/css/react-datetime.css';
-// import moment from 'moment';
 import Loader from '../Loader/Loader';
 import axios from 'axios';
 
@@ -31,11 +28,6 @@ function ModalForm({ closeModal }) {
       .finally(() => setIsLoading(false));
   }, []);
 
-  // const yesterday = moment().subtract(1, 'day');
-  // const valid = current => {
-  //   return current.isAfter(yesterday);
-  // };
-
   let today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -62,32 +54,29 @@ function ModalForm({ closeModal }) {
   });
 
   const handleSubmit = (values, { resetForm, setSubmitting }) => {
-    console.log(checkError);
     const { amount, date, comment = '' } = values;
     const object = { income, category: currentCategory, amount, date, comment };
     dispatch(addTransaction(object));
     setSubmitting(false);
-    if (!error) {
-      closeModal();
-      resetForm();
-    }
+    closeModal();
+    resetForm();
   };
 
   return (
     <>
-      <div className="Switcher">
+      <div className="ModalForm__switcher">
         <span
-          className="Switcher__option Switcher__income"
+          className="ModalForm__switcher-option ModalForm__switcher-income"
           style={{
             color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
           }}
         >
           Доход
         </span>
-        <div className="Switcher__control">
+        <div className="ModalForm__switcher-control">
           <input
             onClick={() => setIncome(!income)}
-            className="Switcher__toggle"
+            className="ModalForm__switcher-toggle"
             type="checkbox"
             name="transaction-type"
             id="switcher-toggle"
@@ -96,13 +85,13 @@ function ModalForm({ closeModal }) {
           />
           <label
             aria-hidden="true"
-            className="Switcher__track"
+            className="ModalForm__switcher-track"
             htmlFor="switcher-toggle"
           ></label>
-          <div aria-hidden="true" className="Switcher__marker"></div>
+          <div aria-hidden="true" className="ModalForm__switcher-marker"></div>
         </div>
         <span
-          className="Switcher__option Switcher__spending"
+          className="ModalForm__switcher-option .ModalForm__switcher-spending"
           style={{
             color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
           }}
@@ -151,17 +140,7 @@ function ModalForm({ closeModal }) {
                 />
               </span>
 
-              <span className="Modal__date">
-                {today}
-                {/* <Datetime
-                className="Modal__input Modal__datetime"
-                closeOnSelect="true"
-                // timeFormat="false"
-                dateFormat="DD.MM.YYYY"
-                isValidDate={valid}
-                value={today}
-              /> */}
-              </span>
+              <span className="Modal__date">{today}</span>
             </div>
             <ErrorMessage
               component="div"

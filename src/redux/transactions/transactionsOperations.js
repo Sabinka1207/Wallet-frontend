@@ -11,6 +11,13 @@ const toastMessage = errorMessage => {
   });
 };
 
+const toastSuccess = successMessage => {
+  toast.success(successMessage, {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 3000,
+  });
+};
+
 // axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
 
 // import {
@@ -49,9 +56,9 @@ export const addTransaction = createAsyncThunk(
   async (transaction, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/transactions', transaction);
+      toastSuccess('Транзакция добавлена!');
       return data;
     } catch (error) {
-      // console.log(error.response.status);
       if (error.response.status === 404) {
         toastMessage('Упс... Что-то пошло не так');
       } else if (error.response.status === 409) {
