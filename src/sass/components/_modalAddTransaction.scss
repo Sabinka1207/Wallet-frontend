@@ -121,3 +121,14 @@
 
 @media screen and (min-width: 1280px) {
 }
+
+//disabled
+button:disabled,
+button[disabled] {
+  background-color: #c5baff;
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    transform: scale(1);
+  }
+}
