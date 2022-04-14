@@ -8,12 +8,13 @@ import axios from 'axios';
 import { error } from '../../redux/transactions/transactionsSelectors';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
-import ModalSelectBackground from './ModalSelectBackground';
+import ModalSelect from './ModalSelect';
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
+  const checkError = useSelector(error);
 
   const [income, setIncome] = useState(false);
   const [currentCategory, setCurrentCategory] = useState('null');
@@ -60,13 +61,15 @@ function ModalForm({ closeModal }) {
   });
 
   const handleSubmit = (values, { resetForm, setSubmitting }) => {
+    console.log(checkError);
     const { amount, date, comment = '' } = values;
     const object = { income, category: currentCategory, amount, date, comment };
-    console.log(object);
     dispatch(addTransaction(object));
     setSubmitting(false);
-    closeModal();
-    resetForm();
+    if (!error) {
+      closeModal();
+      resetForm();
+    }
   };
 
   return (
@@ -124,7 +127,7 @@ function ModalForm({ closeModal }) {
                   className="hidden-select"
                   value={currentCategory}
                 ></Field>
-                <ModalSelectBackground
+                <ModalSelect
                   income={income}
                   categories={categories}
                   setCategory={setCurrentCategory}

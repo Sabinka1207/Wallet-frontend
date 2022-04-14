@@ -1,4 +1,4 @@
-function SelectOption({ value, name, addClass, setCategory }) {
+function ModalSelectOption({ value, name, addClass, setCategory }) {
   return (
     <div className={`option ${addClass}`}>
       <input
@@ -20,4 +20,4 @@ function SelectOption({ value, name, addClass, setCategory }) {
   );
 }
 
-export default SelectOption;
+export default ModalSelectOption;

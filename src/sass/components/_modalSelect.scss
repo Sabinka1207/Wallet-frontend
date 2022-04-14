@@ -34,11 +34,18 @@
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 1;
-    // background-color: rgba(0, 0, 0, 0.1);
-            // filter: blur(50px);
-            height:100%;
-            width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 100px;
+    width: 100%;
+    border-radius: 20px;
+    filter: blur(50px);
+    -webkit-filter: blur(50px);
+    
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 // .brd {
@@ -147,10 +154,11 @@
     width: 100%;
     margin: 0 auto;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.01);
+    backdrop-filter: blur(50px);
     margin: 0;
     border: none;
-    z-index: 300;
+    z-index: 400;
     opacity: 1;
     box-shadow: var(--selectShadow);
 }
@@ -166,7 +174,7 @@
     line-height: 0.9;
     transition: 0.3s ease all;
     z-index: 2;
-    padding-left: 20px;
+    // padding-left: 20px;
 }
 
 .option i {
@@ -176,15 +184,11 @@
     display: none;
 }
 
-// #options-view-button:checked~#options .option i {
-//     display: block;
-//     padding: 12px 0;
-// }
 
 .label {
     display: none;
     padding: 0;
-    // margin-left: 27px;
+    padding-left: 20px;
 }
 
 #options-view-button:checked~#options .label {
@@ -284,10 +288,6 @@ input[type="radio"] {
     background-color: #fff;
 }
 
-.option input[type="radio"]:checked #selected-span {
-opacity: 0;}
-
-
 .option input[type="radio"]:checked #options {
     opacity: 0;
     transform: scale(1);
@@ -307,10 +307,33 @@ opacity: 0;}
 
 .income input[type="radio"]:checked~.label {
     color: var(--accentGreenColor);
+    background-color: var(--white);
+    
 }
 
 .spending input[type="radio"]:checked~.label {
     color: var(--accentRoseColor);
+    background-color: var(--white);
+    
+}
+
+.option:nth-child(1) input[type="radio"]:checked~.label {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+
+.option:last-child input[type="radio"]:checked~.label {
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+}
+
+
+.option input[type="radio"]:checked .option {
+background-color: var(--white);}
+
+.option input[type="radio"]:checked .option {
+background-color: var(--white);
 }
 
 .option input[type="radio"]:checked~.label:before {
@@ -323,11 +346,11 @@ opacity: 0;}
     z-index: -1;
 }
 
-.option input[type="radio"]:checked span.selected-value{
-    color: var(--white);
-    opacity: 0;
-    z-index: -1;
-}
+// .option input[type="radio"]:checked span.selected-value{
+//     color: var(--white);
+//     opacity: 0;
+//     z-index: -1;
+// }
 
 
 
@@ -338,47 +361,48 @@ opacity: 0;}
 
 
 .option:nth-child(1) input[type="radio"]:checked~.opt-val {
-    top: 31px;
+    top: -27px;
 }
+
 
 
 
 .option:nth-child(2) input[type="radio"]:checked~.opt-val {
-    top: -27px;
-}
-
-.option:nth-child(3) input[type="radio"]:checked~.opt-val {
     top: -67px;
 }
 
-
-.option:nth-child(4) input[type="radio"]:checked~.opt-val {
+.option:nth-child(3) input[type="radio"]:checked~.opt-val {
     top: -108px;
 }
 
 
-.option:nth-child(5) input[type="radio"]:checked~.opt-val {
+.option:nth-child(4) input[type="radio"]:checked~.opt-val {
     top: -148px;
 }
 
-.option:nth-child(6) input[type="radio"]:checked~.opt-val {
+
+.option:nth-child(5) input[type="radio"]:checked~.opt-val {
     top: -188px;
 }
 
-.option:nth-child(7) input[type="radio"]:checked~.opt-val {
+.option:nth-child(6) input[type="radio"]:checked~.opt-val {
     top: -228px;
 }
 
-.option:nth-child(8) input[type="radio"]:checked~.opt-val {
+.option:nth-child(7) input[type="radio"]:checked~.opt-val {
     top: -268px;
 }
 
-.option:nth-child(9) input[type="radio"]:checked~.opt-val {
+.option:nth-child(8) input[type="radio"]:checked~.opt-val {
     top: -309px;
 }
 
-.option:nth-child(10) input[type="radio"]:checked~.opt-val {
+.option:nth-child(9) input[type="radio"]:checked~.opt-val {
     top: -349px;
+}
+
+.option:nth-child(10) input[type="radio"]:checked~.opt-val {
+    top: -389px;
 }
 
 // #option-bg {
@@ -404,6 +428,18 @@ opacity: 0;}
 .spending:hover .label {
     background: var(--white);
     color: var(--accentRoseColor);
+}
+
+.option:nth-child(1):hover .label {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+
+.option:last-child:hover .label{
+ 
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 // .option:nth-child(1):hover~#option-bg {

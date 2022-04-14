@@ -61,7 +61,6 @@ export const addTransaction = createAsyncThunk(
       } else {
         console.log(error);
       }
-
       return rejectWithValue(error);
     }
   },

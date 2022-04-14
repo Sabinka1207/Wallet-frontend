@@ -1,7 +1,6 @@
-import Loader from '../Loader/Loader';
-import SelectOption from './SelectOption';
+import ModalSelectOption from './ModalSelectOption';
 
-function ModalSelectBackground({ income, categories, setCategory }) {
+function ModalSelect({ income, categories, setCategory }) {
   const incomeCategories = categories.filter(
     category => category.type === 'income',
   );
@@ -11,19 +10,18 @@ function ModalSelectBackground({ income, categories, setCategory }) {
 
   return (
     <>
-      {' '}
       <div id="select-box" className="FakeSelect">
         <input type="checkbox" id="options-view-button" />
-        <div id="select-button" className="brd">
+        <div id="select-button">
           <div id="selected-value">
             <span className="selected-span">Выберите категорию</span>
           </div>
         </div>
         <div id="options">
-          <div className="FakeSelect__backdrop"></div>{' '}
+          {/* <div className="FakeSelect__backdrop"></div>{' '} */}
           {income
             ? incomeCategories.map(({ _id, nameDropdown }) => (
-                <SelectOption
+                <ModalSelectOption
                   key={_id}
                   value={_id}
                   name={nameDropdown}
@@ -32,7 +30,7 @@ function ModalSelectBackground({ income, categories, setCategory }) {
                 />
               ))
             : spendingCategories.map(({ _id, nameDropdown }) => (
-                <SelectOption
+                <ModalSelectOption
                   key={_id}
                   value={_id}
                   name={nameDropdown}
@@ -40,11 +38,10 @@ function ModalSelectBackground({ income, categories, setCategory }) {
                   setCategory={setCategory}
                 />
               ))}
-          {/* <div id="option-bg"></div> */}
         </div>
       </div>
     </>
   );
 }
 
-export default ModalSelectBackground;
+export default ModalSelect;
