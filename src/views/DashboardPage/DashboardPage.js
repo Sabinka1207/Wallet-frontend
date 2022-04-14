@@ -19,6 +19,7 @@ function DashboardPage() {
   const currentYear = new Date().getFullYear()
   const location = useLocation();
   const dispatch = useDispatch();
+  const [screenWidth, setScreenWidth] = useState(window.screen.width);
 
   const updateSreen = () => setScreenWidth(window.screen.width);
 
