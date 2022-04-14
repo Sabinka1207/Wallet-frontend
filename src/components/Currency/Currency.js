@@ -22,7 +22,7 @@ function Currency() {
   }, []);
 
   return (
-    <>
+    <div className="tableCurrencyContainer">
       {load && <Loader color="#fff" size="40" />}
       <table className="tableCurrency">
         <thead className="tableCurrencyHead">
@@ -47,7 +47,7 @@ function Currency() {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 
