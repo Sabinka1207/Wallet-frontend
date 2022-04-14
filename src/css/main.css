@@ -1681,9 +1681,13 @@ button[disabled]:focus {
 @media screen and (min-width: 1280px) {
   .select {
     width: 182px;
-    margin-right: 32px;
+    margin-right: 31px;
     margin-bottom: 20px;
   }
+}
+
+.year {
+  margin-right: 0;
 }
 
 .text {

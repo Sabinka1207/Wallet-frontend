@@ -13,13 +13,13 @@ import Currency from "../../components/Currency";
 import '../../css/main.min.css';
 import { useDispatch } from "react-redux";
 import getStatistics from "../../redux/statistics/statisticsOperation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 function DashboardPage() {
+  const currentMonth = new Date().getMonth()+1
+  const currentYear = new Date().getFullYear()
   const location = useLocation();
   const dispatch = useDispatch();
-  useEffect(()=>{
-      dispatch(getStatistics({month:12, year:2022}))      
-  },[])
 
   const isDesktopOrTable = useMediaQuery({
     query: '(min-width: 768px)'
