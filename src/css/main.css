@@ -119,8 +119,8 @@ button {
   .dashboardPageContainer {
     height: 1024px;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -131,8 +131,8 @@ button {
   .dashboardPageContainer {
     height: 100vh;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -142,10 +142,10 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
   }
 }
@@ -153,10 +153,10 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@2x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@2x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
   }
 }
@@ -1177,6 +1177,24 @@ button[disabled]:focus {
   color: var(--black);
 }
 
+.balanceWrap_empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.balanceText_empty {
+  color: #BDBDBD;
+  font-size: 12px;
+  line-height: 1.1;
+}
+
 .tableCurrency {
   padding: 10px 20px 10px;
   width: 280px;
@@ -1185,9 +1203,9 @@ button[disabled]:focus {
   color: var(--white);
   background-color: var(--accentBlueColor);
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
-  background-size: auto 96px, auto 50px;
+  background-size: auto 96px, auto 50px;
   background-repeat: no-repeat;
-  background-position: bottom, top;
+  background-position: bottom, top;
   border-radius: 30px;
 }
 
@@ -1203,7 +1221,7 @@ button[disabled]:focus {
     width: 336px;
     height: 182px;
     background-image: url(/public/image/table/currency_background_mount_table@1x.png), url(/public/image/table/currency_backgroud_head_table@1x.png);
-    background-size: auto 120px, auto 50px;
+    background-size: auto 120px, auto 50px;
   }
 }
 
@@ -1213,28 +1231,28 @@ button[disabled]:focus {
     width: 393px;
     height: 347px;
     background-image: url(/public/image/desktop/currency_background_mount_desktop@1x.png), url(/public/image/desktop/currency_backgroud_head_desktop@1x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px, auto 60px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .tableCurrency {
     background-image: url(/public/image/mobile/currency_background_mount_mobile@2x.png), url(/public/image/mobile/currency_backgroud_head_mobile@2x.png);
-    background-size: auto 96px, auto 50px;
+    background-size: auto 96px, auto 50px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .tableCurrency {
     background-image: url(/public/image/table/currency_background_mount_table@2x.png), url(/public/image/table/currency_backgroud_head_table@2x.png);
-    background-size: auto 115px, auto 46px;
+    background-size: auto 115px, auto 46px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (min-resolution: 192dpi) and (min-width: 1200px), screen and (min-resolution: 2dppx) and (min-width: 1200px) {
   .tableCurrency {
     background-image: url(/public/image/desktop/currency_background_mount_desktop@2x.png), url(/public/image/desktop/currency_backgroud_head_desktop@2x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px, auto 60px;
   }
 }
 
@@ -1493,10 +1511,10 @@ button[disabled]:focus {
     padding-bottom: 190px;
     height: 100vh;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1535,10 +1553,10 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1566,10 +1584,10 @@ button[disabled]:focus {
     padding-top: 0px;
     padding-bottom: 0px;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1603,10 +1621,10 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -2018,7 +2036,6 @@ button[disabled]:focus {
   background-color: #fff;
   border-radius: 30px;
   text-align: center;
-  border-bottom: 1px solid #dcdcdf;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
           box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 }
@@ -2139,5 +2156,51 @@ button[disabled]:focus {
 
 .transactionCardFalse {
   border-left: 5px solid #FF6596;
+}
+
+.emptyTransaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emptyTransactionText {
+  margin-top: 30px;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #BDBDBD;
+  text-align: center;
+}
+
+.emptyTransaction_wraper {
+  height: 100%;
+  margin-top: 240px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .emptyTransaction_wraper {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .emptyTransaction_wraper {
+    margin-top: 35px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
