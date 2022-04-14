@@ -38,7 +38,7 @@ function DashboardPage() {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
       <main className="dashboardPageContainer">
         <div className="dashboardPageWrap">
@@ -61,7 +61,7 @@ function DashboardPage() {
         </div>
         <ButtonAddTransaction />
       </main>
-    </div>
+    </>
   );
 }
 
