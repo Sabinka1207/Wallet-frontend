@@ -1,31 +1,33 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
-import Header from "../../components/Header/Header";
-import Navigation from "../../components/Navigation/Navigation";
-import Balance from "../../components/Balance";
-import Currency from "../../components/Currency";
-import "../../css/main.min.css";
+import Header from '../../components/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
+import Balance from '../../components/Balance';
+import Currency from '../../components/Currency';
 
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import '../../css/main.min.css';
-import { useDispatch } from "react-redux";
-import getStatistics from "../../redux/statistics/statisticsOperation";
+import { useDispatch } from 'react-redux';
+import getStatistics from '../../redux/statistics/statisticsOperation';
+import { useEffect } from 'react';
+import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 function DashboardPage() {
   const currentMonth = new Date().getMonth()+1
   const currentYear = new Date().getFullYear()
   const location = useLocation();
   const dispatch = useDispatch();
-  const [screenWidth, setScreenWidth] = useState(window.screen.width);
-
-  const updateSreen = () => setScreenWidth(window.screen.width);
-
+  
   useEffect(() => {
     dispatch(getStatistics({ month: 12, year: 2022 }));
   }, []);
+
+  const isDesktopOrTable = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
 
   useEffect(() => {
     window.addEventListener("resize", updateSreen);
@@ -43,16 +45,17 @@ function DashboardPage() {
             <aside className="dashboardPageSidebar">
               <div className="dashboardPageIner">
                 <Navigation />
-                {location.pathname !== "/currency" && <Balance />}
+                {location.pathname !== '/currency' && <Balance />}
               </div>
+              <ButtonAddTransaction />
               <div>
-                {(screenWidth > 767 || location.pathname === "/currency") && (
+                {(isDesktopOrTable || location.pathname === '/currency') && (
                   <Currency />
                 )}
               </div>
             </aside>
             <section className="dashboardPageMain">
-              {location.pathname !== "/currency" && <Outlet />}
+              {location.pathname !== '/currency' && <Outlet />}
             </section>
           </div>
         </div>
