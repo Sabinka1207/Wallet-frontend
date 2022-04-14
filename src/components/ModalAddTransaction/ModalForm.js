@@ -1,60 +1,61 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import Loader from '../Loader/Loader';
-import axios from 'axios';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import Loader from "../Loader/Loader";
+import axios from "axios";
 
-import { error } from '../../redux/transactions/transactionsSelectors';
-import { addTransaction } from '../../redux/transactions/transactionsOperations';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import 'react-toastify/dist/ReactToastify.css';
-import ModalSelect from './ModalSelect';
+import { error } from "../../redux/transactions/transactionsSelectors";
+import { addTransaction } from "../../redux/transactions/transactionsOperations";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
+import ModalSelect from "./ModalSelect";
+import TextError from "../TextError";
 
 function ModalForm({ closeModal }) {
   const dispatch = useDispatch();
   const checkError = useSelector(error);
 
   const [income, setIncome] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState('null');
+  const [currentCategory, setCurrentCategory] = useState("null");
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get('https://pure-atoll-67904.herokuapp.com/api/transactions/categories')
-      .then(results => setCategories(results.data))
-      .catch(error => console.log(error.message))
+      .get("https://pure-atoll-67904.herokuapp.com/api/transactions/categories")
+      .then((results) => setCategories(results.data))
+      .catch((error) => console.log(error.message))
       .finally(() => setIsLoading(false));
   }, []);
 
   let today = new Date();
-  const dd = String(today.getDate()).padStart(2, '0');
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
   const yyyy = today.getFullYear();
 
-  today = mm + '.' + dd + '.' + yyyy;
+  today = mm + "." + dd + "." + yyyy;
 
   const initialValues = {
     income: income,
     category: currentCategory,
-    amount: '',
+    amount: "",
     date: today,
-    comment: '',
+    comment: "",
   };
 
   const validate = Yup.object().shape({
     income: Yup.boolean(),
-    category: Yup.string().required('Укажите категорию'),
+    category: Yup.string().required("Выберите категорию"),
     amount: Yup.string()
-      .matches(/^-?\d*\.?\d*$/, 'Введите только цифры')
-      .required('Укажите сумму'),
+      .matches(/^-?\d*\.?\d*$/, "Введите только цифры")
+      .required("Укажите сумму"),
     date: Yup.date().default(() => new Date()),
     comment: Yup.string(),
   });
 
   const handleSubmit = (values, { resetForm, setSubmitting }) => {
-    const { amount, date, comment = '' } = values;
+    const { amount, date, comment = "" } = values;
     const object = { income, category: currentCategory, amount, date, comment };
     dispatch(addTransaction(object));
     setSubmitting(false);
@@ -68,7 +69,7 @@ function ModalForm({ closeModal }) {
         <span
           className="ModalForm__switcher-option ModalForm__switcher-income"
           style={{
-            color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
+            color: income ? "var(--accentGreenColor)" : "var(--grayFive)",
           }}
         >
           Доход
@@ -93,7 +94,7 @@ function ModalForm({ closeModal }) {
         <span
           className="ModalForm__switcher-option .ModalForm__switcher-spending"
           style={{
-            color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
+            color: income ? "var(--grayFive)" : "var(--accentRoseColor)",
           }}
         >
           Расход
@@ -106,7 +107,7 @@ function ModalForm({ closeModal }) {
         onSubmit={handleSubmit}
         validateOnBlur={true}
       >
-        {formik => (
+        {(formik) => (
           <Form className="Modal__form">
             {isLoading ? (
               <Loader color="var(--black)" />
@@ -123,7 +124,7 @@ function ModalForm({ closeModal }) {
                   setCategory={setCurrentCategory}
                 />
                 <ErrorMessage
-                  component="div"
+                  component={TextError}
                   name="category"
                   className="formikError"
                 />
@@ -142,11 +143,7 @@ function ModalForm({ closeModal }) {
 
               <span className="Modal__date">{today}</span>
             </div>
-            <ErrorMessage
-              component="div"
-              name="amount"
-              className="formikError"
-            />
+            <ErrorMessage name="amount" component={TextError} />
 
             <Field
               as="textarea"
@@ -156,13 +153,17 @@ function ModalForm({ closeModal }) {
               name="comment"
             />
             <ErrorMessage
-              component="div"
+              component={TextError}
               name="comment"
               className="formikError"
             />
 
             <div className="Modal__controllers">
-              <button type="submit" className="Modal__add">
+              <button
+                type="submit"
+                className="Modal__add"
+                disabled={!formik.isValid}
+              >
                 Добавить
               </button>
               <button
