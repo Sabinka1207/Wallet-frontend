@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import getStatistics from '../../redux/statistics/statisticsOperation';
-import { useMediaQuery } from 'react-responsive';
 
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import Balance from '../../components/Balance';
 import Currency from '../../components/Currency';
+
 import '../../css/main.min.css';
 
 function DashboardPage() {
@@ -18,10 +19,6 @@ function DashboardPage() {
   useEffect(() => {
     dispatch(getStatistics({ month: 12, year: 2022 }));
   }, []);
-
-  // const isDesktopOrTable = useMediaQuery({
-  //   query: '(min-width: 768px)',
-  // });
 
   useEffect(() => {
     const mediaWatcher = window.matchMedia('(min-width: 768px)');
