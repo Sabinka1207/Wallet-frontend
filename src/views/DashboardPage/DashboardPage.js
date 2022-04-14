@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import getStatistics from "../../redux/statistics/statisticsOperation";
+import { useMediaQuery } from 'react-responsive';
 
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
@@ -17,6 +18,10 @@ function DashboardPage() {
   useEffect(() => {
     dispatch(getStatistics({ month: 12, year: 2022 }));
   }, []);
+
+  const isDesktopOrTable = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
 
   useEffect(() => {
     const mediaWatcher = window.matchMedia("(min-width: 768px)")
@@ -41,8 +46,9 @@ function DashboardPage() {
             <aside className="dashboardPageSidebar">
               <div className="dashboardPageIner">
                 <Navigation />
-                {location.pathname !== "/currency" && <Balance />}
+                {location.pathname !== '/currency' && <Balance />}
               </div>
+              <ButtonAddTransaction />
               <div>
                 {(isDesktopOrTable || location.pathname === "/currency") && (
                   <Currency />
@@ -50,7 +56,7 @@ function DashboardPage() {
               </div>
             </aside>
             <section className="dashboardPageMain">
-              {location.pathname !== "/currency" && <Outlet />}
+              {location.pathname !== '/currency' && <Outlet />}
             </section>
           </div>
         </div>

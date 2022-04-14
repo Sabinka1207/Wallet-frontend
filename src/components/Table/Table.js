@@ -48,14 +48,14 @@ function Table({
 
   return (
     <div className="chart__container">
-      <select  className="select" value={valueMonth} onChange={handleChangeMonth}>
+      <select  className="select month" value={valueMonth} onChange={handleChangeMonth}>
         {months.map(month=>(
           <option value={month.id}  className="text">
           {month.name}
         </option>
         ))}        
       </select>
-      <select name="year" className="select" value={ValueYear} onChange={handleChangeYear}>
+      <select name="year" className="select year" value={ValueYear} onChange={handleChangeYear}>
       {years.map(year=>(
           <option value={year.name}  className="text">
           {year.name}

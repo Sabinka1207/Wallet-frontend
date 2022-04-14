@@ -134,9 +134,9 @@ cursor: pointer;
   appearance: none;
   position: relative;
   outline: none;
-  background-image: url('/src/img/icons/select-arrow.svg');
-  background-position: top 10px right 10px;
-  background-repeat: no-repeat;
+  // background-image: url('/src/img/icons/select-arrow.svg');
+  // background-position: top 10px right 10px;
+  // background-repeat: no-repeat;
   height: 30px;
   font-size: 18px;
   color: var(--black);
@@ -146,6 +146,10 @@ cursor: pointer;
   }
 
   
+}
+
+.hidden-select{
+  display: none;
 }
 
 
