@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-// import { authSelectors } from '../../redux/auth';
+import { useSelector } from "react-redux";
+import React from "react";
 
 import '../../css/main.min.css';
 import Loader from '../Loader/Loader';
@@ -31,7 +31,13 @@ function Balance() {
   //   </>
   // );
   if (!transactions || transactions.length === 0) {
-    return <span>У вас еще нет ни одной транзакции! Баланс пустой</span>;
+    return (
+      <div className="balanceWrap balanceWrap_empty">
+        <p className="balanceText_empty">
+         У вас еще нет ни одной транзакции! Баланс пустой
+        </p>
+      </div>
+    )
   } else {
     const balance = transactions[0].currentBalance;
     return (

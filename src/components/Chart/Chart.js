@@ -6,6 +6,7 @@ import '../../css/main.min.css';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Chart({chartData}) {  
+  console.log(chartData);
   const labels = chartData.categories.map(category=> category.category)
   const categoryData = chartData.categories.map(category=> category.categorySum)
   const data = {

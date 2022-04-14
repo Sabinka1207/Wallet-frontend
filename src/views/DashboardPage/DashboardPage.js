@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-
 import { Outlet } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
@@ -15,9 +14,13 @@ import { useDispatch } from 'react-redux';
 import getStatistics from '../../redux/statistics/statisticsOperation';
 import { useEffect } from 'react';
 import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
+
 function DashboardPage() {
+  const currentMonth = new Date().getMonth()+1
+  const currentYear = new Date().getFullYear()
   const location = useLocation();
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(getStatistics({ month: 12, year: 2022 }));
   }, []);
@@ -26,7 +29,12 @@ function DashboardPage() {
     query: '(min-width: 768px)',
   });
 
-  // console.log("isDesktopOrTable", isDesktopOrTable)
+  useEffect(() => {
+    window.addEventListener("resize", updateSreen);
+    return () => {
+      window.removeEventListener("resize", updateSreen);
+    };
+  });
 
   return (
     <div>
