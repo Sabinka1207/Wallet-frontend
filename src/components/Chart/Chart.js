@@ -3,8 +3,9 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import '../../css/main.min.css';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
 
+ChartJS.register(ArcElement, Tooltip, Legend);
+Legend.defaults.display = false;
 function Chart({chartData}) {  
   console.log(chartData);
   const labels = chartData.categories.map(category=> category.category)
