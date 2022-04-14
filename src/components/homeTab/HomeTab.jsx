@@ -20,18 +20,21 @@ export default function HomeTab() {
       return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
 
   const sortTransactions = newTransactios.slice([0],[6])
+  console.log(sortTransactions);
 
   return (
-    <div>
-      {!sortTransactions && (
-        <div className="emptyTransaction">
-          <img src={empty} alt="empty" height={40} />
-          <p className="emptyTransactionText">
-            У вас еще нет доходов и расходов...
-          </p>
+    <div> 
+      {(!sortTransactions || transactions.length === 0) && (
+        <div className="emptyTransaction_wraper">
+          <div className="emptyTransaction">
+            <img src={empty} alt="empty" height={80} className="emptyTransaction-icon" />
+            <p className="emptyTransactionText">
+              У вас еще нет доходов и расходов...
+            </p>
+          </div>
         </div>
       )}
-      {sortTransactions && (
+      {(transactions.length>0) && (
         <div>
           <table className="tableContainer mobilehidden">
             <tbody>
