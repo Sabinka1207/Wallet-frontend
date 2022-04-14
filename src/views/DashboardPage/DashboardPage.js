@@ -9,10 +9,9 @@ import Navigation from "../../components/Navigation/Navigation";
 import Balance from "../../components/Balance";
 import Currency from "../../components/Currency";
 import Loader from "../../components/Loader";
+import authSelectors from "../../redux/auth/authSelectors";
 
 import "../../css/main.min.css";
-
-import authSelectors from "../../redux/auth/authSelectors";
 
 function DashboardPage() {
   const location = useLocation();
@@ -62,6 +61,7 @@ function DashboardPage() {
             </section>
           </div>
         </div>
+        <ButtonAddTransaction />
       </main>
       {loading && <Loader />}
     </>

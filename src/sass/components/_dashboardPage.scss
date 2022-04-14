@@ -3,8 +3,8 @@
     min-height:calc(100vh - 80px);
 
     background: #E7EAF2;
-    background-size: cover;
-    background-attachment: fixed;
+    // background-size: cover;
+    // background-attachment: fixed;
 
 @media screen and (min-width: 768px) {
 
@@ -62,8 +62,8 @@
     padding-bottom: 50px;
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(50px);
-    background-size: cover;
-    background-attachment: fixed;
+    // background-size: cover;
+    // background-attachment: fixed;
 }
 
 @media screen and (min-width: 768px) {
@@ -121,7 +121,6 @@
     
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 704px;
-    height: 312px;
 }
     
 @media screen and (min-width: 1280px) {
