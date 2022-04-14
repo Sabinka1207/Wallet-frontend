@@ -1,18 +1,17 @@
-import { useState, useEffect } from "react";
-import { useLocation, Outlet } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from 'react';
+import { useLocation, Outlet } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import getStatistics from "../../redux/statistics/statisticsOperation";
+import getStatistics from '../../redux/statistics/statisticsOperation';
 
-import Header from "../../components/Header/Header";
-import Navigation from "../../components/Navigation/Navigation";
-import Balance from "../../components/Balance";
-import Currency from "../../components/Currency";
+import Header from '../../components/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
+import Balance from '../../components/Balance';
+import Currency from '../../components/Currency';
 
-import "../../css/main.min.css";
+import '../../css/main.min.css';
 
 function DashboardPage() {
-  
   const location = useLocation();
   const dispatch = useDispatch();
   const [isDesktopOrTable, setIsDesktopOrTable] = useState(true);
@@ -22,18 +21,20 @@ function DashboardPage() {
   }, []);
 
   useEffect(() => {
-    const mediaWatcher = window.matchMedia("(min-width: 768px)")
+    const mediaWatcher = window.matchMedia('(min-width: 768px)');
     setIsDesktopOrTable(mediaWatcher.matches);
 
-    function updatIsDesktopOrTable (e) {
+    function updatIsDesktopOrTable(e) {
       setIsDesktopOrTable(e.matches);
-      console.log(e.matches)
+      console.log(e.matches);
     }
 
-    mediaWatcher.addEventListener('change', updatIsDesktopOrTable)
+    mediaWatcher.addEventListener('change', updatIsDesktopOrTable);
 
-    return (() => {mediaWatcher.removeEventListener('change', updatIsDesktopOrTable)})
-  },[]);
+    return () => {
+      mediaWatcher.removeEventListener('change', updatIsDesktopOrTable);
+    };
+  }, []);
 
   return (
     <div>
@@ -47,7 +48,7 @@ function DashboardPage() {
                 {location.pathname !== '/currency' && <Balance />}
               </div>
               <div>
-                {(isDesktopOrTable || location.pathname === "/currency") && (
+                {(isDesktopOrTable || location.pathname === '/currency') && (
                   <Currency />
                 )}
               </div>
