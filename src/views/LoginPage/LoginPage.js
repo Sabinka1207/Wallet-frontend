@@ -1,20 +1,28 @@
-import React from 'react';
-import LoginForm from '../../components/LoginForm';
-import imgTablet1x from '../../img/tablet/login-tablet@1x.png';
-import imgTablet2x from '../../img/tablet/login-tablet@2x.png';
-import imgTablet3x from '../../img/tablet/login-tablet@3x.png';
-import imgTablet4x from '../../img/tablet/login-tablet@4x.png';
-import imgDesktop1x from '../../img/desktop/login-desktop@1x.png';
-import imgDesktop2x from '../../img/desktop/login-desktop@2x.png';
-import imgDesktop3x from '../../img/desktop/login-desktop@3x.png';
-import imgDesktop4x from '../../img/desktop/login-desktop@4x.png';
-import '../../css/main.min.css';
+import React from "react";
+import { useSelector } from "react-redux";
+
+import LoginForm from "../../components/LoginForm";
+import Loader from "../../components/Loader";
+
+import imgTablet1x from "../../img/tablet/login-tablet@1x.png";
+import imgTablet2x from "../../img/tablet/login-tablet@2x.png";
+import imgTablet3x from "../../img/tablet/login-tablet@3x.png";
+import imgTablet4x from "../../img/tablet/login-tablet@4x.png";
+import imgDesktop1x from "../../img/desktop/login-desktop@1x.png";
+import imgDesktop2x from "../../img/desktop/login-desktop@2x.png";
+import imgDesktop3x from "../../img/desktop/login-desktop@3x.png";
+import imgDesktop4x from "../../img/desktop/login-desktop@4x.png";
+import "../../css/main.min.css";
+
+import authSelectors from "../../redux/auth/authSelectors";
 
 export default function LoginPage() {
+  const loading = useSelector(authSelectors.getLoading);
+
   return (
     <div className="loginPageContainer">
-      <div className='loginPageBluredContainer'> </div>
-        <div className='container loginPageWraper'>
+      <div className="loginPageBluredContainer"> </div>
+      <div className="container loginPageWraper">
         <div className="loginPageIMGContainer">
           <picture>
             <source
@@ -32,10 +40,9 @@ export default function LoginPage() {
         </div>
         <div className="loginPageFormContainer">
           <LoginForm />
+          {loading && <Loader />}
         </div>
       </div>
-
-
     </div>
   );
 }

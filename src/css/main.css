@@ -122,10 +122,8 @@ button {
 @media screen and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto,
- 365px auto;
-    background-position: bottom,
- top;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -135,10 +133,8 @@ button {
 @media screen and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto,
- 550px auto;
-    background-position: bottom,
- top;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -148,14 +144,10 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto,
- 365px auto;
-    background-position: bottom,
- top;
-    background-position-x: 0%,
- 100%;
-    background-position-y: 100%,
- 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
   }
 }
@@ -163,14 +155,10 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@2x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@2x.png);
-    background-size: 490px auto,
- 550px auto;
-    background-position: bottom,
- top;
-    background-position-x: 0%,
- 100%;
-    background-position-y: 100%,
- 0%;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
   }
 }
@@ -448,6 +436,20 @@ button {
     border-radius: 20px;
     padding: 40px 73px 60px 73px;
   }
+}
+
+button:disabled,
+button[disabled] {
+  background-color: #c5baff;
+}
+
+button:disabled:hover, button:disabled:focus,
+button[disabled]:hover,
+button[disabled]:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .Modal__form {
@@ -1088,7 +1090,6 @@ input[type='radio']:checked
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  /*-----------------------------------------------------------------------*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1099,8 +1100,6 @@ input[type='radio']:checked
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  /*  margin-left: auto;
-  margin-right: auto; */
   padding-top: 30px;
   padding-bottom: 50px;
 }
@@ -1121,7 +1120,6 @@ input[type='radio']:checked
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  /*-----------------------------------------------------------------------*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1444,11 +1442,9 @@ button[disabled]:focus {
   color: var(--white);
   background-color: var(--accentBlueColor);
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
-  background-size: auto 96px,
- auto 50px;
+  background-size: auto 96px, auto 50px;
   background-repeat: no-repeat;
-  background-position: bottom,
- top;
+  background-position: bottom, top;
   border-radius: 30px;
 }
 
@@ -1464,8 +1460,7 @@ button[disabled]:focus {
     width: 336px;
     height: 182px;
     background-image: url(/public/image/table/currency_background_mount_table@1x.png), url(/public/image/table/currency_backgroud_head_table@1x.png);
-    background-size: auto 120px,
- auto 50px;
+    background-size: auto 120px, auto 50px;
   }
 }
 
@@ -1475,32 +1470,28 @@ button[disabled]:focus {
     width: 393px;
     height: 347px;
     background-image: url(/public/image/desktop/currency_background_mount_desktop@1x.png), url(/public/image/desktop/currency_backgroud_head_desktop@1x.png);
-    background-size: auto 134px,
- auto 60px;
+    background-size: auto 134px, auto 60px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .tableCurrency {
     background-image: url(/public/image/mobile/currency_background_mount_mobile@2x.png), url(/public/image/mobile/currency_backgroud_head_mobile@2x.png);
-    background-size: auto 96px,
- auto 50px;
+    background-size: auto 96px, auto 50px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .tableCurrency {
     background-image: url(/public/image/table/currency_background_mount_table@2x.png), url(/public/image/table/currency_backgroud_head_table@2x.png);
-    background-size: auto 115px,
- auto 46px;
+    background-size: auto 115px, auto 46px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (min-resolution: 192dpi) and (min-width: 1200px), screen and (min-resolution: 2dppx) and (min-width: 1200px) {
   .tableCurrency {
     background-image: url(/public/image/desktop/currency_background_mount_desktop@2x.png), url(/public/image/desktop/currency_backgroud_head_desktop@2x.png);
-    background-size: auto 134px,
- auto 60px;
+    background-size: auto 134px, auto 60px;
   }
 }
 
@@ -1754,14 +1745,10 @@ button[disabled]:focus {
 @media screen and (min-width: 768px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto,
- 365px auto;
-    background-position: bottom,
- top;
-    background-position-x: 0%,
- 100%;
-    background-position-y: 100%,
- 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1806,14 +1793,10 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto,
- 365px auto;
-    background-position: bottom,
- top;
-    background-position-x: 0%,
- 100%;
-    background-position-y: 100%,
- 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1837,15 +1820,10 @@ button[disabled]:focus {
     padding-top: 0px;
     padding-bottom: 0px;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto,
- 550px auto;
-    background-position: bottom,
- top;
-
-    background-position-x: 0%,
- 100%;
-    background-position-y: 100%,
- 0%;
+    background-size: 490px auto, 550px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
@@ -1897,14 +1875,10 @@ button[disabled]:focus {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .loginPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto,
- 365px auto;
-    background-position: bottom,
- top;
-    background-position-x: 0%,
- 100%;
-    background-position-y: 100%,
- 0%;
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
     background-repeat: no-repeat;
     background-color: #E7EAF2;
   }
