@@ -79,19 +79,19 @@ function Table({
           </tr>
         </thead>
         <tbody>
-          {expenses.categories.map(({ category, categorySum }) => (
+          {expenses !== null ? (expenses.categories.map(({ category, categorySum }) => (
             <tr key={category}>
               <td key={category}>{category}</td>
               <td key={categorySum}>{categorySum}</td>
             </tr>
-          ))}
+          ))) : <tr><td colSpan={"2"}>Нет транзакций за данный период</td></tr>}
         </tbody>
       </table>
       <p className="total__text">
-        Расходы: <span className="total__sum isFalse">{expenses.totalSum}</span>
+        Расходы: <span className="total__sum isFalse">{expenses !== null ? expenses.totalSum : "0.00"}</span>
       </p>
       <p className="total__text">
-        Доходы:: <span className="total__sum isTrue">{income.totalSum}</span>
+        Доходы: <span className="total__sum isTrue">{expenses !== null ? income.totalSum : "0.00"}</span>
       </p>
     </div>
   );
