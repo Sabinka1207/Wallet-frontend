@@ -17,41 +17,44 @@ function DiagramTab() {
   const [selectedMonth, setSelectedMonth] = useState(currentMonth);
   const [selectedYear, setSelectedYear] = useState(currentYear);
   
-  const statistics = useSelector(getAllStatistics)
+  // const statistics = useSelector(getAllStatistics)
+  const { expenses = {}, income = {} } = useSelector(
+    (state) => state.statistics.data
+  );
   const loading = useSelector(isLoading)
   const errorStat = useSelector(error)
-  
-  const expenses = statistics.filter((statistic) => !statistic.income)[0];
-  const income = statistics.filter((statistic) => statistic.income)[0];
-  // console.log('expenses:', expenses);
-  // console.log('income:', income);
-  // const dispatch = useDispatch();
-  
-  // useEffect(()=>{
-  //     dispatch(getStatistics({
-  //       month:selectedMonth, 
-  //       year:selectedYear
-  //     }
-  //       ))      
-  // },[selectedMonth, selectedYear])
+
+  console.log('expenses:',expenses.year);
+  console.log('income:', income);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{    
+        dispatch(getStatistics({
+          month:selectedMonth, 
+          year:selectedYear
+        }
+          ))    
+          
+  },[selectedMonth, selectedYear])
 
   return (
     <div className="diagram">
       <p className="title">Статистика</p>      
-        {statistics && 
-          <div className="diagramTab">
-            <Chart 
-            chartData={expenses}/>
-            <Table 
-            valueMonth={selectedMonth}
-            valueYear={selectedYear}
-            selectedMonth={setSelectedMonth}
-            selectedYear={setSelectedYear}
-            expenses={expenses}
-            income={income}
-            /> 
-          </div>
-        } 
+          {expenses.year ?
+            <div className="diagramTab">            
+                <Chart 
+                chartData={expenses}/> 
+                <Table 
+                valueMonth={selectedMonth}
+                valueYear={selectedYear}
+                selectedMonth={setSelectedMonth}
+                selectedYear={setSelectedYear}
+                expenses={expenses}
+                income={income}
+                />
+            </div>
+              : <h3>У вас нет транзакций за выбранный период</h3>            
+          } 
         {loading && <Loader/>} 
         {errorStat && <p>OOPS! Failled!</p>}      
     </div>

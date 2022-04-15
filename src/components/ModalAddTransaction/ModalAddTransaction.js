@@ -1,19 +1,30 @@
 import { createPortal } from 'react-dom';
 import { ReactComponent as CloseModal } from '../../img/icons/close.svg';
-import { useSelector } from 'react-redux';
 import '../../css/main.min.css';
-import { error } from '../../redux/transactions/transactionsSelectors';
+import { useEffect } from 'react';
 import ModalForm from './ModalForm';
 
 const modalRoot = document.getElementById('modal-root');
 
 function ModalAddTransaction({ isOpen }) {
-  const checkError = useSelector(error);
   const closeModal = () => {
     isOpen(false);
     document.body.style.overflow = 'unset';
     document.body.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const handleEscClose = e => {
+      if (e.code === 'Escape') {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', handleEscClose);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscClose);
+    };
+  });
 
   const closeOverlay = e => {
     if (e.currentTarget === e.target || e.code === 'Escape') {

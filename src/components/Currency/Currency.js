@@ -22,30 +22,32 @@ function Currency() {
   }, []);
 
   return (
-    <table className="tableCurrency">
-      <thead className="tableCurrencyHead">
-        <tr>
-          <th className="tableCurrencyHeadItem tableItemLeft">Валюта</th>
-          <th className="tableCurrencyHeadItem">Покупка</th>
-          <th className="tableCurrencyHeadItem tableItemRight">Продажа</th>
-        </tr>
-      </thead>
-
-      <tbody className="tableCurrencyBody">
-        {load && <Loader color="#fff" size="40" />}
-        {currency.map(item => (
-          <tr key={item.ccy}>
-            <td className="tableCurrencyItemLeft ">{item.ccy}</td>
-            <td className="tableCurrencyItemCenter">
-              {Math.round(parseFloat(item.buy) * 100) / 100}
-            </td>
-            <td className="tableCurrencyItemRight">
-              {Math.round(parseFloat(item.sale) * 100) / 100}
-            </td>
+    <div className="tableCurrencyContainer">
+      {load && <Loader color="#fff" size="40" />}
+      <table className="tableCurrency">
+        <thead className="tableCurrencyHead">
+          <tr>
+            <th className="tableCurrencyHeadItem tableItemLeft">Валюта</th>
+            <th className="tableCurrencyHeadItem">Покупка</th>
+            <th className="tableCurrencyHeadItem tableItemRight">Продажа</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody className="tableCurrencyBody">
+          {currency.map(item => (
+            <tr key={item.ccy}>
+              <td className="tableCurrencyItemLeft ">{item.ccy}</td>
+              <td className="tableCurrencyItemCenter">
+                {Math.round(parseFloat(item.buy) * 100) / 100}
+              </td>
+              <td className="tableCurrencyItemRight">
+                {Math.round(parseFloat(item.sale) * 100) / 100}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
