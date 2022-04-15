@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Chart from "../Chart";
+import Chart from "../Chart/Chart";
 import Table from "../Table";
 import Loader from "../Loader/Loader";
 import "../../css/main.min.css";
