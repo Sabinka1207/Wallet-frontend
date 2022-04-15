@@ -23,7 +23,7 @@ export default function HomeTab() {
   return (
     <div> 
       {loading && <Loader color="#000" size="60"  />} 
-      {((!transactions || transactions.length) && !loading=== 0) && (
+      {((!transactions || transactions.length===0) && !loading) && (
         <div className="emptyTransaction_wraper">
           <div className="emptyTransaction">
             <img
