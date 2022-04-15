@@ -34,6 +34,13 @@ function ModalForm({ closeModal }) {
 
   today = mm + '.' + dd + '.' + yyyy;
 
+  const handleFormatting = e => {
+    e.target.value = e.target.value
+      .replace(/\B(?=(\d{2})+(?!\d))/g, '.')
+      .replace(/[^0-9.]|\.(?=.*\.)/g, '')
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  };
+
   const initialValues = {
     income: income,
     category: currentCategory,
@@ -46,7 +53,10 @@ function ModalForm({ closeModal }) {
     income: Yup.boolean(),
     category: Yup.string().required('Выберите категорию'),
     amount: Yup.string()
-      .matches(/^-?\d*\.?\d*$/, 'Введите только цифры')
+      .matches(
+        /^[1-9][1-9]*[./,]?[1-9]{0,2}$/,
+        'Введите только цифры, допускается две цифры после запятой',
+      )
       .required('Укажите сумму'),
     date: Yup.date().default(() => new Date()),
     comment: Yup.string().max(15, 'Комментарий не должен превышать 12 знаков'),
@@ -63,10 +73,12 @@ function ModalForm({ closeModal }) {
     };
 
     const currentComment = checkComment(comment);
+    const modifiedAmount = amount.split(',').join('.');
+
     const object = {
       income,
       category: currentCategory,
-      amount,
+      amount: modifiedAmount,
       date,
       comment: currentComment,
     };
