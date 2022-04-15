@@ -1,5 +1,3 @@
-// import redux, redux persist and router cover here
-
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";

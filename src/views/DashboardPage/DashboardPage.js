@@ -22,6 +22,7 @@ function DashboardPage() {
 
   useEffect(() => {
     dispatch(getStatistics({ month: 12, year: 2022 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -30,7 +31,6 @@ function DashboardPage() {
 
     function updatIsDesktopOrTable(e) {
       setIsDesktopOrTable(e.matches);
-      console.log(e.matches);
     }
 
     mediaWatcher.addEventListener("change", updatIsDesktopOrTable);
@@ -62,7 +62,7 @@ function DashboardPage() {
             </section>
           </div>
         </div>
-        {location.pathname === "/home" && <ButtonAddTransaction />}       
+        {location.pathname === "/home" && <ButtonAddTransaction />}
       </main>
       {loading && <Loader />}
     </>

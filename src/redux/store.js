@@ -1,5 +1,5 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+// import logger from 'redux-logger';
 import {
   persistStore,
   persistReducer,
@@ -9,13 +9,13 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 /*импортируем reducers ниже*/
-import authReducer from './auth/authSlice';
-import statisticsReducer from './statistics/statisticsSlice';
-import transactionsReducer from './transactions/transactionsSlice';
+import authReducer from "./auth/authSlice";
+import statisticsReducer from "./statistics/statisticsSlice";
+import transactionsReducer from "./transactions/transactionsSlice";
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,9 +27,9 @@ const middleware = [
 ];
 
 const authPersistConfig = {
-  key: 'auth',
+  key: "auth",
   storage,
-  whitelist: ['token'],
+  whitelist: ["token"],
 };
 
 export const store = configureStore({
@@ -39,7 +39,7 @@ export const store = configureStore({
     statistics: statisticsReducer,
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);

@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { authSelectors } from '../../redux/auth';
+import { authSelectors } from "../../redux/auth";
 
-import LogoWallet from '../LogoWallet/LogoWallet';
-import ModalLogout from '../ModalLogout/ModalLogout';
-import { ReactComponent as LogoutIcon } from '../../img/icons/logout.svg';
+import LogoWallet from "../LogoWallet/LogoWallet";
+import ModalLogout from "../ModalLogout/ModalLogout";
+import { ReactComponent as LogoutIcon } from "../../img/icons/logout.svg";
 // import logout from '../../img/icons/logout.svg';
-import '../../css/main.min.css';
+import "../../css/main.min.css";
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +31,6 @@ function Header() {
             onClick={toggleModal}
             className="headerLogoutButton"
           >
-            {/* <img  src={logout} alt="Выйти" /> */}
             <LogoutIcon className="headerLogoutImg" />
             <p className="headerLogout">Выйти</p>
           </button>
