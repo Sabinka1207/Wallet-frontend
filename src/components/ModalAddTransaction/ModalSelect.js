@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import ModalSelectOption from './ModalSelectOption';
 
 function ModalSelect({ income, categories, setCategory, currentCategory }) {
@@ -9,6 +9,11 @@ function ModalSelect({ income, categories, setCategory, currentCategory }) {
   const spendingCategories = categories.filter(
     category => category.type === 'spending',
   );
+  
+  const refCheckbox = useRef(null);
+  const closeSelect = () => {
+    refCheckbox.current.checked = false;
+  }
 
   return (
     <>
@@ -16,6 +21,7 @@ function ModalSelect({ income, categories, setCategory, currentCategory }) {
         <input
           type="checkbox"
           id="options-view-button"
+          ref={refCheckbox}
           onClick={() => openSelect(!select)}
         />
         <div id="select-button">
@@ -28,7 +34,7 @@ function ModalSelect({ income, categories, setCategory, currentCategory }) {
             </span>
           </div>
         </div>
-        <div id="options">
+        <div id="options" onClick={()=>closeSelect()}>
           {income
             ? incomeCategories.map(({ _id, nameDropdown }) => (
                 <ModalSelectOption
