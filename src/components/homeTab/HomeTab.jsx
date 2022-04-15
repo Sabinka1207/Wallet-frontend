@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTransactions } from "../../redux/transactions/transactionsOperations";
-import ButtonAddTransactions from "../ButtonAddTransactions/ButtonAddTransactions";
+// import ButtonAddTransactions from "../ButtonAddTransactions/ButtonAddTransactions";
 import "../../css/main.min.css";
 import {isLoading} from "../../redux/transactions/transactionsSelectors";
 import Loader from '../Loader/Loader'
 
 import empty from "../../img/icons/empty.svg";
-import Balance from "../Balance";
+// import Balance from "../Balance";
 
 const moment = require('moment');
 
@@ -51,7 +51,7 @@ export default function HomeTab() {
           </div>
         </div>
       )}
-      {transactions.length > 0 && (
+      {sortTransactions.length > 0 && (
         <div>
           <table className="tableContainer mobilehidden">
             <tbody>
