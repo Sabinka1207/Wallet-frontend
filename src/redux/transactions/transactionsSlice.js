@@ -18,7 +18,7 @@ const transactionsSlice = createSlice({
   initialState: { data: [], isLoading: false, error: false },
   extraReducers: {
     [fetchTransactions.fulfilled]: (state, { payload }) => {
-      return { ...state, data: payload };
+      return { ...state, isLoading: false, data: payload };
     },
     [fetchTransactions.pending]: state => {
       return { ...state, isLoading: true };

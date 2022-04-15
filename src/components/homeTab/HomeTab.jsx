@@ -3,14 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchTransactions } from "../../redux/transactions/transactionsOperations";
 import ButtonAddTransactions from "../ButtonAddTransactions/ButtonAddTransactions";
 import "../../css/main.min.css";
+import {isLoading} from "../../redux/transactions/transactionsSelectors";
+import Loader from '../Loader/Loader'
 
 import empty from "../../img/icons/empty.svg";
+import Balance from "../Balance";
 
 const moment = require("moment");
+
 
 export default function HomeTab() {
   const dispatch = useDispatch();
   const transactions = useSelector((state) => state.transactions.data);
+  const loading = useSelector(isLoading);
+
 
   useEffect(() => {
     dispatch(fetchTransactions());
@@ -20,11 +26,12 @@ export default function HomeTab() {
       return (new Date(firstTransaction.createdAt)) - (new Date(nextTransaction.createdAt))})
 
   const sortTransactions = newTransactios.slice([0],[6])
-  console.log(sortTransactions);
+  console.log(loading);
 
   return (
     <div> 
-      {(!sortTransactions || transactions.length === 0) && (
+      {loading && <Loader color="#000" size="60"  />} 
+      {((!sortTransactions || transactions.length) && !loading=== 0) && (
         <div className="emptyTransaction_wraper">
           <div className="emptyTransaction">
             <img src={empty} alt="empty" height={80} className="emptyTransaction-icon" />
@@ -49,28 +56,28 @@ export default function HomeTab() {
 
               {sortTransactions.map(transaction => (
                 <tr className="tableRow_item" key={transaction._id}>
-                  <td>{moment(transaction.date).format("DD.MM.YY")}</td>
-                  <td>
+                  <td className="table_value">{moment(transaction.date).format("DD.MM.YY")}</td>
+                  <td className="table_value">
                     {transaction.income === true && <span>+</span>}
                     {transaction.income === false && <span>-</span>}
                   </td>
-                  <td>{transaction.category.nameStatistics}</td>
-                  <td>{transaction.comment}</td>
+                  <td className="table_value">{transaction.category.nameStatistics}</td>
+                  <td className="table_value">{transaction.comment}</td>
                   <td
                     className={
                       transaction.income
-                        ? "transactionIncomeTrue"
-                        : "transactionIncomeFalse"
+                        ? "transactionIncomeTrue table_value"
+                        : "transactionIncomeFalse table_value"
                     }
                   >
                     {transaction.amount}
                   </td>
-                  <td>{transaction.currentBalance}</td>
+                  <td className="table_value">{transaction.currentBalance}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <ul className="mobileOnly">
+          <ul className="mobileOnly transactionCardWraper">
             {sortTransactions.map(transaction => (
               <li
                 className={
@@ -87,30 +94,30 @@ export default function HomeTab() {
                   <tbody>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Дата</th>
-                      <td>{moment(transaction.date).format("DD.MM.YY")}</td>
+                      <td className="transactionCard_value">{moment(transaction.date).format("DD.MM.YY")}</td>
                     </tr>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Тип</th>
-                      <td>
+                      <td className="transactionCard_value">
                         {transaction.income === true && <span>+</span>}
                         {transaction.income === false && <span>-</span>}
                       </td>
                     </tr>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Категория</th>
-                      <td>{transaction.category.nameStatistics}</td>
+                      <td className="transactionCard_value">{transaction.category.nameStatistics}</td>
                     </tr>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Комментарий</th>
-                      <td>{transaction.comment}</td>
+                      <td className="transactionCard_value">{transaction.comment}</td>
                     </tr>
                     <tr className="transactionCardRaw">
                       <th className="tabelHeader_item">Сумма</th>
                       <td
                         className={
                           transaction.income
-                            ? "transactionIncomeTrue"
-                            : "transactionIncomeFalse"
+                            ? "transactionIncomeTrue transactionCard_value"
+                            : "transactionIncomeFalse transactionCard_value"
                         }
                       >
                         {transaction.amount}
@@ -118,7 +125,7 @@ export default function HomeTab() {
                     </tr>
                     <tr>
                       <th className="tabelHeader_item last-item">Баланс</th>
-                      <td className="last-item">
+                      <td className="last-item transactionCard_value">
                         {transaction.currentBalance}
                       </td>
                     </tr>
@@ -128,7 +135,9 @@ export default function HomeTab() {
             ))}
           </ul>
         </div>
+        
       )}
+
       <ButtonAddTransactions />
     </div>
   );

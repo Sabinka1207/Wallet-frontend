@@ -2062,6 +2062,11 @@ button[disabled]:focus {
 }
 
 @media screen and (max-width: 768px) {
+  .tabelHeader_item {
+    font-weight: 700;
+    font-size: 18px;
+    font-family: var(--mainFont);
+  }
   .tabelHeader_item:first-child {
     border-top-left-radius: 0px;
   }
@@ -2093,6 +2098,12 @@ button[disabled]:focus {
   text-align: start;
 }
 
+.table_value {
+  font-family: var(--mainFont);
+  font-weight: 400;
+  font-size: 16px;
+}
+
 .transactionIncomeFalse {
   font-style: normal;
   font-weight: 700;
@@ -2122,6 +2133,7 @@ button[disabled]:focus {
 }
 
 .transactionCard .transactionCardTable {
+  border-collapse: collapse;
   width: 100%;
   height: 100%;
 }
@@ -2136,13 +2148,20 @@ button[disabled]:focus {
   text-align: right;
   height: 40px;
   border-bottom: 1px solid #dcdcdf;
+  font-family: var(--mainFont);
 }
 
 .transactionCard .last-item {
   border-bottom: none;
 }
 
+.transactionCardWraper {
+  margin-top: 43px;
+}
+
 .transactionCardRaw {
+  font-family: var(--mainFont);
+  font-style: normal;
   max-height: 40px;
 }
 
@@ -2172,7 +2191,7 @@ button[disabled]:focus {
 
 .emptyTransactionText {
   margin-top: 30px;
-  font-family: 'Circe';
+  font-family: var(--mainFont);
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -2198,5 +2217,11 @@ button[disabled]:focus {
   .emptyTransaction_wraper {
     margin-top: 35px;
   }
+}
+
+.transactionCard_value {
+  font-family: var(--mainFont);
+  font-weight: 400;
+  font-size: 16px;
 }
 /*# sourceMappingURL=main.css.map */
