@@ -2,9 +2,11 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import "../../css/main.min.css";
+import ChartBalance from "../BalanceChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 Legend.defaults.display = false;
+
 function Chart({ chartData }) {
   const labels = chartData.categories.map((category) => category.category);
   const categoryData = chartData.categories.map(
@@ -27,9 +29,21 @@ function Chart({ chartData }) {
     ],
   };
 
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        intersect: true,
+      },
+    },
+  };
+
   return (
     <div className="chart">
-      <Doughnut data={data} />
+      <Doughnut data={data} options={options} />
+      <ChartBalance />
     </div>
   );
 }
