@@ -18,8 +18,6 @@ function ModalForm({ closeModal }) {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
 
-  console.log("modalform", currentCategory);
-
   useEffect(() => {
     setIsLoading(true);
     axios

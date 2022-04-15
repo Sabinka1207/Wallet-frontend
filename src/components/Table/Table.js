@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../../css/main.min.css';
+import React from "react";
+import "../../css/main.min.css";
 
 const months = [
   { name: "Январь", id: 1 },
@@ -36,30 +36,38 @@ function Table({
   selectedMonth,
   selectedYear,
   valueMonth,
-  ValueYear
+  ValueYear,
 }) {
-
-  const handleChangeMonth = (e) =>{
-    selectedMonth(e.target.value)
-  }
-  const handleChangeYear = (e) =>{
-    selectedYear(e.target.value)
-  }
+  const handleChangeMonth = (e) => {
+    selectedMonth(e.target.value);
+  };
+  const handleChangeYear = (e) => {
+    selectedYear(e.target.value);
+  };
 
   return (
     <div className="chart__container">
-      <select  className="select month" value={valueMonth} onChange={handleChangeMonth}>
-        {months.map(month=>(
-          <option value={month.id}  className="text">
-          {month.name}
-        </option>
-        ))}        
+      <select
+        className="select month"
+        value={valueMonth}
+        onChange={handleChangeMonth}
+      >
+        {months.map((month) => (
+          <option value={month.id} className="text" key={month.id}>
+            {month.name}
+          </option>
+        ))}
       </select>
-      <select name="year" className="select year" value={ValueYear} onChange={handleChangeYear}>
-      {years.map(year=>(
-          <option value={year.name}  className="text">
-          {year.name}
-        </option>
+      <select
+        name="year"
+        className="select year"
+        value={ValueYear}
+        onChange={handleChangeYear}
+      >
+        {years.map((year) => (
+          <option value={year.name} className="text" key={year.id}>
+            {year.name}
+          </option>
         ))}
       </select>
 
@@ -70,21 +78,21 @@ function Table({
             <th>Сумма</th>
           </tr>
         </thead>
-        <tbody>          
-            {expenses.categories.map(({category, categorySum})=>(
-              <tr>
-                <td key={category}>{category}</td> 
-                <td key={categorySum}>{categorySum}</td>
-              </tr>
-             ) )}          
+        <tbody>
+          {expenses.categories.map(({ category, categorySum }) => (
+            <tr key={category}>
+              <td key={category}>{category}</td>
+              <td key={categorySum}>{categorySum}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <p className="total__text">
         Расходы: <span className="total__sum isFalse">{expenses.totalSum}</span>
-      </p> 
+      </p>
       <p className="total__text">
         Доходы:: <span className="total__sum isTrue">{income.totalSum}</span>
-      </p> 
+      </p>
     </div>
   );
 }

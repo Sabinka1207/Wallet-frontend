@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTransactions } from "../../redux/transactions/transactionsOperations";
-// import ButtonAddTransactions from "../ButtonAddTransactions/ButtonAddTransactions";
 import "../../css/main.min.css";
 import {isLoading} from "../../redux/transactions/transactionsSelectors";
 import Loader from '../Loader/Loader'
 
 import empty from "../../img/icons/empty.svg";
-// import Balance from "../Balance";
 
 const moment = require('moment');
 
@@ -21,17 +19,6 @@ export default function HomeTab() {
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch, transactions.length]);
-
-  // const newTransactios = [...transactions].sort(
-  //   (firstTransaction, nextTransaction) => {
-  //     return (
-  //       new Date(firstTransaction.createdAt) -
-  //       new Date(nextTransaction.createdAt)
-  //     );
-  //   },
-  // );
-
-  // const sortTransactions = newTransactios.slice([0],[6])
 
   return (
     <div> 

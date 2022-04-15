@@ -1,32 +1,21 @@
-// import {createReducer} from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchTransactions } from './transactionsOperations';
-import { addTransaction } from './transactionsOperations';
-
-// import {
-//     fetchTransactionsSuccess
-//     // addTransactionsSuccess,
-// } from './transactionsActions';
-
-// export const transactionsReducer = createReducer([], {
-//     [fetchTransactionsSuccess]: (_, { payload } ) => payload,
-//     // [addTransactionsSuccess ]: (state, { payload }) => [...state, payload],
-// });
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchTransactions } from "./transactionsOperations";
+import { addTransaction } from "./transactionsOperations";
 
 const transactionsSlice = createSlice({
-  name: 'transactions',
+  name: "transactions",
   initialState: { data: [], isLoading: false, error: false },
   extraReducers: {
     [fetchTransactions.fulfilled]: (state, { payload }) => {
       return { ...state, isLoading: false, data: payload };
     },
-    [fetchTransactions.pending]: state => {
+    [fetchTransactions.pending]: (state) => {
       return { ...state, isLoading: true };
     },
-    [fetchTransactions.rejected]: () => state => {
+    [fetchTransactions.rejected]: () => (state) => {
       return { ...state, error: null };
     },
-    [addTransaction.pending]: state => {
+    [addTransaction.pending]: (state) => {
       state.isLoading = true;
       state.error = false;
     },
