@@ -46,7 +46,18 @@ function DiagramTab() {
           />
         </div>
       ) : (
-        <h3>У вас нет транзакций за выбранный период</h3>
+          <div className="diagramTab">
+            <div className="fakeChart"></div>
+            <Table
+              valueMonth={selectedMonth}
+              valueYear={selectedYear}
+              selectedMonth={setSelectedMonth}
+              selectedYear={setSelectedYear}
+              expenses={null}
+              income={null}
+            />
+        </div>
+        /*<h3>У вас нет транзакций за выбранный период</h3>*/
       )}
       {loading && <Loader />}
       {errorStat && <p>OOPS! Failled!</p>}

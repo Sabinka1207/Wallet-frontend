@@ -1929,6 +1929,18 @@ button[disabled]:focus {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .fakeChart {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .fakeChart {
+    display: 228px;
+  }
+}
+
 .chart {
   width: 100%;
   margin-bottom: 32px;
